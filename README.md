@@ -1,11 +1,16 @@
 # Azure-CIS
 Automate Azure subscription check against CIS Benchmark
 
-Requirements: Azure CLI, Azure Powershell, python3
+## Prerequisites
+Azure CLI, Azure Powershell, python3
 Tested on Windows 10
 
+## Installation
+- `git clone https://github.com/rallyspeed/Azure-CIS.git`
+
+## Usage
 Usage: python3 azure-cis.py
 
-To do:
+## To do
  Exception Handling
  PowerShell
