@@ -9,7 +9,7 @@ Tested on Windows 10
 - `git clone https://github.com/rallyspeed/Azure-CIS.git`
 
 ## Usage
-Usage: python3 azure-cis.py
+- `python3 azure-cis.py`
 
 ## To do
  Exception Handling
