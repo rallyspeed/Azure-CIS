@@ -19,11 +19,11 @@ def check80():
     passvalue81 = 0
     totalvalue81 = 0
     score81=""
-    passed81='<font color="green">Passed (</font>'
+    passed81='<font color="green">Passed </font>'
     passvalue82 = 0
     totalvalue82 = 0
     score82=""
-    passed82='<font color="green">Passed (</font>'
+    passed82='<font color="green">Passed </font>'
     try:
         query80='az keyvault list --query [*].[name]'
         json_cis=query_az(query80)
@@ -47,9 +47,9 @@ def check80():
                         if (json_cis3[j][1]!=""):
                             passvalue82=passvalue82+1
                         totalvalue82 = totalvalue82+1
-                score81=[passvalue81,totalvalue81,passed81]
-                score82=[passvalue82,totalvalue82,passed82]
-                return [chk81,chk82,score81,score82]     
+                score81=[chk81,passvalue81,totalvalue81,passed81]
+                score82=[chk82,passvalue82,totalvalue82,passed82]
+                return [score81,score82]     
             except Exception as e:
                 logger.error('Failed to iterate through keyvault for VM ' + str(e))
                 return ["Failed to iterate through keyvault for VM"]

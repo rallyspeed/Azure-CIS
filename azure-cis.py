@@ -224,7 +224,7 @@ CLI/POWERSHELL COMMANDS NOT YET AVAILABLE
     result80=check8.check80()
     result83=check8.check83()
     if (len(result80)>1):
-        content8 = content8+'<h3 id="content81">'+start_list+content81+end_list+result80[0]+'<h3 id="content82">'+start_list+content82+end_list+result80[1]+'<h3 id="content83">'+start_list+content83+end_list+result83
+        content8 = content8+'<h3 id="content81">'+start_list+content81+end_list+result80[0][0]+'<h3 id="content82">'+start_list+content82+end_list+result80[1][0]+'<h3 id="content83">'+start_list+content83+end_list+result83
     else:
         content8 = content8+'<h3 id="content81">'+start_list+content81+end_list+result80[0]+'<h3 id="content82">'+start_list+content82+end_list+result80[0]+'<h3 id="content83">'+start_list+content83+end_list+result83
     
@@ -811,8 +811,8 @@ th {
 #Calculate % Passed. 83 Not scored
 
     if (len(result80)>1):
-        perc81=round(100*result80[2][0]/result80[2][1],2)
-        perc82=round(100*result80[3][0]/result80[3][1],2)
+        perc81=round(100*result80[0][1]/result80[0][2],2)
+        perc82=round(100*result80[1][1]/result80[1][2],2)
 
         calc8=(perc81+perc82)/2
         score8= round(calc8,2)
@@ -824,12 +824,12 @@ th {
 </tr>
 <tr>
     <td><a href="#content81">"""+content81+"""</a></td> 
-    <td>"""+result80[2][2]+str(result80[2][0])+"""/"""+str(result80[2][1])+""")</td>
+    <td>"""+result80[0][3]+str(result80[0][1])+"""/"""+str(result80[0][2])+""")</td>
     <td>"""+str(perc81)+"""%</td>
 </tr>
 <tr>
     <td><a href="#content82">"""+content82+"""</a></td> 
-    <td>"""+result80[3][2]+str(result80[3][0])+"""/"""+str(result80[3][1])+""")</td>
+    <td>"""+result80[1][3]+str(result80[1][1])+"""/"""+str(result80[1][2])+""")</td>
     <td>"""+str(perc82)+"""%</td>
 </tr>
 <tr>
