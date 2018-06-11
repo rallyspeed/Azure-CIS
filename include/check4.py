@@ -159,22 +159,22 @@ def check42(subid):
                                 passvalue428=passvalue428+1
                             else:
                                 passed428='<font color="red">Failed </font>'  
-                        totalDBI42 = totalDBI42+1
+                            totalDBI42 = totalDBI42+1
                 except Exception as e:
                     #failed="Failed to Query DB"
                     logger.error('Failing ' + str(e))
                     return ["Failed to Query DB"]
-                #Minus 1 to remove Master DB which comes by default
-                totalDBI42 = totalDBI42 -1
-                score421=[chk421,passvalue421,totalDBI42,passed421]
-                score422=[chk422,passvalue422,totalDBI42,passed422]
-                score423=[chk423,passvalue423,totalDBI42,passed423]
-                score424=[chk424,passvalue424,totalDBI42,passed424]
-                score425=[chk425,passvalue425,totalDBI42,passed425]
-                score426=[chk426,passvalue426,totalDBI42,passed426]
-                score427=[chk427,passvalue427,totalDBI42,passed427]
-                score428=[chk428,passvalue428,totalDBI42,passed428]
-                return [score421,score422,score423,score424,score425,score426,score427,score428]
+            #Minus 1 to remove Master DB which comes by default
+            #totalDBI42 = totalDBI42 -1
+            score421=[chk421,passvalue421,totalDBI42,passed421]
+            score422=[chk422,passvalue422,totalDBI42,passed422]
+            score423=[chk423,passvalue423,totalDBI42,passed423]
+            score424=[chk424,passvalue424,totalDBI42,passed424]
+            score425=[chk425,passvalue425,totalDBI42,passed425]
+            score426=[chk426,passvalue426,totalDBI42,passed426]
+            score427=[chk427,passvalue427,totalDBI42,passed427]
+            score428=[chk428,passvalue428,totalDBI42,passed428]
+            return [score421,score422,score423,score424,score425,score426,score427,score428]
         else:
             return ["N/A No SQL Servers Found"]
     except Exception as e:
