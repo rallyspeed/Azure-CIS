@@ -43,12 +43,14 @@ def check50(subid):
     score512=['<font color="red">Failed</font>',0]
     score513=['<font color="red">Failed</font>',0]
     try:
-        query51='az monitor log-profiles list --query [*].[id,name,retentionPolicy]'
+        query51='az monitor log-profiles list --query [*].[id,name,retentionPolicy.days]'
         json_cis51=query_az(query51)
         #iteration through log profiles
         #Preview mode Only
         if (len(json_cis51)>0):
             for i in range(len(json_cis51)):
+                print(json_cis51[i][1])
+                print(json_cis51[i][2])
                 chk51=chk51+('logprofiles: <b><font color="blue">%s</b></font></li></br>\n' % json_cis51[i][1])
                 chk52=chk52+('Retendtion Days <b><font color="blue">%d</b></font> for logprofiles: <b><font color="blue">%s</b></font></li></br>\n' % (json_cis51[i][2],json_cis51[i][1]))
         #query52='az monitor log-profiles list --query [*].[retentionPolicy]'
