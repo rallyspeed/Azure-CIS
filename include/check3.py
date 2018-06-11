@@ -108,7 +108,7 @@ def check33():
                     totalvalue33 = totalvalue33+1
                     st33=st33+st331
                 else:
-                    return ["No Event logs for the period instorage %s within RG: %s" % (StorageName,RG)]
+                    return ["No Event logs for the period in storage %s within RG: %s" % (StorageName,RG)]
             except Exception as e:
                 logger.error('Failing event logs iteration' + str(e))
         score33=[st33,passvalue33,totalvalue33,passed33]

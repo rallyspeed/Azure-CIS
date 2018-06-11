@@ -251,11 +251,13 @@ th {
     <th>Check Description</th> 
     <th>Tests</th>
     <th>Score</th>
+    <th>Comments</th>
 </tr>
 <tr>
     <td><b>1 Identity and Access Management</b></td> 
     <td></td>
     <td>Unavailable</td>
+    <td></td>
 </tr>
 """
 
@@ -276,96 +278,115 @@ th {
     <td><a href="#content21">"""+content21+"""</a></td> 
     <td>Unavailable</td>
     <td>Unavailable</td>
+    <td>Unavailable</td>
 </tr>
 <tr>
     <td><a href="#content22">"""+content22+"""</a></td> 
     <td>"""+result22[18][0]+"""</td>
     <td>"""+str(100*result22[18][1])+"""%</td>
+    <td></td>
 </tr>
 <tr>
     <td><a href="#content23">"""+content23+"""</a></td> 
     <td>"""+result22[19][0]+"""</td>
 	<td>"""+str(100*result22[19][1])+"""%</td>
+    <td></td>
 </tr>
 <tr>
     <td><a href="#content24">"""+content24+"""</a></td> 
     <td>"""+result22[20][0]+"""</td>
     <td>"""+str(100*result22[20][1])+"""%</td>
+    <td></td>
 </tr>
 <tr>
     <td><a href="#content25">"""+content25+"""</a></td> 
     <td>"""+result22[21][0]+"""</td>
     <td>"""+str(100*result22[21][1])+"""%</td>
+    <td></td>
 </tr>
 <tr>
     <td><a href="#content26">"""+content26+"""</a></td> 
     <td>"""+result22[22][0]+"""</td>
     <td>"""+str(100*result22[22][1])+"""%</td>
+    <td></td>
 </tr>
 <tr>
     <td><a href="#content27">"""+content27+"""</a></td> 
     <td>"""+result22[23][0]+"""</td>
     <td>"""+str(100*result22[23][1])+"""%</td>
+    <td></td>
 </tr>
 <tr>
     <td><a href="#content28">"""+content28+"""</a></td> 
     <td>"""+result22[24][0]+"""</td>
     <td>"""+str(100*result22[24][1])+"""%</td>
+    <td></td>
 </tr>
 <tr>
     <td><a href="#content29">"""+content29+"""</a></td> 
     <td>"""+result22[25][0]+"""</td>
     <td>"""+str(100*result22[25][1])+"""%</td>
+    <td></td>
 </tr>
 <tr>
     <td><a href="#content210">"""+content210+"""</a></td> 
     <td>"""+result22[26][0]+"""</td>
     <td>"""+str(100*result22[26][1])+"""%</td>
+    <td></td>
 </tr>
 <tr>
     <td><a href="#content211">"""+content211+"""</a></td> 
     <td>"""+result22[27][0]+"""</td>
     <td>"""+str(100*result22[27][1])+"""%</td>
+    <td></td>
 </tr>
 <tr>
     <td><a href="#content212">"""+content212+"""</a></td> 
     <td>"""+result22[28][0]+"""</td>
     <td>"""+str(100*result22[28][1])+"""%</td>
+    <td></td>
 </tr>
 <tr>
     <td><a href="#content213">"""+content213+"""</a></td> 
     <td>"""+result22[29][0]+"""</td>
     <td>"""+str(100*result22[29][1])+"""%</td>
+    <td></td>
 </tr>
 <tr>
     <td><a href="#content214">"""+content214+"""</a></td> 
     <td>"""+result22[30][0]+"""</td>
     <td>"""+str(100*result22[30][1])+"""%</td>
+    <td></td>
 </tr>
 <tr>
     <td><a href="#content215">"""+content215+"""</a></td> 
     <td>"""+result22[31][0]+"""</td>
     <td>"""+str(100*result22[31][1])+"""%</td>
+    <td></td>
 </tr>
 <tr>
     <td><a href="#content216">"""+content216+"""</a></td> 
     <td>"""+result22[32][0]+"""</td>
     <td>"""+str(100*result22[32][1])+"""%</td>
+    <td></td>
 </tr>
 <tr>
     <td><a href="#content217">"""+content217+"""</a></td> 
     <td>"""+result22[33][0]+"""</td>
     <td>"""+str(100*result22[33][1])+"""%</td>
+    <td></td>
 </tr>
 <tr>
     <td><a href="#content218">"""+content218+"""</a></td> 
     <td>"""+result22[34][0]+"""</td>
     <td>"""+str(100*result22[34][1])+"""%</td>
+    <td></td>
 </tr>
 <tr>
     <td><a href="#content219">"""+content219+"""</a></td> 
     <td>"""+result22[35][0]+"""</td>
     <td>"""+str(100*result22[35][1])+"""%</td>
+    <td></td>
 </tr>
 """
     print("Finished Summary 2")
@@ -425,7 +446,7 @@ th {
 <tr>
     <td><a href="#content33">"""+content33+"""</a></td> 
     <td>"""+result33[3]+str(result33[1])+"""/"""+str(result33[2])+"""</td>
-    <td>"""+str(100*perc33)+"""%</td>
+    <td>"""+str(perc33)+"""%</td>
 </tr>
 <tr>
     <td><a href="#content34">"""+content34+"""</a></td> 
