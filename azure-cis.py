@@ -413,17 +413,17 @@ th {
 </tr>
 <tr>
     <td><a href="#content31">"""+content31+"""</a></td> 
-    <td>"""+result31[3]+str(result31[1])+"""/"""+str(result31[2])+""")</td>
+    <td>"""+result31[3]+str(result31[1])+"""/"""+str(result31[2])+"""</td>
     <td>"""+str(perc31)+"""%</td>
 </tr>
 <tr>
     <td><a href="#content32">"""+content32+"""</a></td> 
-    <td>"""+result32[3]+str(result32[1])+"""/"""+str(result32[2])+""")</td>
+    <td>"""+result32[3]+str(result32[1])+"""/"""+str(result32[2])+"""</td>
     <td>"""+str(perc32)+"""%</td>
 </tr>
 <tr>
     <td><a href="#content33">"""+content33+"""</a></td> 
-    <td>"""+result33[3]+str(result33[1])+"""/"""+str(result33[2])+""")</td>
+    <td>"""+result33[3]+str(result33[1])+"""/"""+str(result33[2])+"""</td>
     <td>"""+str(100*perc33)+"""%</td>
 </tr>
 <tr>
@@ -438,12 +438,12 @@ th {
 </tr>
 <tr>
     <td><a href="#content36">"""+content36+"""</a></td> 
-    <td>"""+result36[3]+str(result36[1])+"""/"""+str(result36[2])+""")</td>
+    <td>"""+result36[3]+str(result36[1])+"""/"""+str(result36[2])+"""</td>
     <td>"""+str(perc36)+"""%</td>
 </tr>
 <tr>
     <td><a href="#content37">"""+content37+"""</a></td> 
-    <td>"""+result37[3]+str(result37[1])+"""/"""+str(result37[2])+""")</td>
+    <td>"""+result37[3]+str(result37[1])+"""/"""+str(result37[2])+"""</td>
     <td>"""+str(perc37)+"""%</td>
 </tr>
 """
@@ -538,42 +538,42 @@ th {
 </tr>
 <tr>
     <td><a href="#content421">"""+content421+"""</a></td> 
-    <td>"""+result42[0][3]+str(result42[0][1])+"""/"""+str(result42[0][2])+""")</td>
+    <td>"""+result42[0][3]+str(result42[0][1])+"""/"""+str(result42[0][2])+"""</td>
     <td>"""+str(perc421)+"""%</td>
 </tr>
 <tr>
     <td><a href="#content422">"""+content422+"""</a></td> 
-    <td>"""+result42[1][3]+str(result42[1][1])+"""/"""+str(result42[1][2])+""")</td>
+    <td>"""+result42[1][3]+str(result42[1][1])+"""/"""+str(result42[1][2])+"""</td>
     <td>"""+str(perc422)+"""%</td>
 </tr>
 <tr>
     <td><a href="#content423">"""+content423+"""</a></td> 
-    <td>"""+result42[2][3]+str(result42[2][1])+"""/"""+str(result42[2][2])+""")</td>
+    <td>"""+result42[2][3]+str(result42[2][1])+"""/"""+str(result42[2][2])+"""</td>
     <td>"""+str(perc423)+"""%</td>
 </tr>
 <tr>
     <td><a href="#content424">"""+content424+"""</a></td> 
-    <td>"""+result42[3][3]+str(result42[3][1])+"""/"""+str(result42[3][2])+""")</td>
+    <td>"""+result42[3][3]+str(result42[3][1])+"""/"""+str(result42[3][2])+"""</td>
     <td>"""+str(perc424)+"""%</td>
 </tr>
 <tr>
     <td><a href="#content425">"""+content425+"""</a></td> 
-    <td>"""+result42[4][3]+str(result42[4][1])+"""/"""+str(result42[4][2])+""")</td>
+    <td>"""+result42[4][3]+str(result42[4][1])+"""/"""+str(result42[4][2])+"""</td>
     <td>"""+str(perc425)+"""%</td>
 </tr>
 <tr>
     <td><a href="#content426">"""+content426+"""</a></td> 
-    <td>"""+result42[5][3]+str(result42[5][1])+"""/"""+str(result42[5][2])+""")</td>
+    <td>"""+result42[5][3]+str(result42[5][1])+"""/"""+str(result42[5][2])+"""</td>
     <td>"""+str(perc426)+"""%</td>
 </tr>
 <tr>
     <td><a href="#content427">"""+content427+"""</a></td> 
-    <td>"""+result42[6][3]+str(result42[6][1])+"""/"""+str(result42[6][2])+""")</td>
+    <td>"""+result42[6][3]+str(result42[6][1])+"""/"""+str(result42[6][2])+"""</td>
     <td>"""+str(perc427)+"""%</td>
 </tr>
 <tr>
     <td><a href="#content428">"""+content428+"""</a></td> 
-    <td>"""+result42[7][3]+str(result42[7][1])+"""/"""+str(result42[7][2])+""")</td>
+    <td>"""+result42[7][3]+str(result42[7][1])+"""/"""+str(result42[7][2])+"""</td>
     <td>"""+str(perc428)+"""%</td>
 </tr>
 """
@@ -720,12 +720,12 @@ th {
 </tr>
 <tr>
     <td><a href="#content61">"""+content61+"""</a></td> 
-    <td>"""+result62[0][3]+str(result62[0][1])+"""/"""+str(result62[0][2])+""")</td>
+    <td>"""+result62[0][3]+str(result62[0][1])+"""/"""+str(result62[0][2])+"""</td>
     <td>"""+str(perc61)+"""%</td>
 </tr>
 <tr>
     <td><a href="#content62">"""+content62+"""</a></td> 
-    <td>"""+result62[1][3]+str(result62[1][1])+"""/"""+str(result62[1][2])+""")</td>
+    <td>"""+result62[1][3]+str(result62[1][1])+"""/"""+str(result62[1][2])+"""</td>
     <td>"""+str(perc62)+"""%</td>
 </tr>
 <tr>
@@ -735,12 +735,12 @@ th {
 </tr>
 <tr>
     <td><a href="#content64">"""+content64+"""</a></td> 
-    <td>"""+result64[3]+str(result64[1])+"""/"""+str(result64[2])+""")</td>
+    <td>"""+result64[3]+str(result64[1])+"""/"""+str(result64[2])+"""</td>
     <td>"""+str(perc64)+"""%</td>
 </tr>
 <tr>
     <td><a href="#content65">"""+content65+"""</a></td> 
-    <td>"""+result65[3]+str(result65[1])+"""/"""+str(result65[2])+""")</td>
+    <td>"""+result65[3]+str(result65[1])+"""/"""+str(result65[2])+"""</td>
     <td>"""+str(perc65)+"""%</td>
 </tr>
 """
@@ -766,17 +766,17 @@ th {
 </tr>
 <tr>
     <td><a href="#content71">"""+content71+"""</a></td> 
-    <td>"""+result7[6][2]+str(result7[6][0])+"""/"""+str(result7[6][1])+""")</td>
+    <td>"""+result7[6][2]+str(result7[6][0])+"""/"""+str(result7[6][1])+"""</td>
     <td>"""+str(perc71)+"""%</td>
 </tr>
 <tr>
     <td><a href="#content72">"""+content72+"""</a></td> 
-    <td>"""+result7[7][2]+str(result7[7][0])+"""/"""+str(result7[7][1])+""")</td>
+    <td>"""+result7[7][2]+str(result7[7][0])+"""/"""+str(result7[7][1])+"""</td>
     <td>"""+str(perc72)+"""%</td>
 </tr>
 <tr>
     <td><a href="#content73">"""+content73+"""</a></td> 
-    <td>"""+result7[8][2]+str(result7[8][0])+"""/"""+str(result7[8][1])+""")</td>
+    <td>"""+result7[8][2]+str(result7[8][0])+"""/"""+str(result7[8][1])+"""</td>
     <td>"""+str(perc73)+"""%</td>
 </tr>
 <tr>
@@ -791,7 +791,7 @@ th {
 </tr>
 <tr>
     <td><a href="#content76">"""+content76+"""</a></td> 
-    <td>"""+result7[11][2]+str(result7[11][0])+"""/"""+str(result7[11][1])+""")</td>
+    <td>"""+result7[11][2]+str(result7[11][0])+"""/"""+str(result7[11][1])+"""</td>
     <td>"""+str(perc76)+"""%</td>
 </tr>
 """
@@ -824,12 +824,12 @@ th {
 </tr>
 <tr>
     <td><a href="#content81">"""+content81+"""</a></td> 
-    <td>"""+result80[0][3]+str(result80[0][1])+"""/"""+str(result80[0][2])+""")</td>
+    <td>"""+result80[0][3]+str(result80[0][1])+"""/"""+str(result80[0][2])+"""</td>
     <td>"""+str(perc81)+"""%</td>
 </tr>
 <tr>
     <td><a href="#content82">"""+content82+"""</a></td> 
-    <td>"""+result80[1][3]+str(result80[1][1])+"""/"""+str(result80[1][2])+""")</td>
+    <td>"""+result80[1][3]+str(result80[1][1])+"""/"""+str(result80[1][2])+"""</td>
     <td>"""+str(perc82)+"""%</td>
 </tr>
 <tr>
@@ -867,8 +867,8 @@ th {
 ############################################################ Total  ####################################################
 ########################################################################################################################
 #Exclude check1
-    calcfinal=(score6+score7+score8)/3
-    #calcfinal=(score2+score3+score4+score5+score6+score7+score8)/7
+    #calcfinal=(score6+score7+score8)/3
+    calcfinal=(score2+score3+score4+score5+score6+score7+score8)/7
     finalscore=round(calcfinal,2)
     total = """
 <tr>
