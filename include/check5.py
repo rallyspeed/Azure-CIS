@@ -15,8 +15,8 @@ def query_az(query):
 
 def check50(subid):
     print("Processing 50...")
-    chk51="Preview mode only</li>\n"
-    chk52="Preview mode only</li>\n"
+    chk51=('No Log Profile found</li>\n')
+    chk52=('No Log Profile found</li>\n')
     chk53=('No Alert found for policyAssignments</li>\n')
     chk54=('No Alert found for Create or Update NSG</li>\n')
     chk55=('No Alert found for Delete NSG</li>\n')
@@ -43,12 +43,14 @@ def check50(subid):
     score512=['<font color="red">Failed</font>',0]
     score513=['<font color="red">Failed</font>',0]
     try:
-        query51='az monitor log-profiles list --query [*].[id,name]'
+        query51='az monitor log-profiles list --query [*].[id,name,retentionPolicy]'
         json_cis51=query_az(query51)
         #iteration through log profiles
         #Preview mode Only
-        #for i in range(len(json_cis51)):
-        #    chk51=chk51+('logprofiles: <b><font color="blue">%s</b></font></li></br>\n' % json_cis51[i][1])
+        if (len(json_cis51)>0):
+            for i in range(len(json_cis51)):
+                chk51=chk51+('logprofiles: <b><font color="blue">%s</b></font></li></br>\n' % json_cis51[i][1])
+                chk52=chk52+('Retendtion Days <b><font color="blue">%d</b></font> for logprofiles: <b><font color="blue">%s</b></font></li></br>\n' % (json_cis51[i][2],json_cis51[i][1]))
         #query52='az monitor log-profiles list --query [*].[retentionPolicy]'
         #json_cis52=query_az(query52)
         #for j in range(len(json_cis52)):

@@ -90,13 +90,13 @@ def check22(subid):
                 score214=['<font color="green">Passed</font>',1]
             if (value215=="On"):
                 score215=['<font color="green">Passed</font>',1]
-            if (value216==""):
+            if (value216!=""):
                 score216=['<font color="green">Passed</font>',1]
-            if (value217==""):
+            if (value217!=""):
                 score217=['<font color="green">Passed</font>',1]
-            if (value218=="False"):
+            if (value218):
                 score218=['<font color="green">Passed</font>',1]
-            if (value219=="False"):
+            if (value219):
                 score219=['<font color="green">Passed</font>',1]                                                                        
             chk22=('Current Setting: <font color="blue"> %s</b></font>' % value22)
             chk23=('Current Setting: <font color="blue"> %s</b></font>' % value23)

@@ -246,7 +246,7 @@ th {
     text-align: left;
 }
 </style>
-<table style="width:70%">
+<table style="width:80%">
 <tr>
     <th>Check Description</th> 
     <th>Tests</th>
@@ -272,7 +272,8 @@ th {
 <tr>
     <td><b>2 Security Center</b></td> 
     <td></td>
-    <td><b>"""+str(score2)+"""%</b></td> 
+    <td><b>"""+str(score2)+"""%</b></td>
+    <td></td>
 </tr>
 <tr>
     <td><a href="#content21">"""+content21+"""</a></td> 
@@ -501,47 +502,56 @@ th {
 <tr>
     <td><b>4.1 SQL Servers</b></td> 
     <td></td>
-    <td><b>%</b></td> 
+    <td><b></b></td> 
+    <td></td>
 </tr>
 <tr>
     <td><a href="#content411">"""+content411+"""</a></td> 
     <td>Unavailable</td>
     <td>Unavailable</td>
+    <td></td>
 </tr>
 <tr>
     <td><a href="#content412">"""+content412+"""</a></td> 
     <td>Unavailable</td>
     <td>Unavailable</td>
+    <td></td>
 </tr>
 <tr>
     <td><a href="#content413">"""+content413+"""</a></td> 
     <td>Unavailable</td>
     <td>Unavailable</td>
+    <td></td>
 </tr>
 <tr>
     <td><a href="#content414">"""+content414+"""</a></td> 
     <td>Unavailable</td>
     <td>Unavailable</td>
+    <td></td>
 </tr>
 <tr>
     <td><a href="#content415">"""+content415+"""</a></td> 
     <td>Unavailable</td>
     <td>Unavailable</td>
+    <td></td>
 </tr>
 <tr>
     <td><a href="#content416">"""+content416+"""</a></td> 
     <td>Unavailable</td>
     <td>Unavailable</td>
+    <td></td>
 </tr>
 <tr>
     <td><a href="#content417">"""+content417+"""</a></td> 
     <td>Unavailable</td>
     <td>Unavailable</td>
+    <td></td>
 </tr>
 <tr>
     <td><a href="#content418">"""+content418+"""</a></td> 
     <td>Unavailable</td>
     <td>Unavailable</td>
+    <td></td>
 </tr>
 """
 
@@ -640,7 +650,7 @@ th {
 ########################################################################################################################
 #Calculate % Passed, 51 and 52 ignored
     if (len(result5)>1):
-        calc5=100*(result5[15][1]+result5[16][1]+result5[17][1]+result5[18][1]+result5[19][1]+result5[20][1]+result5[21][1]+result5[22][1]+result5[23][1]+result5[24][1]+result5[22][1])/11
+        calc5=100*(result5[13][1]+result5[14][1]+result5[15][1]+result5[16][1]+result5[17][1]+result5[18][1]+result5[19][1]+result5[20][1]+result5[21][1]+result5[22][1]+result5[23][1]+result5[24][1]+result5[22][1])/13
         score5= round(calc5,2)
 
         summary5 = """
@@ -651,68 +661,81 @@ th {
 </tr>
 <tr>
     <td><a href="#content51">"""+content51+"""</a></td> 
-    <td>Unavailable</td>
-    <td>Unavailable</td>
+    <td>"""+result5[13][0]+"""</td>
+    <td>"""+str(100*result5[13][1])+"""%</td>
+    <td></td>
 </tr>
 <tr>
     <td><a href="#content52">"""+content52+"""</a></td> 
-    <td>Unavailable</td>
-    <td>Unavailable</td>
+    <td>"""+result5[14][0]+"""</td>
+    <td>"""+str(100*result5[14][1])+"""%</td>
+    <td></td>
 </tr>
 <tr>
     <td><a href="#content53">"""+content53+"""</a></td> 
     <td>"""+result5[15][0]+"""</td>
     <td>"""+str(100*result5[15][1])+"""%</td>
+    <td></td>
 </tr>
 <tr>
     <td><a href="#content54">"""+content54+"""</a></td> 
     <td>"""+result5[16][0]+"""</td>
     <td>"""+str(100*result5[16][1])+"""%</td>
+    <td></td>
 </tr>
 <tr>
     <td><a href="#content55">"""+content55+"""</a></td> 
     <td>"""+result5[17][0]+"""</td>
     <td>"""+str(100*result5[17][1])+"""%</td>
+    <td></td>
 </tr>
 <tr>
     <td><a href="#content56">"""+content56+"""</a></td> 
     <td>"""+result5[18][0]+"""</td>
     <td>"""+str(100*result5[18][1])+"""%</td>
+    <td></td>
 </tr>
 <tr>
     <td><a href="#content57">"""+content57+"""</a></td> 
     <td>"""+result5[19][0]+"""</td>
     <td>"""+str(100*result5[19][1])+"""%</td>
+    <td></td>
 </tr>
 <tr>
     <td><a href="#content58">"""+content58+"""</a></td> 
     <td>"""+result5[20][0]+"""</td>
     <td>"""+str(100*result5[20][1])+"""%</td>
+    <td></td>
 </tr>
 <tr>
     <td><a href="#content59">"""+content59+"""</a></td> 
     <td>"""+result5[21][0]+"""</td>
     <td>"""+str(100*result5[21][1])+"""%</td>
+    <td></td>
 </tr>
 <tr>
     <td><a href="#content510">"""+content510+"""</a></td> 
     <td>"""+result5[22][0]+"""</td>
     <td>"""+str(100*result5[22][1])+"""%</td>
+    <td></td>
 </tr>
 <tr>
     <td><a href="#content511">"""+content511+"""</a></td> 
     <td>"""+result5[23][0]+"""</td>
     <td>"""+str(100*result5[23][1])+"""%</td>
+    <td></td>
 </tr>
 <tr>
     <td><a href="#content512">"""+content512+"""</a></td> 
     <td>"""+result5[24][0]+"""</td>
     <td>"""+str(100*result5[24][1])+"""%</td>
+    <td></td>
 </tr>
 <tr>
     <td><a href="#content513">"""+content513+"""</a></td> 
     <td>"""+result5[25][0]+"""</td>
     <td>"""+str(100*result5[25][1])+"""%</td>
+    <td></td>
 </tr>
 """
     else:
@@ -927,7 +950,6 @@ th {
 
 
     html_summary=summary1+summary2+summary3+summary4+summary5+summary6+summary7+summary8+total
-    #html_summary=summary1+summary2+summary4+summary5+summary6+summary7+summary8+total
 #### Create the HTML File #####
     
     filename = datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
