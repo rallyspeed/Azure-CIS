@@ -570,41 +570,49 @@ th {
     <td><a href="#content421">"""+content421+"""</a></td> 
     <td>"""+result42[0][3]+str(result42[0][1])+"""/"""+str(result42[0][2])+"""</td>
     <td>"""+str(perc421)+"""%</td>
+    <td></td>
 </tr>
 <tr>
     <td><a href="#content422">"""+content422+"""</a></td> 
     <td>"""+result42[1][3]+str(result42[1][1])+"""/"""+str(result42[1][2])+"""</td>
     <td>"""+str(perc422)+"""%</td>
+    <td>Turn on Advanced Threat Protection for all databases on this server, at the cost of 15 USD/server/month</td>
 </tr>
 <tr>
     <td><a href="#content423">"""+content423+"""</a></td> 
     <td>"""+result42[2][3]+str(result42[2][1])+"""/"""+str(result42[2][2])+"""</td>
     <td>"""+str(perc423)+"""%</td>
+    <td>Turn on Advanced Threat Protection for all databases on this server, at the cost of 15 USD/server/month</td>
 </tr>
 <tr>
     <td><a href="#content424">"""+content424+"""</a></td> 
     <td>"""+result42[3][3]+str(result42[3][1])+"""/"""+str(result42[3][2])+"""</td>
     <td>"""+str(perc424)+"""%</td>
+    <td>Turn on Advanced Threat Protection for all databases on this server, at the cost of 15 USD/server/month</td>
 </tr>
 <tr>
     <td><a href="#content425">"""+content425+"""</a></td> 
     <td>"""+result42[4][3]+str(result42[4][1])+"""/"""+str(result42[4][2])+"""</td>
     <td>"""+str(perc425)+"""%</td>
+    <td>Turn on Advanced Threat Protection for all databases on this server, at the cost of 15 USD/server/month</td>
 </tr>
 <tr>
     <td><a href="#content426">"""+content426+"""</a></td> 
     <td>"""+result42[5][3]+str(result42[5][1])+"""/"""+str(result42[5][2])+"""</td>
     <td>"""+str(perc426)+"""%</td>
+    <td></td>
 </tr>
 <tr>
     <td><a href="#content427">"""+content427+"""</a></td> 
     <td>"""+result42[6][3]+str(result42[6][1])+"""/"""+str(result42[6][2])+"""</td>
     <td>"""+str(perc427)+"""%</td>
+    <td></td>
 </tr>
 <tr>
     <td><a href="#content428">"""+content428+"""</a></td> 
     <td>"""+result42[7][3]+str(result42[7][1])+"""/"""+str(result42[7][2])+"""</td>
     <td>"""+str(perc428)+"""%</td>
+    <td>Turn on Advanced Threat Protection for all databases on this server, at the cost of 15 USD/server/month</td>
 </tr>
 """
     else:
