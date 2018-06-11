@@ -62,7 +62,7 @@ def check42(subid):
     chk426=""
     chk427=""
     chk428=""
-    totalDBI42 = 1 #Default Master
+    totalDBI42 = 0 #Default Master
     passvalue421= 0
     score421=""
     passed421='<font color="green">Passed </font>'

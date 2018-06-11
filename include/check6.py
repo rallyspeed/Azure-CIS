@@ -19,11 +19,11 @@ def check62(subid):
     failvalue61 = 0
     totalvalue61 = 0
     score61=""
-    passed61='<font color="green">Passed </font>('
+    passed61='<font color="green">Passed </font>'
     failvalue62 = 0
     totalvalue62 = 0
     score62=""
-    passed62='<font color="green">Passed </font>('
+    passed62='<font color="green">Passed </font>'
     try:
         query62='az network nsg list --query [*].[name,securityRules]'
         #query62=('az network nsg list --query "[?contains(id,\'%s\')].[name,securityRules]"' % subid)
@@ -42,12 +42,12 @@ def check62(subid):
                     ## Protocol TCP, UDP or *
                     if (protocol!="UDP" and ("3389" in dport) and action=="Allow" and src=="*" and direction=="Inbound"):
                         acl61=acl61+('Inbound RDP Allowed on nsg <b>%s</b><br>\n' % (str(json_cis[i][0])))
-                        passed61='<font color="red">Failed </font>('
+                        passed61='<font color="red">Failed </font>'
                         failvalue61=failvalue61+1
                     ## Check For Inbound SSH Access. Need to check for Port Range and list
                     if (protocol !="UDP" and ("22" in dport) and action=="Allow" and src=="*" and direction=="Inbound"):
                         acl62=acl62+('Inbound SSH Allowed on nsg <b>%s</b><br>\n' % (str(json_cis[i][0])))
-                        passed62='<font color="red">Failed </font>('
+                        passed62='<font color="red">Failed </font>'
                         failvalue62=failvalue62+1
             # If No ACL defined for NSG, assumed RDP/SSH not allowed
             else:
@@ -75,7 +75,7 @@ def check64(subid):
     passvalue64 = 0
     totalvalue64 = 0
     score64=""
-    passed64='<font color="green">Passed </font>('
+    passed64='<font color="green">Passed </font>'
     try:
         query64='az network nsg list --query [*][resourceGroup,name]'
         #query64=('az network nsg list --query "[?contains(id,\'%s\')].[resourceGroup,name]"' % subid)
@@ -90,7 +90,7 @@ def check64(subid):
                 status=str(json_cis2['retentionPolicy']['enabled'])
                 days=json_cis2['retentionPolicy']['days']
                 if (days<90 or status is False):
-                    passed64='<font color="red">Failed </font>('   
+                    passed64='<font color="red">Failed </font>'   
                 else:
                     passvalue64=passvalue64+1
                 totalvalue64 = totalvalue64+1
@@ -107,7 +107,7 @@ def check64(subid):
 
 def check65(subid):
     print("Processing 65...")
-    passed65='<font color="red">Failed </font>('
+    passed65='<font color="red">Failed </font>'
     numberegions=0
     try:
         query65='az network watcher list'
@@ -121,7 +121,7 @@ def check65(subid):
                 region = json_cis[i]['location']
                 state = json_cis[i]['provisioningState']
             if (numberegions==27):
-                passed65='<font color="green">Passed </font>('
+                passed65='<font color="green">Passed </font>'
             st65=('Enabled on <font color="blue"><b>%d</b></font>/%dregions</li>' % (numberegions, totalregions,))
             score65=[st65,numberegions,totalregions,passed65]
             return score65

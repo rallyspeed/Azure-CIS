@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+# @Author Mathieu Durand
+# Version 1.0
 
 import subprocess
 import sys
@@ -373,7 +375,6 @@ th {
 ########################################################################################################################
 #Calculate % Passed, 34 and 35 ignored
 
-  
     if (len(result31)>1): 
         perc31=round(100*result31[1]/result31[2],2)
     else:
@@ -384,7 +385,7 @@ th {
     else:
         perc32=100
         result32=["",0,0,result32[0]]
-    if (len(result33)>1): 
+    if (len(result33)>1 and result33[2]>0): 
         perc33=round(100*result33[1]/result33[2],2)
     else:
         perc33=100
@@ -393,7 +394,7 @@ th {
         perc36=round(100*result36[1]/result36[2],2)
     else:
         perc36=100
-        result36=["",0,0,result36[0]]     
+        result36=["",0,0,result36[0]]
     if (len(result37)>1): 
         perc37=round(100*result37[1]/result37[2],2)
     else:
@@ -699,7 +700,6 @@ th {
         perc61=100
         perc62=100
         result62=["",0,0,result62[0]]
-    print(perc61,perc62)
     if (len(result64)>1):
         perc64=round(100*result64[1]/result64[2],2)
     else:

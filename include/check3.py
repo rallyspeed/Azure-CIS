@@ -93,19 +93,22 @@ def check33():
                 query331='az monitor activity-log list --resource-group %s --start-time %s --query [*].[authorization.action,resourceId]' % (RG,todayminus90)
                 json_cis2=query_az(query331)
                 #iteration through event logs
-                for j in range(len(json_cis2)):
-                    if ("Microsoft.Storage/storageAccounts/regenerateKey/action" in json_cis2[j][0]):
-                        st331=('key regenerartion found for storage <b>%s</b> in resource group <b>%s</b><br>\n' % (StorageName,RG))
-                        found=1
-                        passvalue33=passvalue33+1
-                        passed33='<font color="green">Passed </font>'
-                    else:
-                        notfound=1
-                if (found==0 and notfound==1):
-                    st331=('No key regenerartion found for storage <b>%s</b> in resource group <b>%s</b><br>\n' % (StorageName,RG))
-                    passed33='<font color="red">Failed </font>'  
-                totalvalue33 = totalvalue33+1
-                st33=st33+st331
+                if (len(json_cis2)>0):
+                    for j in range(len(json_cis2)):
+                        if ("Microsoft.Storage/storageAccounts/regenerateKey/action" in json_cis2[j][0]):
+                            st331=('key regenerartion found for storage <b>%s</b> in resource group <b>%s</b><br>\n' % (StorageName,RG))
+                            found=1
+                            passvalue33=passvalue33+1
+                            passed33='<font color="green">Passed </font>'
+                        else:
+                            notfound=1
+                    if (found==0 and notfound==1):
+                        st331=('No key regenerartion found for storage <b>%s</b> in resource group <b>%s</b><br>\n' % (StorageName,RG))
+                        passed33='<font color="red">Failed </font>'  
+                    totalvalue33 = totalvalue33+1
+                    st33=st33+st331
+                else:
+                    return ["No Event logs for the period instorage %s within RG: %s" % (StorageName,RG)]
             except Exception as e:
                 logger.error('Failing event logs iteration' + str(e))
         score33=[st33,passvalue33,totalvalue33,passed33]
