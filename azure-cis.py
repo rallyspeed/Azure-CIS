@@ -422,7 +422,7 @@ th {
         perc37=100
         result37=["",0,0,result37[0]]   
 
-    calc3=(perc31+perc32+perc33+perc36+perc37)/5
+    calc3=(perc31+perc32+perc36+perc37)/4
     score3= round(calc3,2)
 
     print("html summary 3")
@@ -431,42 +431,50 @@ th {
 <tr>
     <td><b>3 Storage Accounts</b></td> 
     <td></td>
-    <td><b>"""+str(score3)+"""%</b></td> 
+    <td><b>"""+str(score3)+"""%</b></td>
+    <td></td>
 </tr>
 <tr>
     <td><a href="#content31">"""+content31+"""</a></td> 
     <td>"""+result31[3]+str(result31[1])+"""/"""+str(result31[2])+"""</td>
     <td>"""+str(perc31)+"""%</td>
+    <td></td>
 </tr>
 <tr>
     <td><a href="#content32">"""+content32+"""</a></td> 
     <td>"""+result32[3]+str(result32[1])+"""/"""+str(result32[2])+"""</td>
     <td>"""+str(perc32)+"""%</td>
+    <td></td>
 </tr>
 <tr>
     <td><a href="#content33">"""+content33+"""</a></td> 
-    <td>"""+result33[3]+str(result33[1])+"""/"""+str(result33[2])+"""</td>
-    <td>"""+str(perc33)+"""%</td>
+    <td>Not Scored</td>
+    <td>Not Scored</td>
+    <td>By default, data is encrypted using Microsoft Managed Keys for Azure Blobs, Tables, Files and Queues.</td>
 </tr>
 <tr>
     <td><a href="#content34">"""+content34+"""</a></td> 
-    <td>Unavailable</td>
-    <td>Unavailable</td>
+    <td>Not Scored</td>
+    <td>Not Scored</td>
+    <td></td>
 </tr>
 <tr>
     <td><a href="#content35">"""+content35+"""</a></td> 
     <td>Unavailable</td>
     <td>Unavailable</td>
+    <td></td>
 </tr>
 <tr>
     <td><a href="#content36">"""+content36+"""</a></td> 
     <td>"""+result36[3]+str(result36[1])+"""/"""+str(result36[2])+"""</td>
     <td>"""+str(perc36)+"""%</td>
+    <td>By default, data is encrypted using Microsoft Managed Keys for Azure Blobs, Tables, Files and Queues.</td>
 </tr>
 <tr>
     <td><a href="#content37">"""+content37+"""</a></td> 
     <td>"""+result37[3]+str(result37[1])+"""/"""+str(result37[2])+"""</td>
     <td>"""+str(perc37)+"""%</td>
+    <td></td>
 </tr>
 """
 
@@ -804,11 +812,13 @@ th {
     <td><a href="#content74">"""+content74+"""</a></td> 
     <td>Not Scored</td>
     <td>Not Scored</td>
+    <td></td>
 </tr>
 <tr>
     <td><a href="#content75">"""+content75+"""</a></td> 
     <td>Not Scored</td>
     <td>Not Scored</td>
+    <td></td>
 </tr>
 <tr>
     <td><a href="#content76">"""+content76+"""</a></td> 
@@ -857,6 +867,7 @@ th {
     <td><a href="#content83">"""+content83+"""</a></td> 
     <td>Not Scored</td>
     <td>Not Scored</td>
+    <td></td>
 </tr>
 """
     else:
@@ -881,6 +892,7 @@ th {
     <td><a href="#content83">"""+content83+"""</a></td> 
     <td>Not Scored</td>
     <td>Not Scored</td>
+    <td></td>
 </tr>
 """
     print("Finished Summary 8")
