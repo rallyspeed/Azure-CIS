@@ -65,28 +65,28 @@ def check42(subid):
     totalDBI42 = 1 #Default Master
     passvalue421= 0
     score421=""
-    passed421='<font color="green">Passed (</font>'
+    passed421='<font color="green">Passed </font>'
     passvalue422= 0
     score422=""
-    passed422='<font color="green">Passed (</font>'
+    passed422='<font color="green">Passed </font>'
     passvalue423= 0
     score423=""
-    passed423='<font color="green">Passed (</font>'
+    passed423='<font color="green">Passed </font>'
     passvalue424= 0
     score424=""
-    passed424='<font color="green">Passed (</font>'
+    passed424='<font color="green">Passed </font>'
     passvalue425= 0
     score425=""
-    passed425='<font color="green">Passed (</font>'
+    passed425='<font color="green">Passed </font>'
     passvalue426= 0
     score426=""
-    passed426='<font color="green">Passed (</font>'
+    passed426='<font color="green">Passed </font>'
     passvalue427= 0
     score427=""
-    passed427='<font color="green">Passed (</font>'
+    passed427='<font color="green">Passed </font>'
     passvalue428= 0
     score428=""
-    passed428='<font color="red">Failed (</font>'
+    passed428='<font color="red">Failed </font>'
     try:
         query42='az sql server list --query "[*].[resourceGroup,name]"'
         json_cis=query_az(query42)
@@ -95,6 +95,7 @@ def check42(subid):
             for i in range(len(json_cis)):         
                 RG=str(json_cis[i][0])
                 SRV=str(json_cis[i][1])
+                print("Checking server %s within Resource Group %s" % (SRV,RG))
                 try: 
                     query421=("az sql db list --resource-group %s --server %s --query  [*].[name]" % (RG,SRV))
                     json_cis2=query_az(query421)
@@ -112,52 +113,52 @@ def check42(subid):
                             json_cis5=query_az(query424)
                             chk421=chk421+('Instance <b>%s</b> on server %s in resource group %s state: <font color="blue"><b>%s</b></font><br>\n' % (DB,SRV,RG,json_cis3[1]))
                             if (json_cis3[1]=="Enabled"):
-                                passed421='<font color="green">Passed (</font>'
+                                passed421='<font color="green">Passed </font>'
                                 passvalue421=passvalue421+1
                             else:
-                                passed421='<font color="red">Failed (</font>'
+                                passed421='<font color="red">Failed </font>'
                             chk422=chk422+('Instance <b>%s</b> on server %s in resource group %s state: <font color="blue"><b>%s</b></font><br>\n' % (DB,SRV,RG,json_cis4[1]))
                             if (json_cis4[1]=="Enabled"):
-                                passed422=='<font color="green">Passed  (</font>'
+                                passed422=='<font color="green">Passed  </font>'
                                 passvalue422=passvalue422+1
                             else:
-                                passed422='<font color="red">Failed (</font>'                        
+                                passed422='<font color="red">Failed </font>'                        
                             chk423=chk423+('Instance <b>%s</b> on server %s in resource group %s disabledAlerts: <font color="blue"><b>%s</b></font><br>\n' % (DB,SRV,RG,json_cis4[2]))
                             if (json_cis4[2]!=""):
-                                passed423=='<font color="green">Passed  (</font>'
+                                passed423=='<font color="green">Passed  </font>'
                                 passvalue423=passvalue423+1
                             else:
-                                passed423='<font color="red">Failed (</font>'                          
+                                passed423='<font color="red">Failed </font>'                          
                             chk424=chk424+('Instance <b>%s</b> on server %s in resource group %s emailAdd: <font color="blue"><b>%s</b></font><br>\n' % (DB,SRV,RG,json_cis4[3]))
                             if (json_cis4[3]!=""):
-                                passed424=='<font color="green">Passed  (</font>'
+                                passed424=='<font color="green">Passed  </font>'
                                 passvalue424=passvalue424+1
                             else:
-                                passed424='<font color="red">Failed (</font>'  
+                                passed424='<font color="red">Failed </font>'  
                             chk425=chk425+('Instance <b>%s</b> on server %s in resource group %s emailAdmins: <font color="blue"><b>%s</b></font><br>\n' % (DB,SRV,RG,json_cis4[4]))
                             if (json_cis4[4]=="Enabled"):
-                                passed425=='<font color="green">Passed  (</font>'
+                                passed425=='<font color="green">Passed  </font>'
                                 passvalue425=passvalue425+1
                             else:
-                                passed425='<font color="red">Failed (</font>'  
+                                passed425='<font color="red">Failed </font>'  
                             chk426=chk426+('Instance <b>%s</b> on server %s in resource group %s tde: <font color="blue"><b>%s</b></font><br>\n' % (DB,SRV,RG,json_cis5[0]))
                             if (json_cis5[0]=="Enabled"):
-                                passed426=='<font color="green">Passed  (</font>'
+                                passed426=='<font color="green">Passed  </font>'
                                 passvalue426=passvalue426+1
                             else:
-                                passed426=='<font color="red">Failed  (</font>'
+                                passed426=='<font color="red">Failed  </font>'
                             chk427=chk427+('Instance <b>%s</b> on server %s in resource group %s retentionDays: <font color="blue"><b>%d</b></font><br>\n' % (DB,SRV,RG,json_cis3[0]))
                             if (json_cis3[0]>=90):
-                                passed427=='<font color="green">Passed  (</font>'
+                                passed427=='<font color="green">Passed  </font>'
                                 passvalue427=passvalue427+1
                             else:
-                                passed427='<font color="red">Failed (</font>'  
+                                passed427='<font color="red">Failed </font>'  
                             chk428=chk428+('Instance <b>%s</b> on server %s in resource group %s retentionDays: <font color="blue"><b>%d</b></font><br>\n' % (DB,SRV,RG,json_cis4[0]))
                             if (json_cis4[0]>=90):
-                                passed428=='<font color="green">Passed  (</font>'
+                                passed428=='<font color="green">Passed  </font>'
                                 passvalue428=passvalue428+1
                             else:
-                                passed428='<font color="red">Failed (</font>'  
+                                passed428='<font color="red">Failed </font>'  
                         totalDBI42 = totalDBI42+1
                 except Exception as e:
                     #failed="Failed to Query DB"
