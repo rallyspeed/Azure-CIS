@@ -15,3 +15,6 @@ Azure CLI 2.0, python3
  - Exception Handling
  - PowerShell Checks
  - CIS Score to be tuned
+ 
+ ## Notes
+  - It might take a while to run (pending on the number of resources within the Azure Subscription), so be patient.
