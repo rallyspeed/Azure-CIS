@@ -51,8 +51,8 @@ def check62(subid):
                         failvalue62=failvalue62+1
             # If No ACL defined for NSG, assumed RDP/SSH not allowed
             else:
-                acl61=('No Inbound RDP Allowed on any nsg <b>%s</b><br>\n' % (str(json_cis[i][0])))
-                acl62=('No Inbound SSH Allowed on any nsg <b>%s</b><br>\n' % (str(json_cis[i][0])))
+                acl61=acl61+('No Inbound RDP Allowed on nsg <b>%s</b><br>\n' % (str(json_cis[i][0])))
+                acl62=acl62+('No Inbound SSH Allowed on nsg <b>%s</b><br>\n' % (str(json_cis[i][0])))
             totalvalue61 = totalvalue61+1
             totalvalue62 = totalvalue62+1                
             passvalue61=totalvalue61-failvalue61
