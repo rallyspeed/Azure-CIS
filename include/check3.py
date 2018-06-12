@@ -175,15 +175,17 @@ def check37():
                     query372=('az storage container list  --account-name %s --account-key %s --query [*].[properties.publicAccess,name]' % (SN,KEY))
                     json_cis3=query_az(query372)
                     #iteration through containers
-                    for j in range(len(json_cis3)):
-                        CT=json_cis3[j][1]
-                        if (json_cis3[j][0] is None):
-                            st37=st37+('Private access for <b>%s</b> container in storage <b>%s</b><br>\n' % (CT,SN))
-                            passvalue37=passvalue37+1
-                        else:
-                            st37=st37+('<font color="blue"><b>Public</b></font> access for <b>%s</b> container in storage <b>%s</b><br>\n' % (CT,SN))
-                            passed37='<font color="red">Failed </font>' 
-                        totalvalue37 = totalvalue37+1
+                    if (len(json_cis3)>0):
+                        for j in range(len(json_cis3)):
+                            CT=json_cis3[j][1]
+                            #print(json_cis3)
+                            if (json_cis3[j][0] is None):
+                                st37=st37+('Private access for <b>%s</b> container in storage <b>%s</b><br>\n' % (CT,SN))
+                                passvalue37=passvalue37+1
+                            else:
+                                st37=st37+('<font color="blue"><b>Public</b></font> access for <b>%s</b> container in storage <b>%s</b><br>\n' % (CT,SN))
+                                passed37='<font color="red">Failed </font>' 
+                            totalvalue37 = totalvalue37+1
                 except Exception as e:
                     logger.error('Failing iteration through containers ' + str(e))
                     return ["Failed iteration through containers"]
