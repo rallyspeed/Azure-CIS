@@ -1,4 +1,4 @@
-################################## 2222222222222222222 #####################################
+################################## 3333333333333333333 #####################################
 #!/usr/bin/python3
 
 import os
@@ -25,7 +25,6 @@ def check31():
      #iteration through Storage Account
         for i in range(len(json_cis)):
             st31=st31+('Storage Account: <b>%s</b> status: <font color="blue"><b>%s</b></font><br>\n' % (json_cis[i][0],json_cis[i][1]))
-            #st32=st32+('Storage Account: <b>%s</b> status: <font color="blue"><b>%s</b></font><br>\n' % (json_cis[i][0],json_cis[i][2]))
             if (json_cis[i][1] is True):
                 passvalue31=passvalue31+1
                 passed31='<font color="red">Passed </font>'
@@ -75,8 +74,8 @@ def check33():
     format = "%Y-%m-%dT%H:%M:%SZ"
     today = datetime.datetime.utcnow()
     #reduce time to speed up checks
-    pastdays = datetime.timedelta(days=10)
-    #pastdays = datetime.timedelta(days=90)
+    #pastdays = datetime.timedelta(days=10)
+    pastdays = datetime.timedelta(days=90)
     todayminus90 = today - pastdays
     todayminus90 = todayminus90.strftime(format)
     try:
