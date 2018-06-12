@@ -657,7 +657,8 @@ th {
 <tr>
     <td><b>5 Logging and Monitoring</b></td> 
     <td></td>
-    <td><b>"""+str(score5)+"""%</b></td> 
+    <td><b>"""+str(score5)+"""%</b></td>
+    <td></td>
 </tr>
 <tr>
     <td><a href="#content51">"""+content51+"""</a></td> 
@@ -743,7 +744,8 @@ th {
 <tr>
     <td><b>5 Logging and Monitoring</b></td> 
     <td></td>
-    <td><b>"""+result5[0]+"""%</b></td> 
+    <td><b>"""+result5[0]+"""%</b></td>
+    <td></td>
 </tr>
 """
     print("Finished Summary 5")
@@ -776,32 +778,38 @@ th {
 <tr>
     <td><b>6 Networking</b></td> 
     <td></td>
-    <td><b>"""+str(score6)+"""%</b></td> 
+    <td><b>"""+str(score6)+"""%</b></td>
+    <td></td>
 </tr>
 <tr>
     <td><a href="#content61">"""+content61+"""</a></td> 
     <td>"""+result62[0][3]+str(result62[0][1])+"""/"""+str(result62[0][2])+"""</td>
     <td>"""+str(perc61)+"""%</td>
+    <td></td>
 </tr>
 <tr>
     <td><a href="#content62">"""+content62+"""</a></td> 
     <td>"""+result62[1][3]+str(result62[1][1])+"""/"""+str(result62[1][2])+"""</td>
     <td>"""+str(perc62)+"""%</td>
+    <td></td>
 </tr>
 <tr>
     <td><a href="#content63">"""+content63+"""</a></td> 
     <td>Unavailable</td>
     <td>Unavailable</td>
+    <td></td>
 </tr>
 <tr>
     <td><a href="#content64">"""+content64+"""</a></td> 
     <td>"""+result64[3]+str(result64[1])+"""/"""+str(result64[2])+"""</td>
     <td>"""+str(perc64)+"""%</td>
+    <td></td>
 </tr>
 <tr>
     <td><a href="#content65">"""+content65+"""</a></td> 
     <td>"""+result65[3]+str(result65[1])+"""/"""+str(result65[2])+"""</td>
     <td>"""+str(perc65)+"""%</td>
+    <td></td>
 </tr>
 """
     print("Finished Summary6")
@@ -822,22 +830,26 @@ th {
 <tr>
     <td><b>7 Virtual Machines</b></td> 
     <td></td>
-    <td><b>"""+str(score7)+"""%</b></td> 
+    <td><b>"""+str(score7)+"""%</b></td>
+    <td></td>
 </tr>
 <tr>
     <td><a href="#content71">"""+content71+"""</a></td> 
     <td>"""+result7[6][2]+str(result7[6][0])+"""/"""+str(result7[6][1])+"""</td>
     <td>"""+str(perc71)+"""%</td>
+    <td></td>
 </tr>
 <tr>
     <td><a href="#content72">"""+content72+"""</a></td> 
     <td>"""+result7[7][2]+str(result7[7][0])+"""/"""+str(result7[7][1])+"""</td>
     <td>"""+str(perc72)+"""%</td>
+    <td></td>
 </tr>
 <tr>
     <td><a href="#content73">"""+content73+"""</a></td> 
     <td>"""+result7[8][2]+str(result7[8][0])+"""/"""+str(result7[8][1])+"""</td>
     <td>"""+str(perc73)+"""%</td>
+    <td></td>
 </tr>
 <tr>
     <td><a href="#content74">"""+content74+"""</a></td> 
@@ -855,6 +867,7 @@ th {
     <td><a href="#content76">"""+content76+"""</a></td> 
     <td>"""+result7[11][2]+str(result7[11][0])+"""/"""+str(result7[11][1])+"""</td>
     <td>"""+str(perc76)+"""%</td>
+    <td></td>
 </tr>
 """
     else:
@@ -863,7 +876,8 @@ th {
 <tr>
     <td><b>7 Virtual Machines</b></td> 
     <td></td>
-    <td><b>"""+result7[0]+"""%</b></td> 
+    <td><b>"""+result7[0]+"""%</b></td>
+    <td></td>
 </tr>
 """
     print("Finished Summary 7")
@@ -882,17 +896,20 @@ th {
 <tr>
     <td><b>8 Other Security Considerations</b></td> 
     <td></td>
-    <td><b>"""+str(score8)+"""%</b></td> 
+    <td><b>"""+str(score8)+"""%</b></td>
+    <td></td>
 </tr>
 <tr>
     <td><a href="#content81">"""+content81+"""</a></td> 
     <td>"""+result80[0][3]+str(result80[0][1])+"""/"""+str(result80[0][2])+"""</td>
     <td>"""+str(perc81)+"""%</td>
+    <td></td>
 </tr>
 <tr>
     <td><a href="#content82">"""+content82+"""</a></td> 
     <td>"""+result80[1][3]+str(result80[1][1])+"""/"""+str(result80[1][2])+"""</td>
     <td>"""+str(perc82)+"""%</td>
+    <td></td>
 </tr>
 <tr>
     <td><a href="#content83">"""+content83+"""</a></td> 
@@ -907,17 +924,20 @@ th {
 <tr>
     <td><b>8 Other Security Considerations</b></td> 
     <td></td>
-    <td><b>"""+str(score8)+"""%</b></td> 
+    <td><b>"""+str(score8)+"""%</b></td>
+    <td></td>
 </tr>
 <tr>
     <td><a href="#content81">"""+content81+"""</a></td> 
     <td>"""+result80[0]+"""</td>
     <td>100%</td>
+    <td></td>
 </tr>
 <tr>
     <td><a href="#content82">"""+content82+"""</a></td> 
     <td>"""+result80[0]+"""</td>
     <td>100%</td>
+    <td></td>
 </tr>
 <tr>
     <td><a href="#content83">"""+content83+"""</a></td> 
@@ -938,7 +958,7 @@ th {
 <tr>
     <td><b><font color="blue">Total</font></b></td> 
     <td></td>
-    <td><b><font color="blue">"""+str(finalscore)+"""%</font></b></td> 
+    <td><b><font color="blue">"""+str(finalscore)+"""%</font></b></td>
 </tr>
 </table> 
 """
