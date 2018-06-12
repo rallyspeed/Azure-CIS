@@ -46,8 +46,6 @@ def check50(subid):
         query51='az monitor log-profiles list --query [*].[id,name,retentionPolicy.days]'
         json_cis51=query_az(query51)
         #iteration through log profiles
-        #Preview mode Only
-        print(json_cis51)
         if (len(json_cis51)>0):
             for i in range(len(json_cis51)):
                 chk51=chk51+('logprofiles: <b><font color="blue">%s</b></font></li></br>\n' % json_cis51[i][1])
@@ -58,10 +56,6 @@ def check50(subid):
         else:
             chk51="No Log Profile found</li>\n"
             chk52="No Log Profile found</li>\n"
-        #query52='az monitor log-profiles list --query [*].[retentionPolicy]'
-        #json_cis52=query_az(query52)
-        #for j in range(len(json_cis52)):
-        #    chk52=chk52+('logprofiles: <b><font color="blue">%s</b></font></li></br>\n' % json_cis52[j])
         query53='az monitor activity-log alert list --query [*].[name,condition.allOf]'
         #query53=('az monitor activity-log alert list --query "[?contains(id,\'%s\')].[name,condition.allOf]"' % subid)
         json_cis53=query_az(query53)
