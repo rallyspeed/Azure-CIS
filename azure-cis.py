@@ -445,13 +445,13 @@ th {
     <td><a href="#content32">"""+content32+"""</a></td> 
     <td>"""+result32[3]+str(result32[1])+"""/"""+str(result32[2])+"""</td>
     <td>"""+str(perc32)+"""%</td>
-    <td></td>
+    <td>By default, data is encrypted using Microsoft Managed Keys for Azure Blobs, Tables, Files and Queues.</td>
 </tr>
 <tr>
     <td><a href="#content33">"""+content33+"""</a></td> 
     <td>Not Scored</td>
     <td>Not Scored</td>
-    <td>By default, data is encrypted using Microsoft Managed Keys for Azure Blobs, Tables, Files and Queues.</td>
+    <td></td>
 </tr>
 <tr>
     <td><a href="#content34">"""+content34+"""</a></td> 
