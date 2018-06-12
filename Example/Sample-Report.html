@@ -1,0 +1,756 @@
+
+<html>
+<head>
+<title>Azure CIS Benchmark</title>
+</head>
+<body>
+<h1><center>Azure CIS Benchmark for [Subscription Name]</center></h1>
+
+<h1 id="Summary">1 - Score Summary</h1>
+<style>
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 5px;
+    font-size: small;
+th {
+    text-align: left;
+}
+</style>
+<table style="width:80%">
+<tr>
+    <th>Check Description</th> 
+    <th>Tests</th>
+    <th>Score</th>
+    <th>Comments</th>
+</tr>
+<tr>
+    <td><b>1 Identity and Access Management</b></td> 
+    <td></td>
+    <td>Unavailable</td>
+    <td></td>
+</tr>
+
+<tr>
+    <td><b>2 Security Center</b></td> 
+    <td></td>
+    <td><b>100.0%</b></td>
+    <td></td>
+</tr>
+<tr>
+    <td><a href="#content21">2.1 Ensure that standard pricing tier is selected</a></td> 
+    <td>Unavailable</td>
+    <td>Unavailable</td>
+    <td>Unavailable</td>
+</tr>
+<tr>
+    <td><a href="#content22">2.2 Ensure that 'Automatic provisioning of monitoring agent' is set to 'On'</a></td> 
+    <td><font color="green">Passed</font></td>
+    <td>100%</td>
+    <td></td>
+</tr>
+<tr>
+    <td><a href="#content23">2.3 Ensure that 'System updates' is set to 'On'</a></td> 
+    <td><font color="green">Passed</font></td>
+	<td>100%</td>
+    <td></td>
+</tr>
+<tr>
+    <td><a href="#content24">2.4 Ensure that 'Security Configurations' is set to 'On'</a></td> 
+    <td><font color="green">Passed</font></td>
+    <td>100%</td>
+    <td></td>
+</tr>
+<tr>
+    <td><a href="#content25">2.5 Ensure that 'Endpoint protection' is set to 'On'</a></td> 
+    <td><font color="green">Passed</font></td>
+    <td>100%</td>
+    <td></td>
+</tr>
+<tr>
+    <td><a href="#content26">2.6 Ensure that 'Disk encryption' is set to 'On'</a></td> 
+    <td><font color="green">Passed</font></td>
+    <td>100%</td>
+    <td></td>
+</tr>
+<tr>
+    <td><a href="#content27">2.7 Ensure that 'Network security groups' is set to 'On'</a></td> 
+    <td><font color="green">Passed</font></td>
+    <td>100%</td>
+    <td></td>
+</tr>
+<tr>
+    <td><a href="#content28">2.8 Ensure that 'Web application firewall' is set to 'On'</a></td> 
+    <td><font color="green">Passed</font></td>
+    <td>100%</td>
+    <td></td>
+</tr>
+<tr>
+    <td><a href="#content29">2.9 Ensure that 'Next generation firewall' is set to 'On'</a></td> 
+    <td><font color="green">Passed</font></td>
+    <td>100%</td>
+    <td></td>
+</tr>
+<tr>
+    <td><a href="#content210">2.10 Ensure that 'Vulnerability assessment' is set to 'On'</a></td> 
+    <td><font color="green">Passed</font></td>
+    <td>100%</td>
+    <td></td>
+</tr>
+<tr>
+    <td><a href="#content211">2.11 Ensure that 'Storage Encryption' is set to 'On'</a></td> 
+    <td><font color="green">Passed</font></td>
+    <td>100%</td>
+    <td></td>
+</tr>
+<tr>
+    <td><a href="#content212">2.12 Ensure that 'JIT Network Access' is set to 'On'</a></td> 
+    <td><font color="green">Passed</font></td>
+    <td>100%</td>
+    <td></td>
+</tr>
+<tr>
+    <td><a href="#content213">2.13 Ensure that 'Adaptive Application Controls' is set to 'On'</a></td> 
+    <td><font color="green">Passed</font></td>
+    <td>100%</td>
+    <td></td>
+</tr>
+<tr>
+    <td><a href="#content214">2.14 Ensure that 'SQL auditing & Threat detection' is set to 'On'</a></td> 
+    <td><font color="green">Passed</font></td>
+    <td>100%</td>
+    <td></td>
+</tr>
+<tr>
+    <td><a href="#content215">2.15 Ensure that 'SQL Encryption' is set to 'On'</a></td> 
+    <td><font color="green">Passed</font></td>
+    <td>100%</td>
+    <td></td>
+</tr>
+<tr>
+    <td><a href="#content216">2.16 Ensure that 'Security contact emails' is set</a></td> 
+    <td><font color="green">Passed</font></td>
+    <td>100%</td>
+    <td></td>
+</tr>
+<tr>
+    <td><a href="#content217">2.17 Ensure that security contact 'Phone number' is set</a></td> 
+    <td><font color="green">Passed</font></td>
+    <td>100%</td>
+    <td></td>
+</tr>
+<tr>
+    <td><a href="#content218">2.18 Ensure that 'Send me emails about alerts' is set to 'On'</a></td> 
+    <td><font color="green">Passed</font></td>
+    <td>100%</td>
+    <td></td>
+</tr>
+<tr>
+    <td><a href="#content219">2.19 Ensure that 'Send email also to subscription owners' is set to 'On'</a></td> 
+    <td><font color="green">Passed</font></td>
+    <td>100%</td>
+    <td></td>
+</tr>
+
+<tr>
+    <td><b>3 Storage Accounts</b></td> 
+    <td></td>
+    <td><b>77.68%</b></td>
+    <td></td>
+</tr>
+<tr>
+    <td><a href="#content31">3.1 Ensure that 'Secure transfer required' is set to 'Enabled'</a></td> 
+    <td><font color="red">Passed </font>1/4</td>
+    <td>25.0%</td>
+    <td></td>
+</tr>
+<tr>
+    <td><a href="#content32">3.2 Ensure that 'Storage service encryption' is set to Enabled for Blob Service</a></td> 
+    <td><font color="green">Passed </font>4/4</td>
+    <td>100.0%</td>
+    <td>By default, data is encrypted using Microsoft Managed Keys for Azure Blobs, Tables, Files and Queues.</td>
+</tr>
+<tr>
+    <td><a href="#content33">3.3 Ensure that storage account access keys are periodically regenerated</a></td> 
+    <td>Not Scored</td>
+    <td>Not Scored</td>
+    <td></td>
+</tr>
+<tr>
+    <td><a href="#content34">3.4 Ensure that shared access signature tokens expire within an hour</a></td> 
+    <td>Not Scored</td>
+    <td>Not Scored</td>
+    <td></td>
+</tr>
+<tr>
+    <td><a href="#content35">3.5 Ensure that shared access signature tokens are allowed only over https</a></td> 
+    <td>Unavailable</td>
+    <td>Unavailable</td>
+    <td></td>
+</tr>
+<tr>
+    <td><a href="#content36">3.6 Ensure that 'Storage service encryption' is set to Enabled for File Service</a></td> 
+    <td><font color="green">Passed </font>4/4</td>
+    <td>100.0%</td>
+    <td>By default, data is encrypted using Microsoft Managed Keys for Azure Blobs, Tables, Files and Queues.</td>
+</tr>
+<tr>
+    <td><a href="#content37">3.7 Ensure that 'Public access level' is set to Private for blob containers</a></td> 
+    <td><font color="red">Failed </font>6/7</td>
+    <td>85.71%</td>
+    <td></td>
+</tr>
+
+<tr>
+    <td><b>4 SQL Services</b></td> 
+    <td></td>
+    <td><b>58.33%</b></td> 
+</tr>
+
+<tr>
+    <td><b>4.1 SQL Servers</b></td> 
+    <td></td>
+    <td><b></b></td> 
+    <td></td>
+</tr>
+<tr>
+    <td><a href="#content411">4.1.1 Ensure that 'Auditing' is set to 'On'</a></td> 
+    <td>Unavailable</td>
+    <td>Unavailable</td>
+    <td></td>
+</tr>
+<tr>
+    <td><a href="#content412">4.1.2 Ensure that 'Threat Detection' is set to 'On'</a></td> 
+    <td>Unavailable</td>
+    <td>Unavailable</td>
+    <td></td>
+</tr>
+<tr>
+    <td><a href="#content413">4.1.3 Ensure that 'Threat Detection types' is set to 'All'</a></td> 
+    <td>Unavailable</td>
+    <td>Unavailable</td>
+    <td></td>
+</tr>
+<tr>
+    <td><a href="#content414">4.1.4 Ensure that 'Send alerts to' is set</a></td> 
+    <td>Unavailable</td>
+    <td>Unavailable</td>
+    <td></td>
+</tr>
+<tr>
+    <td><a href="#content415">4.1.5 Ensure that 'Email service and co-administrators' is 'Enabled'</a></td> 
+    <td>Unavailable</td>
+    <td>Unavailable</td>
+    <td></td>
+</tr>
+<tr>
+    <td><a href="#content416">4.1.6 Ensure that 'Auditing' Retention is 'greater than 90 days'</a></td> 
+    <td>Unavailable</td>
+    <td>Unavailable</td>
+    <td></td>
+</tr>
+<tr>
+    <td><a href="#content417">4.1.7 Ensure that 'Threat Detection' Retention is 'greater than 90 days'</a></td> 
+    <td>Unavailable</td>
+    <td>Unavailable</td>
+    <td></td>
+</tr>
+<tr>
+    <td><a href="#content418">4.1.8 Ensure that Azure Active Directory Admin is configured</a></td> 
+    <td>Unavailable</td>
+    <td>Unavailable</td>
+    <td></td>
+</tr>
+
+<tr>
+    <td><b>4.2 SQL Databases</b></td> 
+    <td></td>
+    <td><b>58.33%</b></td> 
+</tr>
+<tr>
+    <td><a href="#content421">4.2.1 Ensure that 'Auditing' is set to 'On'</a></td> 
+    <td><font color="red">Failed </font>1/3</td>
+    <td>33.33%</td>
+    <td></td>
+</tr>
+<tr>
+    <td><a href="#content422">4.2.2 Ensure that 'Threat Detection' is set to 'On'</a></td> 
+    <td><font color="red">Failed </font>0/3</td>
+    <td>0.0%</td>
+    <td>Turn on Advanced Threat Protection for all databases on this server, at the cost of 15 USD/server/month</td>
+</tr>
+<tr>
+    <td><a href="#content423">4.2.3 Ensure that 'Threat Detection types' is set to 'All'</a></td> 
+    <td><font color="red">Failed </font>0/3</td>
+    <td>0.0%</td>
+    <td>Turn on Advanced Threat Protection for all databases on this server, at the cost of 15 USD/server/month</td>
+</tr>
+<tr>
+    <td><a href="#content424">4.2.4 Ensure that 'Send alerts to' is set</a></td> 
+    <td><font color="red">Failed </font>0/3</td>
+    <td>0.0%</td>
+    <td>Turn on Advanced Threat Protection for all databases on this server, at the cost of 15 USD/server/month</td>
+</tr>
+<tr>
+    <td><a href="#content425">4.2.5 Ensure that 'Email service and co-administrators' is 'Enabled'</a></td> 
+    <td><font color="red">Failed </font>0/3</td>
+    <td>0.0%</td>
+    <td>Turn on Advanced Threat Protection for all databases on this server, at the cost of 15 USD/server/month</td>
+</tr>
+<tr>
+    <td><a href="#content426">4.2.6 Ensure that 'Data encryption' is set to 'On'</a></td> 
+    <td><font color="green">Passed </font>3/3</td>
+    <td>100.0%</td>
+    <td></td>
+</tr>
+<tr>
+    <td><a href="#content427">4.2.7 Ensure that 'Auditing' Retention is 'greater than 90 days'</a></td> 
+    <td><font color="red">Failed </font>1/3</td>
+    <td>33.33%</td>
+    <td></td>
+</tr>
+<tr>
+    <td><a href="#content428">4.2.8 Ensure that 'Threat' Retention is 'greater than 90 days'</a></td> 
+    <td><font color="red">Failed </font>0/3</td>
+    <td>0.0%</td>
+    <td>Turn on Advanced Threat Protection for all databases on this server, at the cost of 15 USD/server/month</td>
+</tr>
+
+<tr>
+    <td><b>5 Logging and Monitoring</b></td> 
+    <td></td>
+    <td><b>15.38%</b></td>
+    <td></td>
+</tr>
+<tr>
+    <td><a href="#content51">5.1 Ensure that a Log Profile exists</a></td> 
+    <td><font color="green">Passed</font></td>
+    <td>100%</td>
+    <td></td>
+</tr>
+<tr>
+    <td><a href="#content52">5.2 Ensure that Activity Log Retention is set 365 days or greater</a></td> 
+    <td><font color="red">Failed</font></td>
+    <td>0%</td>
+    <td></td>
+</tr>
+<tr>
+    <td><a href="#content53">5.3 Ensure that Activity Log Alert exists for Create Policy Assignment</a></td> 
+    <td><font color="green">Passed</font></td>
+    <td>100%</td>
+    <td></td>
+</tr>
+<tr>
+    <td><a href="#content54">5.4 Ensure that Activity Log Alert exists for Create or Update Network Security Group</a></td> 
+    <td><font color="red">Failed</font></td>
+    <td>0%</td>
+    <td></td>
+</tr>
+<tr>
+    <td><a href="#content55">5.5 Ensure that Activity Log Alert exists for Delete Network Security Group</a></td> 
+    <td><font color="red">Failed</font></td>
+    <td>0%</td>
+    <td></td>
+</tr>
+<tr>
+    <td><a href="#content56">5.6 Ensure that Activity Log Alert exists for Create or Update Network Security Group Rule</a></td> 
+    <td><font color="red">Failed</font></td>
+    <td>0%</td>
+    <td></td>
+</tr>
+<tr>
+    <td><a href="#content57">5.7 Ensure that Activity Log Alert exists for Delete Network Security Group Rule</a></td> 
+    <td><font color="red">Failed</font></td>
+    <td>0%</td>
+    <td></td>
+</tr>
+<tr>
+    <td><a href="#content58">5.8 Ensure that Activity Log Alert exists for Create or Update Security Solution</a></td> 
+    <td><font color="red">Failed</font></td>
+    <td>0%</td>
+    <td></td>
+</tr>
+<tr>
+    <td><a href="#content59">5.9 Ensure that Activity Log Alert exists for Delete Security Solution</a></td> 
+    <td><font color="red">Failed</font></td>
+    <td>0%</td>
+    <td></td>
+</tr>
+<tr>
+    <td><a href="#content510">5.10 Ensure that Activity Log Alert exists for Create or Update SQL Server Firewall Rule</a></td> 
+    <td><font color="red">Failed</font></td>
+    <td>0%</td>
+    <td></td>
+</tr>
+<tr>
+    <td><a href="#content511">5.11 Ensure that Activity Log Alert exists for Delete SQL Server Firewall Rule</a></td> 
+    <td><font color="red">Failed</font></td>
+    <td>0%</td>
+    <td></td>
+</tr>
+<tr>
+    <td><a href="#content512">5.12 Ensure that Activity Log Alert exists for Update Security Policy</a></td> 
+    <td><font color="red">Failed</font></td>
+    <td>0%</td>
+    <td></td>
+</tr>
+<tr>
+    <td><a href="#content513">5.13 Ensure that logging for Azure KeyVault is 'Enabled'</a></td> 
+    <td><font color="green">Passed</font></td>
+    <td>100%</td>
+    <td></td>
+</tr>
+
+<tr>
+    <td><b>6 Networking</b></td> 
+    <td></td>
+    <td><b>41.66%</b></td>
+    <td></td>
+</tr>
+<tr>
+    <td><a href="#content61">6.1 Ensure that RDP access is restricted from the internet</a></td> 
+    <td><font color="red">Failed </font>1/3</td>
+    <td>33.33%</td>
+    <td></td>
+</tr>
+<tr>
+    <td><a href="#content62">6.2 Ensure that SSH access is restricted from the internet</a></td> 
+    <td><font color="red">Failed </font>1/3</td>
+    <td>33.33%</td>
+    <td></td>
+</tr>
+<tr>
+    <td><a href="#content63">6.3 Ensure that SQL server access is restricted from the internet</a></td> 
+    <td>Unavailable</td>
+    <td>Unavailable</td>
+    <td></td>
+</tr>
+<tr>
+    <td><a href="#content64">6.4 Ensure that Network Security Group Flow Log retention period is greater than 90 days</a></td> 
+    <td><font color="red">Failed </font>0/3</td>
+    <td>0.0%</td>
+    <td></td>
+</tr>
+<tr>
+    <td><a href="#content65">6.5 Ensure that Network Watcher is Enabled</a></td> 
+    <td><font color="green">Passed </font>27/27</td>
+    <td>100.0%</td>
+    <td></td>
+</tr>
+
+<tr>
+    <td><b>7 Virtual Machines</b></td> 
+    <td></td>
+    <td><b>16.66%</b></td>
+    <td></td>
+</tr>
+<tr>
+    <td><a href="#content71">7.1 Ensure that VM agent is installed</a></td> 
+    <td><font color="green">Passed </font>1/3</td>
+    <td>33.33%</td>
+    <td></td>
+</tr>
+<tr>
+    <td><a href="#content72">7.2 Ensure that 'OS disk' are encrypted</a></td> 
+    <td><font color="red">Failed </font>0/3</td>
+    <td>0.0%</td>
+    <td></td>
+</tr>
+<tr>
+    <td><a href="#content73">7.3 Ensure that 'Data disks' are encrypted</a></td> 
+    <td><font color="red">Failed </font>0/3</td>
+    <td>0.0%</td>
+    <td></td>
+</tr>
+<tr>
+    <td><a href="#content74">7.4 Ensure that only approved extensions are installed</a></td> 
+    <td>Not Scored</td>
+    <td>Not Scored</td>
+    <td></td>
+</tr>
+<tr>
+    <td><a href="#content75">7.5 Ensure that the latest OS Patches for all Virtual Machines are applied</a></td> 
+    <td>Not Scored</td>
+    <td>Not Scored</td>
+    <td></td>
+</tr>
+<tr>
+    <td><a href="#content76">7.6 Ensure that the endpoint protection for all Virtual Machines is installed</a></td> 
+    <td><font color="red">Failed </font>1/3</td>
+    <td>33.33%</td>
+    <td></td>
+</tr>
+
+<tr>
+    <td><b>8 Other Security Considerations</b></td> 
+    <td></td>
+    <td><b>100.0%</b></td>
+    <td></td>
+</tr>
+<tr>
+    <td><a href="#content81">8.1 Ensure that the expiry date is set on all Keys</a></td> 
+    <td><font color="green">Passed </font>2/2</td>
+    <td>100.0%</td>
+    <td></td>
+</tr>
+<tr>
+    <td><a href="#content82">8.2 Ensure that the expiry date is set on all Secrets</a></td> 
+    <td><font color="green">Passed </font>2/2</td>
+    <td>100.0%</td>
+    <td></td>
+</tr>
+<tr>
+    <td><a href="#content83">8.3 Ensure that Resource Locks are set for mission critical Azure resources</a></td> 
+    <td>Not Scored</td>
+    <td>Not Scored</td>
+    <td></td>
+</tr>
+
+<tr>
+    <td><b><font color="blue">Total</font></b></td> 
+    <td></td>
+    <td><b><font color="blue">58.53%</font></b></td>
+</tr>
+</table> 
+
+<h1 id="Details">2 - Detailed</h1>
+
+<font size="-1">
+<h2>CIS Azure 1.x</h2>
+<ul>
+CLI/POWERSHELL COMMANDS NOT YET AVAILABLE
+</ul>
+<h2>CIS Azure 2.x</h2>
+<ul>
+<h3 id="content21"><li><b>
+2.1 Ensure that standard pricing tier is selected</h3></li></b>
+Check not available with azure CLI<h3 id="content22"><li><b>
+2.2 Ensure that 'Automatic provisioning of monitoring agent' is set to 'On'</h3></li></b>
+Current Setting: <font color="blue"> On</b></font><h3 id="content23"><li><b>
+2.3 Ensure that 'System updates' is set to 'On'</h3></li></b>
+Current Setting: <font color="blue"> On</b></font><h3 id="content24"><li><b>
+2.4 Ensure that 'Security Configurations' is set to 'On'</h3></li></b>
+Current Setting: <font color="blue"> On</b></font><h3 id="content25"><li><b>
+2.5 Ensure that 'Endpoint protection' is set to 'On'</h3></li></b>
+Current Setting: <font color="blue"> On</b></font><h3 id="content26"><li><b>
+2.6 Ensure that 'Disk encryption' is set to 'On'</h3></li></b>
+Current Setting: <font color="blue"> On</b></font><h3 id="content27"><li><b>
+2.7 Ensure that 'Network security groups' is set to 'On'</h3></li></b>
+Current Setting: <font color="blue"> On</b></font><h3 id="content28"><li><b>
+2.8 Ensure that 'Web application firewall' is set to 'On'</h3></li></b>
+Current Setting: <font color="blue"> On</b></font><h3 id="content29"><li><b>
+2.9 Ensure that 'Next generation firewall' is set to 'On'</h3></li></b>
+Current Setting: <font color="blue"> On</b></font><h3 id="content210"><li><b>
+2.10 Ensure that 'Vulnerability assessment' is set to 'On'</h3></li></b>
+Current Setting: <font color="blue"> On</b></font><h3 id="content211"><li><b>
+2.11 Ensure that 'Storage Encryption' is set to 'On'</h3></li></b>
+Current Setting: <font color="blue"> On</b></font><h3 id="content212"><li><b>
+2.12 Ensure that 'JIT Network Access' is set to 'On'</h3></li></b>
+Current Setting: <font color="blue"> On</b></font><h3 id="content213"><li><b>
+2.13 Ensure that 'Adaptive Application Controls' is set to 'On'</h3></li></b>
+Current Setting: <font color="blue"> On</b></font><h3 id="content214"><li><b>
+2.14 Ensure that 'SQL auditing & Threat detection' is set to 'On'</h3></li></b>
+Current Setting: <font color="blue"> On</b></font><h3 id="content215"><li><b>
+2.15 Ensure that 'SQL Encryption' is set to 'On'</h3></li></b>
+Current Setting: <font color="blue"> On</b></font><h3 id="content216"><li><b>
+2.16 Ensure that 'Security contact emails' is set</h3></li></b>
+Current Setting: <font color="blue"> ['john.doe@test.com']</b></font><h3 id="content217"><li><b>
+2.17 Ensure that security contact 'Phone number' is set</h3></li></b>
+Current Setting: <font color="blue"> 1111111</b></font><h3 id="content218"><li><b>
+2.18 Ensure that 'Send me emails about alerts' is set to 'On'</h3></li></b>
+Current Setting: <font color="blue"> True</b></font><h3 id="content219"><li><b>
+2.19 Ensure that 'Send email also to subscription owners' is set to 'On'</h3></li></b>
+Current Setting: <font color="blue"> True</b></font></ul>
+<h2>CIS Azure 3.x</h2>
+<ul>
+<h3 id="content31"><li><b>
+3.1 Ensure that 'Secure transfer required' is set to 'Enabled'</h3></li></b>
+Storage Account: <b>StorageAccount1</b> status: <font color="blue"><b>False</b></font><br>
+Storage Account: <b>StorageAccount2</b> status: <font color="blue"><b>False</b></font><br>
+Storage Account: <b>StorageAccount3</b> status: <font color="blue"><b>False</b></font><br>
+Storage Account: <b>StorageAccount4</b> status: <font color="blue"><b>True</b></font><br>
+<h3 id="content32"><li><b>
+3.2 Ensure that 'Storage service encryption' is set to Enabled for Blob Service</h3></li></b>
+Storage Account: <b>StorageAccount1</b> status: <font color="blue"><b>True</b></font><br>
+Storage Account: <b>StorageAccount2</b> status: <font color="blue"><b>True</b></font><br>
+Storage Account: <b>StorageAccount3</b> status: <font color="blue"><b>True</b></font><br>
+Storage Account: <b>StorageAccount4</b> status: <font color="blue"><b>True</b></font><br>
+<h3 id="content33"><li><b>
+3.3 Ensure that storage account access keys are periodically regenerated</h3></li></b>
+No key regenerartion found for storage <b>StorageAccount1</b> in resource group <b>cloud-shell-storage-eastus</b><br>
+No key regenerartion found for storage <b>StorageAccount4</b> in resource group <b>cloud-shell-storage-eastus</b><br>
+<h3 id="content34"><li><b>
+3.4 Ensure that shared access signature tokens expire within an hour</h3></li></b>
+Check not available with azure CLI<h3 id="content35"><li><b>
+3.5 Ensure that shared access signature tokens are allowed only over https</h3></li></b>
+Check not available with azure CLI<h3 id="content36"><li><b>
+3.6 Ensure that 'Storage service encryption' is set to Enabled for File Service</h3></li></b>
+Storage Account: <b>StorageAccount1</b> status: <font color="blue"><b>True</b></font><br>
+Storage Account: <b>StorageAccount2</b> status: <font color="blue"><b>True</b></font><br>
+Storage Account: <b>StorageAccount3</b> status: <font color="blue"><b>True</b></font><br>
+Storage Account: <b>StorageAccount4</b> status: <font color="blue"><b>True</b></font><br>
+<h3 id="content37"><li><b>
+3.7 Ensure that 'Public access level' is set to Private for blob containers</h3></li></b>
+Private access for <b>XXXXX</b> container in storage <b>StorageAccount2</b><br>
+Private access for <b>YYYYY</b> container in storage <b>StorageAccount3</b><br>
+Private access for <b>ZZZZZ</b> container in storage <b>StorageAccount3</b><br>
+Private access for <b>AAAAA</b> container in storage <b>StorageAccount3</b><br>
+Private access for <b>BBBBB</b> container in storage <b>StorageAccount3</b><br>
+<font color="blue"><b>Public</b></font> access for <b>CCCCC</b> container in storage <b>StorageAccount4</b><br>
+Private access for <b>DDDDD</b> container in storage <b>StorageAccount4</b><br>
+</ul>
+<h2>CIS Azure 4.x</h2>
+<ul>
+<li><b>
+4.1.1 Ensure that 'Auditing' is set to 'On'</h3></li></b>
+<li><b>
+4.1.4 Ensure that 'Send alerts to' is set</h3></li></b>
+<h3 id="content421"><li><b>
+4.2.1 Ensure that 'Auditing' is set to 'On'</h3></li></b>
+Instance <b>SQL-DB1</b> on server sql-serv1 in resource group RG-Internal state: <font color="blue"><b>Enabled</b></font><br>
+Instance <b>SQL-DB2</b> on server sql-serv1 in resource group RG-Internal state: <font color="blue"><b>Disabled</b></font><br>
+Instance <b>SQL-DB3</b> on server sql-serv2 in resource group RG-Internal state: <font color="blue"><b>Disabled</b></font><br>
+<h3 id="content422"><li><b>
+4.2.2 Ensure that 'Threat Detection' is set to 'On'</h3></li></b>
+Instance <b>SQL-DB1</b> on server sql-serv1 in resource group RG-Internal state: <font color="blue"><b>Disabled</b></font><br>
+Instance <b>SQL-DB2</b> on server sql-serv1 in resource group RG-Internal state: <font color="blue"><b>Disabled</b></font><br>
+Instance <b>SQL-DB3</b> on server sql-serv2 in resource group RG-Internal state: <font color="blue"><b>Disabled</b></font><br>
+<h3 id="content423"><li><b>
+4.2.3 Ensure that 'Threat Detection types' is set to 'All'</h3></li></b>
+Instance <b>SQL-DB1</b> on server sql-serv1 in resource group RG-Internal disabledAlerts: <font color="blue"><b></b></font><br>
+Instance <b>SQL-DB2</b> on server sql-serv1 in resource group RG-Internal disabledAlerts: <font color="blue"><b></b></font><br>
+Instance <b>SQL-DB3</b> on server sql-serv2 in resource group RG-Internal disabledAlerts: <font color="blue"><b></b></font><br>
+<h3 id="content424"><li><b>
+4.2.4 Ensure that 'Send alerts to' is set</h3></li></b>
+Instance <b>SQL-DB1</b> on server sql-serv1 in resource group RG-Internal emailAdd: <font color="blue"><b></b></font><br>
+Instance <b>SQL-DB2</b> on server sql-serv1 in resource group RG-Internal emailAdd: <font color="blue"><b></b></font><br>
+Instance <b>SQL-DB3</b> on server sql-serv2 in resource group RG-Internal emailAdd: <font color="blue"><b></b></font><br>
+<h3 id="content425"><li><b>
+4.2.5 Ensure that 'Email service and co-administrators' is 'Enabled'</h3></li></b>
+Instance <b>SQL-DB1</b> on server sql-serv1 in resource group RG-Internal emailAdmins: <font color="blue"><b>Disabled</b></font><br>
+Instance <b>SQL-DB2</b> on server sql-serv1 in resource group RG-Internal emailAdmins: <font color="blue"><b>Disabled</b></font><br>
+Instance <b>SQL-DB3</b> on server sql-serv2 in resource group RG-Internal emailAdmins: <font color="blue"><b>Disabled</b></font><br>
+<h3 id="content426"><li><b>
+4.2.6 Ensure that 'Data encryption' is set to 'On'</h3></li></b>
+Instance <b>SQL-DB1</b> on server sql-serv1 in resource group RG-Internal tde: <font color="blue"><b>Enabled</b></font><br>
+Instance <b>SQL-DB2</b> on server sql-serv1 in resource group RG-Internal tde: <font color="blue"><b>Enabled</b></font><br>
+Instance <b>SQL-DB3</b> on server sql-serv2 in resource group RG-Internal tde: <font color="blue"><b>Enabled</b></font><br>
+<h3 id="content427"><li><b>
+4.2.7 Ensure that 'Auditing' Retention is 'greater than 90 days'</h3></li></b>
+Instance <b>SQL-DB1</b> on server sql-serv1 in resource group RG-Internal retentionDays: <font color="blue"><b>91</b></font><br>
+Instance <b>SQL-DB2</b> on server sql-serv1 in resource group RG-Internal retentionDays: <font color="blue"><b>0</b></font><br>
+Instance <b>SQL-DB3</b> on server sql-serv2 in resource group RG-Internal retentionDays: <font color="blue"><b>0</b></font><br>
+<h3 id="content428"><li><b>
+4.2.8 Ensure that 'Threat' Retention is 'greater than 90 days'</h3></li></b>
+Instance <b>SQL-DB1</b> on server sql-serv1 in resource group RG-Internal retentionDays: <font color="blue"><b>0</b></font><br>
+Instance <b>SQL-DB2</b> on server sql-serv1 in resource group RG-Internal retentionDays: <font color="blue"><b>0</b></font><br>
+Instance <b>SQL-DB3</b> on server sql-serv2 in resource group RG-Internal retentionDays: <font color="blue"><b>0</b></font><br>
+</ul>
+<h2>CIS Azure 5.x</h2>
+<ul>
+<h3 id="content51"><li><b>
+5.1 Ensure that a Log Profile exists</h3></li></b>
+logprofiles: <b><font color="blue">default</b></font></li></br>
+<h3 id="content52"><li><b>
+5.2 Ensure that Activity Log Retention is set 365 days or greater</h3></li></b>
+Retendtion Days <b><font color="blue">16</b></font> for logprofiles: <b><font color="blue">default</b></font></li></br>
+<h3 id="content53"><li><b>
+5.3 Ensure that Activity Log Alert exists for Create Policy Assignment</h3></li></b>
+Alert Name:<font color="blue"><b>PolicyAss</b></font> set up for policyAssignments</li>
+<h3 id="content54"><li><b>
+5.4 Ensure that Activity Log Alert exists for Create or Update Network Security Group</h3></li></b>
+No Alert found for Create or Update NSG</li>
+<h3 id="content55"><li><b>
+5.5 Ensure that Activity Log Alert exists for Delete Network Security Group</h3></li></b>
+No Alert found for Delete NSG</li>
+<h3 id="content56"><li><b>
+5.6 Ensure that Activity Log Alert exists for Create or Update Network Security Group Rule</h3></li></b>
+No Alert found for Create or Update NSG security rule</li>
+<h3 id="content57"><li><b>
+5.7 Ensure that Activity Log Alert exists for Delete Network Security Group Rule</h3></li></b>
+No Alert found for Delete NSG security rule</li>
+<h3 id="content58"><li><b>
+5.8 Ensure that Activity Log Alert exists for Create or Update Security Solution</h3></li></b>
+No Alert found for Create or Update Security Solution</li>
+<h3 id="content59"><li><b>
+5.9 Ensure that Activity Log Alert exists for Delete Security Solution</h3></li></b>
+No Alert found for Delete Security Solution</li>
+<h3 id="content510"><li><b>
+5.10 Ensure that Activity Log Alert exists for Create or Update SQL Server Firewall Rule</h3></li></b>
+No Alert found for Create or Update SQL Server FW rules</li>
+<h3 id="content511"><li><b>
+5.11 Ensure that Activity Log Alert exists for Delete SQL Server Firewall Rule</h3></li></b>
+No Alert found for Delete SQL Server FW rules</li>
+<h3 id="content512"><li><b>
+5.12 Ensure that Activity Log Alert exists for Update Security Policy</h3></li></b>
+No Alert found for Create or Update Security Policy</li>
+<h3 id="content513"><li><b>
+5.13 Ensure that logging for Azure KeyVault is 'Enabled'</h3></li></b>
+Keyvault <b>Key-Vault-Security</b> Audit event enabled for <b>7</b> days</ul>
+<h2>CIS Azure 6.x</h2>
+<ul>
+<h3 id="content61"><li><b>
+6.1 Ensure that RDP access is restricted from the internet</h3></li></b>
+Inbound RDP Allowed on nsg <b>Web-Serv1-nsg</b><br>
+Inbound RDP Allowed on nsg <b>DC1-nsg</b><br>
+<h3 id="content62"><li><b>
+6.2 Ensure that SSH access is restricted from the internet</h3></li></b>
+Inbound SSH Allowed on nsg <b>Kali-nsg</b><br>
+Inbound SSH Allowed on nsg <b>Web-Serv1-nsg</b><br>
+<h3 id="content63"><li><b>
+6.3 Ensure that SQL server access is restricted from the internet</h3></li></b>
+Check not available with azure CLI<h3 id="content64"><li><b>
+6.4 Ensure that Network Security Group Flow Log retention period is greater than 90 days</h3></li></b>
+NSG: <b>Kali-nsg</b> Enabled: <font color="blue"><b>False</b></font> Days <font color="blue"><b>0</b></font><br></li>
+NSG: <b>Web-Serv1-nsg</b> Enabled: <font color="blue"><b>False</b></font> Days <font color="blue"><b>0</b></font><br></li>
+NSG: <b>DC1-nsg</b> Enabled: <font color="blue"><b>False</b></font> Days <font color="blue"><b>0</b></font><br></li>
+<h3 id="content65"><li><b>
+6.5 Ensure that Network Watcher is Enabled</h3></li></b>
+Enabled on <font color="blue"><b>27</b></font>/27regions</li></ul>
+<h2>CIS Azure 7.x</h2>
+<ul>
+<h3 id="content71"><li><b>
+7.1 Ensure that VM agent is installed</h3></li></b>
+VM: <b>Kali</b> is missing the VM Agent<br></li>VM: <b>Kali</b> is missing the VM Agent<br></li>VM: <b>Web-Serv1</b> is missing the VM Agent<br></li>VM: <b>Web-Serv1</b> is missing the VM Agent<br></li>VM: <b>Web-Serv1</b> is missing the VM Agent<br></li>VM: <b>DC1</b> is missing the VM Agent<br></li>VM: DC1 MicrosoftMonitoringAgent<br></li><h3 id="content72"><li><b>
+7.2 Ensure that 'OS disk' are encrypted</h3></li></b>
+Disk Encryption Disabled<h3 id="content73"><li><b>
+7.3 Ensure that 'Data disks' are encrypted</h3></li></b>
+Disk Encryption Disabled<h3 id="content74"><li><b>
+7.4 Ensure that only approved extensions are installed</h3></li></b>
+VM: <b>Kali</b> installed extenion: <font color="blue">VMAccessForLinux</font><br></li>
+VM: <b>Kali</b> installed extenion: <font color="blue">OmsAgentForLinux</font><br></li>
+VM: <b>Web-Serv1</b> installed extenion: <font color="blue">NetworkWatcherAgentLinux</font><br></li>
+VM: <b>Web-Serv1</b> installed extenion: <font color="blue">OmsAgentForLinux</font><br></li>
+VM: <b>Web-Serv1</b> installed extenion: <font color="blue">StackifyLinuxAgentExtension</font><br></li>
+VM: <b>DC1</b> installed extenion: <font color="blue">IaaSAntimalware</font><br></li>
+VM: <b>DC1</b> installed extenion: <font color="blue">MicrosoftMonitoringAgent</font><br></li>
+<h3 id="content75"><li><b>
+7.5 Ensure that the latest OS Patches for all Virtual Machines are applied</h3></li></b>
+Check Not possible via Azure CLI</li>
+<h3 id="content76"><li><b>
+7.6 Ensure that the endpoint protection for all Virtual Machines is installed</h3></li></b>
+VM: <b>Kali</b> has End Point Protection Disabled<br></li>
+VM: <b>Kali</b> has End Point Protection Disabled<br></li>
+VM: <b>Web-Serv1</b> has End Point Protection Disabled<br></li>
+VM: <b>Web-Serv1</b> has End Point Protection Disabled<br></li>
+VM: <b>Web-Serv1</b> has End Point Protection Disabled<br></li>
+VM: <b>DC1</b> has End Point Protection <font color="blue">Enabled</font><br></li>
+VM: <b>DC1</b> has End Point Protection Disabled<br></li>
+</ul>
+<h2>CIS Azure 8.x</h2>
+<ul>
+<h3 id="content81"><li><b>
+8.1 Ensure that the expiry date is set on all Keys</h3></li></b>
+Expiry date: <b>2019-05-10T13:17:47+00:00</b> for kid https://key-vault-security.vault.azure.net/keys/Azure-VPN-XXXXX in key vault <b>Key-Vault-Security</b><br>
+Expiry date: <b>2019-05-10T13:17:47+00:00</b> for kid https://key-vault-security.vault.azure.net/keys/Child in key vault <b>Key-Vault-Security</b><br>
+<h3 id="content82"><li><b>
+8.2 Ensure that the expiry date is set on all Secrets</h3></li></b>
+Expiry date: <b>2019-05-10T13:17:47+00:00</b> for id https://key-vault-security.vault.azure.net/secrets/Azure-VPN-XXXXX in key vault <b>Key-Vault-Security</b><br>
+Expiry date: <b>2019-05-10T13:17:47+00:00</b> for id https://key-vault-security.vault.azure.net/secrets/Child in key vault <b>Key-Vault-Security</b><br>
+<h3 id="content83"><li><b>
+8.3 Ensure that Resource Locks are set for mission critical Azure resources</h3></li></b>
+No Lock configured
+</body>
+</html>
