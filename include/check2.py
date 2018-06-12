@@ -90,7 +90,7 @@ def check22(subid):
                 score214=['<font color="green">Passed</font>',1]
             if (value215=="On"):
                 score215=['<font color="green">Passed</font>',1]
-            if (value216!=""):
+            if (value216!="[]"):
                 score216=['<font color="green">Passed</font>',1]
             if (value217!=""):
                 score217=['<font color="green">Passed</font>',1]
