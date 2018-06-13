@@ -12,9 +12,10 @@ Azure CLI 2.0, python3
 - `python3 azure-cis.py`
 
 ## To do
- - Exception Handling
  - PowerShell Checks
- - CIS Score to be tuned
+ - Some CLI checks
+ - Launch reports for all available subscriptions (instead of one at at time)
+
  
  ## Notes
   - It might take a while to run (pending on the number of resources within the Azure Subscription), so be patient.
