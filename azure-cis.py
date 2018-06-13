@@ -1012,11 +1012,11 @@ try:
 
     while menu_item !=(len(subs)):
         print("--------------------")
-        for i in range(0,len(subs)):
+        for i in range(0,len(subs[0])):
             print("%d. %s" % (i,subs[2][i]))
-        print("%d. Quit" % (len(subs)))
+        print("%d. Quit" % (len(subs[0])))
         menu_item = int(input("Select a subscription from the menu: "))
-        if (menu_item < (len(subs))):
+        if (menu_item < (len(subs[0]))):
             print("Starting CIS Benchmark for: %s" % subs[2][menu_item])
             os.popen('az account set --subscription "%s"' % subs[2][menu_item])
             generate_report(subs[0][menu_item],subs[2][menu_item],subs[1][menu_item])
