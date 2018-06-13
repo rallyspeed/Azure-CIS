@@ -68,7 +68,11 @@ def check62(subid):
         return [score61,score62]
     except Exception as e:
         logger.error('Failed to query for NSG ' + str(e))
-        return ["Failed to query for NSG or SSH/RDP not allowed "]
+        acl61="Failed to query for NSG or SSH/RDP not allowed "
+        acl62="Failed to query for NSG or SSH/RDP not allowed "
+        score61=[acl61,passvalue61,totalvalue61,passed61]
+        score62=[acl62,passvalue62,totalvalue62,passed62]
+        return [score61,score62]
 
 def check63():
     print("Processing 63...")
@@ -103,20 +107,25 @@ def check64(subid):
                     st64=st64+('NSG: <b>%s</b> Enabled: <font color="blue"><b>%s</b></font> Days <font color="blue"><b>%d</b></font><br></li>\n' % (NSG,status,days))
                 except Exception as e:
                     logger.error('Failed to query for network watcher flow-log ' + str(e))
-                    return ["Failed to query for network watcher flow-log "]
+                    st64="Failed to query for network watcher flow-log"
+                    score64=[st64,passvalue64,totalvalue64,passed64]
+                    return score64
         else:
             st64="No NSG Configured"
         score64=[st64,passvalue64,totalvalue64,passed64]
         return score64
     except Exception as e:
         logger.error('Failed to query NSG ' + str(e))
-        return ["Failed to query for NSG "]
+        st64="Failed to query for NSG"
+        score64=[st64,passvalue64,totalvalue64,passed64]
+        return score64
 
 
 def check65(subid):
     print("Processing 65...")
     passed65='<font color="red">Failed </font>'
     numberegions=0
+    totalregions = 27
     try:
         query65='az network watcher list'
         #query65=('az network watcher list --query "[?contains(id,\'%s\')]"' % subid)
@@ -124,17 +133,18 @@ def check65(subid):
         if (len(json_cis)>0):
             #iteration through existing regions
             for i in range(len(json_cis)):
-                totalregions = 27
                 numberegions = numberegions+1
                 region = json_cis[i]['location']
                 state = json_cis[i]['provisioningState']
             if (numberegions==27):
                 passed65='<font color="green">Passed </font>'
             st65=('Enabled on <font color="blue"><b>%d</b></font>/%dregions</li>' % (numberegions, totalregions,))
-            score65=[st65,numberegions,totalregions,passed65]
-            return score65
         else:
-            return ["Network Watcher not found"]
+            st65="Network Watcher not found"
+        score65=[st65,numberegions,totalregions,passed65]
+        return score65
     except Exception as e:
         logger.error('Failed to query for network watcher ' + str(e))
-        return ["Failed to query for network watcher "]
+        st65="Failed to query for network watcher"
+        score65=[st65,numberegions,totalregions,passed65]
+        return score65

@@ -22,7 +22,18 @@ def check12():
 
 def check13():
     print("Processing 13...")
-    #az ad user list --query "[?additionalProperties.userType=='Guest']"
+    name=""
+    try:
+        query13='az ad user list --query "[?additionalProperties.userType==\'Guest\']"'
+        json_cis=query_az(query13)
+        for i in range(len(json_cis)):
+            print(json_cis)
+            name=json_cis[i][0]
+            name=name+name
+        return name
+    except Exception as e:
+        logger.error('Failed to Query Users' + str(e))
+        return ["Failed to Query Userss"]
 
 def check14():
     print("Processing 14...")
