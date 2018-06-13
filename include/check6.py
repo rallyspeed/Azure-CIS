@@ -17,10 +17,12 @@ def check62(subid):
     acl61=""
     acl62=""
     failvalue61 = 0
+    passvalue61 = 0
     totalvalue61 = 0
     score61=""
     passed61='<font color="green">Passed </font>'
     failvalue62 = 0
+    passvalue62 = 0
     totalvalue62 = 0
     score62=""
     passed62='<font color="green">Passed </font>'
@@ -29,35 +31,38 @@ def check62(subid):
         #query62=('az network nsg list --query "[?contains(id,\'%s\')].[name,securityRules]"' % subid)
         json_cis=query_az(query62)
         #i iteration number of NSG
-        for i in range(len(json_cis)):
-            #j iteration of ACL per NSG
-            if (len(json_cis[i][1])>0):
-                for j in range(len(json_cis[i][1])):
-                    protocol=str(json_cis[i][1][j]['protocol'])
-                    dport=str(json_cis[i][1][j]['destinationPortRange'])
-                    action=str(json_cis[i][1][j]['access'])
-                    src=str(json_cis[i][1][j]['sourceAddressPrefix'])
-                    direction=str(json_cis[i][1][j]['direction'])
-                    ## Check For Inbound RDP Access. Need to check for Port Range and list
-                    ## Protocol TCP, UDP or *
-                    if (protocol!="UDP" and ("3389" in dport) and action=="Allow" and src=="*" and direction=="Inbound"):
-                        acl61=acl61+('Inbound RDP Allowed on nsg <b>%s</b><br>\n' % (str(json_cis[i][0])))
-                        passed61='<font color="red">Failed </font>'
-                        failvalue61=failvalue61+1
-                    ## Check For Inbound SSH Access. Need to check for Port Range and list
-                    if (protocol !="UDP" and ("22" in dport) and action=="Allow" and src=="*" and direction=="Inbound"):
-                        acl62=acl62+('Inbound SSH Allowed on nsg <b>%s</b><br>\n' % (str(json_cis[i][0])))
-                        passed62='<font color="red">Failed </font>'
-                        failvalue62=failvalue62+1
-            # If No ACL defined for NSG, assumed RDP/SSH not allowed
-            else:
-                acl61=acl61+('No ACL defined on nsg <b>%s</b><br>\n' % (str(json_cis[i][0])))
-                acl62=acl62+('No ACL defined on nsg <b>%s</b><br>\n' % (str(json_cis[i][0])))
-            totalvalue61 = totalvalue61+1
-            totalvalue62 = totalvalue62+1                
-            passvalue61=totalvalue61-failvalue61
-            passvalue62=totalvalue62-failvalue62
-
+        if (len(json_cis)>0):
+            for i in range(len(json_cis)):
+                #j iteration of ACL per NSG
+                if (len(json_cis[i][1])>0):
+                    for j in range(len(json_cis[i][1])):
+                        protocol=str(json_cis[i][1][j]['protocol'])
+                        dport=str(json_cis[i][1][j]['destinationPortRange'])
+                        action=str(json_cis[i][1][j]['access'])
+                        src=str(json_cis[i][1][j]['sourceAddressPrefix'])
+                        direction=str(json_cis[i][1][j]['direction'])
+                        ## Check For Inbound RDP Access. Need to check for Port Range and list
+                        ## Protocol TCP, UDP or *
+                        if (protocol!="UDP" and ("3389" in dport) and action=="Allow" and src=="*" and direction=="Inbound"):
+                            acl61=acl61+('Inbound RDP Allowed on nsg <b>%s</b><br>\n' % (str(json_cis[i][0])))
+                            passed61='<font color="red">Failed </font>'
+                            failvalue61=failvalue61+1
+                        ## Check For Inbound SSH Access. Need to check for Port Range and list
+                        if (protocol !="UDP" and ("22" in dport) and action=="Allow" and src=="*" and direction=="Inbound"):
+                            acl62=acl62+('Inbound SSH Allowed on nsg <b>%s</b><br>\n' % (str(json_cis[i][0])))
+                            passed62='<font color="red">Failed </font>'
+                            failvalue62=failvalue62+1
+                # If No ACL defined for NSG, assumed RDP/SSH not allowed
+                else:
+                    acl61=acl61+('No ACL defined on nsg <b>%s</b><br>\n' % (str(json_cis[i][0])))
+                    acl62=acl62+('No ACL defined on nsg <b>%s</b><br>\n' % (str(json_cis[i][0])))
+                totalvalue61 = totalvalue61+1
+                totalvalue62 = totalvalue62+1                
+                passvalue61=totalvalue61-failvalue61
+                passvalue62=totalvalue62-failvalue62
+        else:
+            acl61="No NSG Configured"
+            acl62="No NSG Configured"
         score61=[acl61,passvalue61,totalvalue61,passed61]
         score62=[acl62,passvalue62,totalvalue62,passed62]
         return [score61,score62]
@@ -81,23 +86,26 @@ def check64(subid):
         #query64=('az network nsg list --query "[?contains(id,\'%s\')].[resourceGroup,name]"' % subid)
         json_cis=query_az(query64)
         #iteration through NSG
-        for i in range(len(json_cis)):
-            RG = json_cis[i][0]
-            NSG = json_cis[i][1]
-            queryrp=("az network watcher flow-log show --resource-group %s --nsg %s" % (RG,NSG))
-            try:
-                json_cis2=query_az(queryrp)
-                status=str(json_cis2['retentionPolicy']['enabled'])
-                days=json_cis2['retentionPolicy']['days']
-                if (days<90 or status is False):
-                    passed64='<font color="red">Failed </font>'   
-                else:
-                    passvalue64=passvalue64+1
-                totalvalue64 = totalvalue64+1
-                st64=st64+('NSG: <b>%s</b> Enabled: <font color="blue"><b>%s</b></font> Days <font color="blue"><b>%d</b></font><br></li>\n' % (NSG,status,days))
-            except Exception as e:
-                logger.error('Failed to query for network watcher flow-log ' + str(e))
-                return ["Failed to query for network watcher flow-log "]
+        if (len(json_cis)>0):
+            for i in range(len(json_cis)):
+                RG = json_cis[i][0]
+                NSG = json_cis[i][1]
+                queryrp=("az network watcher flow-log show --resource-group %s --nsg %s" % (RG,NSG))
+                try:
+                    json_cis2=query_az(queryrp)
+                    status=str(json_cis2['retentionPolicy']['enabled'])
+                    days=json_cis2['retentionPolicy']['days']
+                    if (days<90 or status is False):
+                        passed64='<font color="red">Failed </font>'   
+                    else:
+                        passvalue64=passvalue64+1
+                    totalvalue64 = totalvalue64+1
+                    st64=st64+('NSG: <b>%s</b> Enabled: <font color="blue"><b>%s</b></font> Days <font color="blue"><b>%d</b></font><br></li>\n' % (NSG,status,days))
+                except Exception as e:
+                    logger.error('Failed to query for network watcher flow-log ' + str(e))
+                    return ["Failed to query for network watcher flow-log "]
+        else:
+            st64="No NSG Configured"
         score64=[st64,passvalue64,totalvalue64,passed64]
         return score64
     except Exception as e:
