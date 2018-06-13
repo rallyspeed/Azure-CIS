@@ -47,17 +47,31 @@ def check80():
                         if (json_cis3[j][1]!=""):
                             passvalue82=passvalue82+1
                         totalvalue82 = totalvalue82+1
-                score81=[chk81,passvalue81,totalvalue81,passed81]
-                score82=[chk82,passvalue82,totalvalue82,passed82]
-                return [score81,score82]     
             except Exception as e:
                 logger.error("Exception in check80: %s %s" %(type(e), str(e.args)))
-                return ["Failed to iterate through keyvault for VM"]
+                chk81="Failed to iterate through keyvault for VM"
+                chk82="Failed to iterate through keyvault for VM"
+                score81=[chk81,0,1,'<font color="orange">UNKNOWN </font>']
+                score82=[chk82,0,1,'<font color="orange">UNKNOWN </font>']
+                return [score81,score82] 
         else:
-            return ["No KeyVault Configured"]
+            chk81="No KeyVault Configured"
+            chk82="No KeyVault Configured"
+            totalvalue81=1
+            totalvalue82=1
+            passvalue81=1
+            passvalue82=1
+        score81=[chk81,passvalue81,totalvalue81,passed81]
+        score82=[chk82,passvalue82,totalvalue82,passed82]
+        return [score81,score82]  
     except Exception as e:
         logger.error("Exception in check80: %s %s" %(type(e), str(e.args)))
-        return ["Failed to query keyvault"]
+        chk81="Failed to query keyvault"
+        chk82="Failed to query keyvault"
+        score81=[chk81,0,1,'<font color="orange">UNKNOWN </font>']
+        score82=[chk82,0,1,'<font color="orange">UNKNOWN </font>']
+        return [score81,score82] 
+
 
 def check83():
     print("Processing 83...")

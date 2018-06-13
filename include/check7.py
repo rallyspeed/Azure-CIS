@@ -95,7 +95,11 @@ def check70(subid):
             score76=[passvalue76,totalvalue76,passed76]
             return [chk71,chk72,chk73,chk74,chk75,chk76,score71,score72,score73,score74,score75,score76]
         else:
-            return ["No VM Found"]
+            unkScore=[1,1,'<font color="green">Passed </font>']
+            chk="No VM Found"
+            return [chk,chk,chk,chk,chk,chk,unkScore,unkScore,unkScore,unkScore,unkScore,unkScore]
     except Exception as e:
         logger.error("Exception in check62: %s %s" %(type(e), str(e.args)))
-        return ["Failed to query for VM"]
+        unkScore=[0,1,'<font color="orange">UNKNOWN </font>']
+        chk="Failed to query for VM"
+        return [chk,chk,chk,chk,chk,chk,unkScore,unkScore,unkScore,unkScore,unkScore,unkScore]
