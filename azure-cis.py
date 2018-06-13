@@ -6,7 +6,7 @@ import subprocess
 import sys
 import datetime
 import os
-from include import check2,check3,check4,check5,check6,check7,check8,subscription
+from include import check1,check2,check3,check4,check5,check6,check7,check8,subscription
 
 ################ HTML HEADER ###################
 def generate_report(subid,name,cloudname):
@@ -33,13 +33,21 @@ def generate_report(subid,name,cloudname):
 <ul>
 CLI/POWERSHELL COMMANDS NOT YET AVAILABLE
 """
-    content11=""
-    content12=""
+    content11="1.1 Ensure that multi-factor authentication is enabled for all privileged users"
+    content12="1.2 Ensure that multi-factor authentication is enabled for all nonprivileged users"
     content13="1.3 Ensure that there are no guest users"
     content14="1.4 Ensure that 'Allow users to remember multi-factor authentication on devices they trust' is 'Disabled'"
     content15="1.5 Ensure that 'Number of methods required to reset' is set to '2'"
     content16="1.6 Ensure that 'Number of days before users are asked to re-confirm their authentication information' is not set to '0"
     content17=""
+
+    #result11=check1.check11()
+    #result12=check1.check12()
+    #result13=check1.check13()
+
+    #content1_1 = '<h3 id="content11">'+start_list+content11+end_list+check1.check11()+'<h3 id="content12">'+start_list+content12+end_list+result12[0]+'<h3 id="content13">'+start_list+content13+end_list+result13[0]
+    #content1=content1+content1_1
+    #sys.exit(0)
 
 ################ HTML 2.x ##############
     content2 = """
@@ -397,12 +405,12 @@ th {
 ########################################################################################################################
 #Calculate % Passed, 34 and 35 ignored
 
-    if (len(result31)>1): 
+    if (len(result31)>1 and result31[2]>0): 
         perc31=round(100*result31[1]/result31[2],2)
     else:
         perc31=100
         result31=["",0,0,result31[0]]
-    if (len(result32)>1): 
+    if (len(result32)>1 and result32[2]>0): 
         perc32=round(100*result32[1]/result32[2],2)
     else:
         perc32=100
@@ -412,12 +420,12 @@ th {
     else:
         perc33=100
         result33=["",0,0,result33[0]]
-    if (len(result36)>1): 
+    if (len(result36)>1 and result36[2]>0): 
         perc36=round(100*result36[1]/result36[2],2)
     else:
         perc36=100
         result36=["",0,0,result36[0]]
-    if (len(result37)>1): 
+    if (len(result37)>1 and result37[2]>0): 
         perc37=round(100*result37[1]/result37[2],2)
     else:
         perc37=100
@@ -754,26 +762,25 @@ th {
 ############################################################ Summary 6 #################################################
 ########################################################################################################################
 #Calculate % Passed, ignored 6.3
-    
-    if (len(result62)>1): 
+
+    if (len(result62)>1 and result62[0][2]>0 and result62[1][2]>0): 
         perc61=round(100*result62[0][1]/result62[0][2],2)
         perc62=round(100*result62[1][1]/result62[1][2],2)
     else:
         perc61=100
         perc62=100
-        result62=["",0,0,result62[0]]
-    if (len(result64)>1):
+    if (len(result64)>1 and result64[2]>0):
         perc64=round(100*result64[1]/result64[2],2)
     else:
         perc64=100
-        result64=["",0,0,result64[0]]
-    if (len(result65)>1):
+    if (len(result65)>1 and result65[2]>0):
         perc65=round(100*result65[1]/result65[2],2)
     else:
         perc65=100
-        result65=["",0,0,result65[0]]
+
     calc6=(perc61+perc62+perc64+perc65)/4
     score6= round(calc6,2)
+
     summary6 = """
 <tr>
     <td><b>6 Networking</b></td> 
