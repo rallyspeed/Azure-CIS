@@ -108,8 +108,14 @@ def check50(subid):
                     chk513=chk513+('Keyvault <b>%s</b> Audit event disabled' % (json_cis513[j][0]))
         except Exception as e:
             logger.error("Exception in check50: %s %s" %(type(e), str(e.args)))
-            chk513="Failed query KeyVault"
+            unkScore=['<font color="orange">UNKNOWN </font>',0]
+            chk="Failed query KeyVault"
+            return [chk,chk,chk,chk,chk,chk,chk,chk,chk,chk,chk,chk,chk,unkScore,unkScore,unkScore,unkScore,unkScore,unkScore,unkScore,unkScore,unkScore,unkScore,unkScore,unkScore,unkScore]
+            #chk513="Failed query KeyVault"
         return [chk51,chk52,chk53,chk54,chk55,chk56,chk57,chk58,chk59,chk510,chk511,chk512,chk513,score51,score52,score53,score54,score55,score56,score57,score58,score59,score510,score511,score512,score513]
     except Exception as e:
         logger.error("Exception in check50: %s %s" %(type(e), str(e.args)))
-        return ["Failed to query log profiles"]
+        unkScore=['<font color="orange">UNKNOWN </font>',0]
+        chk="Failed to query log profiles"
+        return [chk,chk,chk,chk,chk,chk,chk,chk,chk,chk,chk,chk,chk,unkScore,unkScore,unkScore,unkScore,unkScore,unkScore,unkScore,unkScore,unkScore,unkScore,unkScore,unkScore,unkScore] 
+        #return ["Failed to query log profiles"]

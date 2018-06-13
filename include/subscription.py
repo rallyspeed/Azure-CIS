@@ -20,6 +20,8 @@ def sub():
     try:
         querysub='az account list --query [*].[id,cloudName,name]'
         json_cis=query_az(querysub)
+        #with open('subtest.txt') as f:
+        #    json_cis = json.load(f)
         #iteration through Storage Account
         for i in range(len(json_cis)):
             subid.append(json_cis[i][0])

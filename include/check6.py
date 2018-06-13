@@ -63,13 +63,21 @@ def check62(subid):
         else:
             acl61="No NSG Configured"
             acl62="No NSG Configured"
+            totalvalue61 = 1
+            totalvalue62 = 1
+            passvalue61 = 1
+            passvalue62 = 1
         score61=[acl61,passvalue61,totalvalue61,passed61]
         score62=[acl62,passvalue62,totalvalue62,passed62]
         return [score61,score62]
     except Exception as e:
         logger.error("Exception in check62: %s %s" %(type(e), str(e.args)))
-        acl61="Failed to query for NSG or SSH/RDP not allowed "
-        acl62="Failed to query for NSG or SSH/RDP not allowed "
+        acl61="Failed to query for NSG or SSH/RDP not allowed"
+        acl62="Failed to query for NSG or SSH/RDP not allowed"
+        passed61='<font color="orange">UNKNOWN </font>'
+        passed62='<font color="orange">UNKNOWN </font>'
+        totalvalue61 = 1
+        totalvalue62 = 1
         score61=[acl61,passvalue61,totalvalue61,passed61]
         score62=[acl62,passvalue62,totalvalue62,passed62]
         return [score61,score62]
@@ -108,15 +116,20 @@ def check64(subid):
                 except Exception as e:
                     logger.error('Failed to query for network watcher flow-log ' + str(e))
                     st64="Failed to query for network watcher flow-log"
+                    totalvalue64 = 1
                     score64=[st64,passvalue64,totalvalue64,passed64]
                     return score64
         else:
             st64="No NSG Configured"
+            passvalue64 = 1
+            totalvalue64 = 1
         score64=[st64,passvalue64,totalvalue64,passed64]
         return score64
     except Exception as e:
         logger.error("Exception in check64: %s %s" %(type(e), str(e.args)))
         st64="Failed to query for NSG"
+        totalvalue64 = 1
+        passed64='<font color="orange">UNKNOWN </font>'
         score64=[st64,passvalue64,totalvalue64,passed64]
         return score64
 
@@ -146,5 +159,6 @@ def check65(subid):
     except Exception as e:
         logger.error("Exception in check65: %s %s" %(type(e), str(e.args)))
         st65="Failed to query for network watcher"
+        passed65='<font color="orange">UNKNOWN </font>'
         score65=[st65,numberegions,totalregions,passed65]
         return score65

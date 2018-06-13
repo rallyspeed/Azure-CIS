@@ -163,7 +163,11 @@ def check42(subid):
                 except Exception as e:
                     #failed="Failed to Query DB"
                     logger.error("Exception in check42: %s %s" %(type(e), str(e.args)))
-                    return ["Failed to Query DB"]
+                    unkScore='<font color="orange">UNKNOWN </font>'
+                    chk="Failed to Query DB"
+                    uscore=[chk,passvalue421,totalDBI42,unkScore]
+                    return [uscore,uscore,uscore,uscore,uscore,uscore,uscore,uscore]
+                    #return ["Failed to Query DB"]
             #Minus 1 to remove Master DB which comes by default
             #totalDBI42 = totalDBI42 -1
             score421=[chk421,passvalue421,totalDBI42,passed421]
@@ -176,7 +180,18 @@ def check42(subid):
             score428=[chk428,passvalue428,totalDBI42,passed428]
             return [score421,score422,score423,score424,score425,score426,score427,score428]
         else:
-            return ["N/A No SQL Servers Found"]
+            unkScore='<font color="green">Passed </font>'
+            chk="No SQL Servers Found"
+            totalDBI42 = 1
+            passvalue421 = 1
+            uscore=[chk,passvalue421,totalDBI42,unkScore]
+            return [uscore,uscore,uscore,uscore,uscore,uscore,uscore,uscore]
+            #return ["N/A No SQL Servers Found"]
     except Exception as e:
         logger.error("Exception in check42: %s %s" %(type(e), str(e.args)))
-        return ["Failed to Query Server"]
+        unkScore='<font color="orange">UNKNOWN</font> '
+        chk="Failed to Query Server"
+        totalDBI42 = 1
+        uscore=[chk,passvalue421,totalDBI42,unkScore]
+        return [uscore,uscore,uscore,uscore,uscore,uscore,uscore,uscore]
+        #return ["Failed to Query Server"]
