@@ -14,7 +14,7 @@ Azure CLI 2.0, python3
 ## To do
  - PowerShell Checks
  - Some CLI checks
- - Launch reports for all available subscriptions (instead of one at at time)
+ - Launch reports for all available subscriptions (instead of one at at time) --> Done
 
  
  ## Notes
