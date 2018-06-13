@@ -74,8 +74,9 @@ CLI/POWERSHELL COMMANDS NOT YET AVAILABLE
     content218="2.18 Ensure that 'Send me emails about alerts' is set to 'On'"
     content219="2.19 Ensure that 'Send email also to subscription owners' is set to 'On'"
 
+    result21=check2.check21()
     result22=check2.check22(subid)
-    content2_1 = '<h3 id="content21">'+start_list+content21+end_list+check2.check21()+'<h3 id="content22">'+start_list+content22+end_list+result22[0]+'<h3 id="content23">'+start_list+content23+end_list+result22[1]
+    content2_1 = '<h3 id="content21">'+start_list+content21+end_list+result21+'<h3 id="content22">'+start_list+content22+end_list+result22[0]+'<h3 id="content23">'+start_list+content23+end_list+result22[1]
     content2_2 = '<h3 id="content24">'+start_list+content24+end_list+result22[2]+'<h3 id="content25">'+start_list+content25+end_list+result22[3]+'<h3 id="content26">'+start_list+content26+end_list+result22[4]+'<h3 id="content27">'+start_list+content27+end_list+result22[5]+'<h3 id="content28">'+start_list+content28+end_list+result22[6]
     content2_3 = '<h3 id="content29">'+start_list+content29+end_list+result22[7]+'<h3 id="content210">'+start_list+content210+end_list+result22[8]+'<h3 id="content211">'+start_list+content211+end_list+result22[9]
     content2_4 = '<h3 id="content212">'+start_list+content212+end_list+result22[10]+'<h3 id="content213">'+start_list+content213+end_list+result22[11]+'<h3 id="content214">'+start_list+content214+end_list+result22[12]
@@ -274,12 +275,11 @@ th {
 ########################################################################################################################
 #Calculate % Passed, check 21 is ignored
 
-    if (len(result22)>0):
-        calc2=100*(result22[18][1]+result22[19][1]+result22[20][1]+result22[21][1]+result22[22][1]+result22[23][1]+result22[24][1]+result22[25][1]+result22[26][1]+result22[27][1]+result22[28][1]+result22[29][1]+result22[30][1]+result22[31][1]+result22[32][1]+result22[33][1]+result22[34][1]+result22[35][1])/18
-        
-        score2= round(calc2,2)
+    calc2=100*(result22[18][1]+result22[19][1]+result22[20][1]+result22[21][1]+result22[22][1]+result22[23][1]+result22[24][1]+result22[25][1]+result22[26][1]+result22[27][1]+result22[28][1]+result22[29][1]+result22[30][1]+result22[31][1]+result22[32][1]+result22[33][1]+result22[34][1]+result22[35][1])/18
+    
+    score2= round(calc2,2)
 
-        summary2 = """
+    summary2 = """
 <tr>
     <td><b>2 Security Center</b></td> 
     <td></td>
@@ -398,16 +398,6 @@ th {
     <td><a href="#content219">"""+content219+"""</a></td> 
     <td>"""+result22[35][0]+"""</td>
     <td>"""+str(100*result22[35][1])+"""%</td>
-    <td></td>
-</tr>
-"""
-    else:
-        score2=100
-        summary2 = """
-<tr>
-    <td><b>2 Security Center</b></td> 
-    <td>"""+result22[0]+"""</td>
-    <td><b>"""+str(score2)+"""%</b></td>
     <td></td>
 </tr>
 """
@@ -1010,7 +1000,7 @@ try:
     namelist = []
     available_subscriptions=[]
 
-    while menu_item !=(len(subs)):
+    while menu_item !=(len(subs[0])):
         print("--------------------")
         for i in range(0,len(subs[0])):
             print("%d. %s" % (i,subs[2][i]))
