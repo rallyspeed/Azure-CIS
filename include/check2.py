@@ -119,7 +119,12 @@ def check22(subid):
             return [chk22,chk23,chk24,chk25,chk26,chk27,chk28,chk29,chk210,chk211,chk212,chk213,chk214,chk215,chk216,chk217,chk218,chk219,score22,score23,score24,score25,score26,score27,score28,score29,score210,score211,score212,score213,score214,score215,score216,score217,score218,score219]
         except Exception as e:
             logger.error("Exception in check2: %s %s" %(type(e), str(e.args)))
-            return ["Failed to make API call"]
+            unkScore=['<font color="orange">UNKNOWN</font>',0]
+            chk="Failed to make API call"
+            return [chk,chk,chk,chk,chk,chk,chk,chk,chk,chk,chk,chk,chk,chk,chk,chk,chk,chk,unkScore,unkScore,unkScore,unkScore,unkScore,unkScore,unkScore,unkScore,unkScore,unkScore,unkScore,unkScore,unkScore,unkScore,unkScore,unkScore,unkScore,unkScore]
     except Exception as e:
         logger.error("Exception in check2: %s %s" %(type(e), str(e.args)))
-        return ["Failed to Query"]
+        unkScore=['<font color="orange">UNKNOWN</font>',0]
+        chk="Failed to Query"
+        return [chk,chk,chk,chk,chk,chk,chk,chk,chk,chk,chk,chk,chk,chk,chk,chk,chk,chk,unkScore,unkScore,unkScore,unkScore,unkScore,unkScore,unkScore,unkScore,unkScore,unkScore,unkScore,unkScore,unkScore,unkScore,unkScore,unkScore,unkScore,unkScore]
+
