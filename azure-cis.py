@@ -141,15 +141,14 @@ CLI/POWERSHELL COMMANDS NOT YET AVAILABLE
     content428="4.2.8 Ensure that 'Threat' Retention is 'greater than 90 days'"
 
     result42 = check4.check42(subid)
-    if (len(result42)>1):
-        content42_1 = '<h3 id="content421">'+start_list+content421+end_list+result42[0][0]+'<h3 id="content422">'+start_list+content422+end_list+result42[1][0]+'<h3 id="content423">'+start_list+content423+end_list+result42[2][0]
-        content42_2 = '<h3 id="content424">'+start_list+content424+end_list+result42[3][0]+'<h3 id="content425">'+start_list+content425+end_list+result42[4][0]+'<h3 id="content426">'+start_list+content426+end_list+result42[5][0]
-        content42_3 = '<h3 id="content427">'+start_list+content427+end_list+result42[6][0]+'<h3 id="content428">'+start_list+content428+end_list+result42[7][0]
-        content42 = content42_1+content42_2+content42_3
 
-        content4 = content4 + content41 + content42
-    else:
-        content4 = content4 + result42[0]
+    content42_1 = '<h3 id="content421">'+start_list+content421+end_list+result42[0][0]+'<h3 id="content422">'+start_list+content422+end_list+result42[1][0]+'<h3 id="content423">'+start_list+content423+end_list+result42[2][0]
+    content42_2 = '<h3 id="content424">'+start_list+content424+end_list+result42[3][0]+'<h3 id="content425">'+start_list+content425+end_list+result42[4][0]+'<h3 id="content426">'+start_list+content426+end_list+result42[5][0]
+    content42_3 = '<h3 id="content427">'+start_list+content427+end_list+result42[6][0]+'<h3 id="content428">'+start_list+content428+end_list+result42[7][0]
+    content42 = content42_1+content42_2+content42_3
+
+    content4 = content4 + content41 + content42
+
 
 ################ HTML 5.x ##############
     content5 = """
@@ -171,15 +170,14 @@ CLI/POWERSHELL COMMANDS NOT YET AVAILABLE
     content513="5.13 Ensure that logging for Azure KeyVault is 'Enabled'"
 
     result5=check5.check50(subid)
-    if (len(result5)>1):
-        content5_1 = '<h3 id="content51">'+start_list+content51+end_list+result5[0]+'<h3 id="content52">'+start_list+content52+end_list+result5[1]+'<h3 id="content53">'+start_list+content53+end_list+result5[2]
-        content5_2 = '<h3 id="content54">'+start_list+content54+end_list+result5[3]+'<h3 id="content55">'+start_list+content55+end_list+result5[4]+'<h3 id="content56">'+start_list+content56+end_list+result5[5]+'<h3 id="content57">'+start_list+content57+end_list+result5[6]+'<h3 id="content58">'+start_list+content58+end_list+result5[7]
-        content5_3 = '<h3 id="content59">'+start_list+content59+end_list+result5[8]+'<h3 id="content510">'+start_list+content510+end_list+result5[9]+'<h3 id="content511">'+start_list+content511+end_list+result5[10]
-        content5_4 = '<h3 id="content512">'+start_list+content512+end_list+result5[11]+'<h3 id="content513">'+start_list+content513+end_list+result5[12]
-        content50 = content5_1 + content5_2 + content5_3 + content5_4
-        content5 = content5 + content50
-    else:
-        content5 = content5 + result5[0]
+
+    content5_1 = '<h3 id="content51">'+start_list+content51+end_list+result5[0]+'<h3 id="content52">'+start_list+content52+end_list+result5[1]+'<h3 id="content53">'+start_list+content53+end_list+result5[2]
+    content5_2 = '<h3 id="content54">'+start_list+content54+end_list+result5[3]+'<h3 id="content55">'+start_list+content55+end_list+result5[4]+'<h3 id="content56">'+start_list+content56+end_list+result5[5]+'<h3 id="content57">'+start_list+content57+end_list+result5[6]+'<h3 id="content58">'+start_list+content58+end_list+result5[7]
+    content5_3 = '<h3 id="content59">'+start_list+content59+end_list+result5[8]+'<h3 id="content510">'+start_list+content510+end_list+result5[9]+'<h3 id="content511">'+start_list+content511+end_list+result5[10]
+    content5_4 = '<h3 id="content512">'+start_list+content512+end_list+result5[11]+'<h3 id="content513">'+start_list+content513+end_list+result5[12]
+    content50 = content5_1 + content5_2 + content5_3 + content5_4
+    content5 = content5 + content50
+
 ################ HTML 6.x ##############
     content6 = """
 <h2>CIS Azure 6.x</h2>
@@ -215,12 +213,11 @@ CLI/POWERSHELL COMMANDS NOT YET AVAILABLE
     content76="7.6 Ensure that the endpoint protection for all Virtual Machines is installed"
 
     result7=check7.check70(subid)
-    if (len(result7)>1):
-        content7_1 = '<h3 id="content71">'+start_list+content71+end_list+result7[0]+'<h3 id="content72">'+start_list+content72+end_list+result7[1]+'<h3 id="content73">'+start_list+content73+end_list+result7[2]
-        content7_2 = '<h3 id="content74">'+start_list+content74+end_list+result7[3]+'<h3 id="content75">'+start_list+content75+end_list+result7[4]+'<h3 id="content76">'+start_list+content76+end_list+result7[5]
-        content7=content7+content7_1+content7_2
-    else:
-        content7=content7+result7[0]
+
+    content7_1 = '<h3 id="content71">'+start_list+content71+end_list+result7[0]+'<h3 id="content72">'+start_list+content72+end_list+result7[1]+'<h3 id="content73">'+start_list+content73+end_list+result7[2]
+    content7_2 = '<h3 id="content74">'+start_list+content74+end_list+result7[3]+'<h3 id="content75">'+start_list+content75+end_list+result7[4]+'<h3 id="content76">'+start_list+content76+end_list+result7[5]
+    content7=content7+content7_1+content7_2
+
 
 ################ HTML 8.x ##############
     content8 = """
@@ -234,12 +231,10 @@ CLI/POWERSHELL COMMANDS NOT YET AVAILABLE
     
     result80=check8.check80()
     result83=check8.check83()
-    if (len(result80)>1):
-        content8 = content8+'<h3 id="content81">'+start_list+content81+end_list+result80[0][0]+'<h3 id="content82">'+start_list+content82+end_list+result80[1][0]+'<h3 id="content83">'+start_list+content83+end_list+result83
-    else:
-        content8 = content8+'<h3 id="content81">'+start_list+content81+end_list+result80[0]+'<h3 id="content82">'+start_list+content82+end_list+result80[0]+'<h3 id="content83">'+start_list+content83+end_list+result83
+    content8 = content8+'<h3 id="content81">'+start_list+content81+end_list+result80[0][0]+'<h3 id="content82">'+start_list+content82+end_list+result80[1][0]+'<h3 id="content83">'+start_list+content83+end_list+result83
     
-    print("Finished Queries, Finishing Report")
+    print("Finished Queries")
+    print("Generating Report")
 ############## Summary Table ##########
     summary1 = """
 <h1 id="Summary">1 - Score Summary</h1>
@@ -408,31 +403,11 @@ th {
 ########################################################################################################################
 #Calculate % Passed, 34 and 35 ignored
 
-    #If failed or query returned no value
-    if (result31[2]>0): 
-        perc31=round(100*result31[1]/result31[2],2)
-    else:
-        perc31=100
-    #If failed or query returned no value
-    if (result32[2]>0): 
-        perc32=round(100*result32[1]/result32[2],2)
-    else:
-        perc32=100
-    #If failed or query returned no value
-    if (result33[2]>0): 
-        perc33=round(100*result33[1]/result33[2],2)
-    else:
-        perc33=100
-    #If failed or query returned no value    
-    if (result36[2]>0): 
-        perc36=round(100*result36[1]/result36[2],2)
-    else:
-        perc36=100
-    #If failed or query returned no value 
-    if (result37[2]>0): 
-        perc37=round(100*result37[1]/result37[2],2)
-    else:
-        perc37=100
+    perc31=round(100*result31[1]/result31[2],2)
+    perc32=round(100*result32[1]/result32[2],2)
+    perc33=round(100*result33[1]/result33[2],2)
+    perc36=round(100*result36[1]/result36[2],2)
+    perc37=round(100*result37[1]/result37[2],2)
 
     calc3=(perc31+perc32+perc36+perc37)/4
     score3= round(calc3,2)
@@ -458,7 +433,7 @@ th {
 </tr>
 <tr>
     <td><a href="#content33">"""+content33+"""</a></td> 
-    <td>Not Scored</td>
+    <td>"""+result33[3]+str(result33[1])+"""/"""+str(result33[2])+"""</td>
     <td>Not Scored</td>
     <td></td>
 </tr>
@@ -564,26 +539,27 @@ th {
 </tr>
 """
 
-    if (len(result42)>1):
-        calc42=100*(result42[0][1]+result42[0][1]+result42[1][1]+result42[2][1]+result42[3][1]+result42[4][1]+result42[5][1]+result42[6][1]+result42[7][1])/8
+    #if (len(result42)>1):
+    calc42=100*(result42[0][1]+result42[0][1]+result42[1][1]+result42[2][1]+result42[3][1]+result42[4][1]+result42[5][1]+result42[6][1]+result42[7][1])/8
 
-        perc421=round(100*result42[0][1]/result42[0][2],2)
-        perc422=round(100*result42[1][1]/result42[1][2],2)
-        perc423=round(100*result42[2][1]/result42[2][2],2)
-        perc424=round(100*result42[3][1]/result42[3][2],2)
-        perc425=round(100*result42[4][1]/result42[4][2],2)
-        perc426=round(100*result42[5][1]/result42[5][2],2)
-        perc427=round(100*result42[6][1]/result42[6][2],2)
-        perc428=round(100*result42[7][1]/result42[7][2],2)
+    perc421=round(100*result42[0][1]/result42[0][2],2)
+    perc422=round(100*result42[1][1]/result42[1][2],2)
+    perc423=round(100*result42[2][1]/result42[2][2],2)
+    perc424=round(100*result42[3][1]/result42[3][2],2)
+    perc425=round(100*result42[4][1]/result42[4][2],2)
+    perc426=round(100*result42[5][1]/result42[5][2],2)
+    perc427=round(100*result42[6][1]/result42[6][2],2)
+    perc428=round(100*result42[7][1]/result42[7][2],2)
 
-        calc42=(perc421+perc422)/2
-        score42 = round(calc42,2)
-        score4= (score41+score42)/2
-        summary42 = """
+    calc42=(perc421+perc422)/2
+    score42 = round(calc42,2)
+    score4= (score41+score42)/2
+    summary42 = """
 <tr>
     <td><b>4.2 SQL Databases</b></td> 
     <td></td>
-    <td><b>"""+str(score4)+"""%</b></td> 
+    <td><b>"""+str(score4)+"""%</b></td>
+    <td></td>
 </tr>
 <tr>
     <td><a href="#content421">"""+content421+"""</a></td> 
@@ -634,15 +610,7 @@ th {
     <td>Turn on Advanced Threat Protection for all databases on this server, at the cost of 15 USD/server/month</td>
 </tr>
 """
-    else:
-        score42 = 100
-        summary42 = """
-<tr>
-    <td><b>4.2 SQL Databases</b></td> 
-    <td>"""+result42[0]+"""</td>
-    <td><b>"""+str(score42)+"""%</b></td> 
-</tr>
-""" 
+
     score4= (score41+score42)/2
     summary4 = """
 <tr>
@@ -658,11 +626,11 @@ th {
 ############################################################ Summary 5 #################################################
 ########################################################################################################################
 #Calculate % Passed, 51 and 52 ignored
-    if (len(result5)>1):
-        calc5=100*(result5[13][1]+result5[14][1]+result5[15][1]+result5[16][1]+result5[17][1]+result5[18][1]+result5[19][1]+result5[20][1]+result5[21][1]+result5[22][1]+result5[23][1]+result5[24][1]+result5[22][1])/13
-        score5= round(calc5,2)
 
-        summary5 = """
+    calc5=100*(result5[13][1]+result5[14][1]+result5[15][1]+result5[16][1]+result5[17][1]+result5[18][1]+result5[19][1]+result5[20][1]+result5[21][1]+result5[22][1]+result5[23][1]+result5[24][1]+result5[22][1])/13
+    score5= round(calc5,2)
+
+    summary5 = """
 <tr>
     <td><b>5 Logging and Monitoring</b></td> 
     <td></td>
@@ -748,15 +716,7 @@ th {
     <td></td>
 </tr>
 """
-    else:
-        summary5 = """
-<tr>
-    <td><b>5 Logging and Monitoring</b></td> 
-    <td></td>
-    <td><b>"""+result5[0]+"""%</b></td>
-    <td></td>
-</tr>
-"""
+
     print("Finished Summary 5")
 
 ########################################################################################################################
@@ -764,21 +724,11 @@ th {
 ########################################################################################################################
 #Calculate % Passed, ignored 6.3
 
-    #If failed or query returned no value
-    if (result62[0][2]>0 and result62[1][2]>0): 
-        perc61=round(100*result62[0][1]/result62[0][2],2)
-        perc62=round(100*result62[1][1]/result62[1][2],2)
-    else:
-        perc61=100
-        perc62=100
-    if (result64[2]>0):
-        perc64=round(100*result64[1]/result64[2],2)
-    else:
-        perc64=100
-    if (result65[2]>0):
-        perc65=round(100*result65[1]/result65[2],2)
-    else:
-        perc65=100
+
+    perc61=round(100*result62[0][1]/result62[0][2],2)
+    perc62=round(100*result62[1][1]/result62[1][2],2)
+    perc64=round(100*result64[1]/result64[2],2)
+    perc65=round(100*result65[1]/result65[2],2)
 
     calc6=(perc61+perc62+perc64+perc65)/4
     score6= round(calc6,2)
@@ -827,15 +777,15 @@ th {
 ############################################################ Summary 7 #################################################
 ########################################################################################################################
 #Calculate % Passed. 74,75 Not scored
-    if (len(result7)>1): 
-        perc76=round(100*result7[11][0]/result7[11][1],2)
-        perc73=round(100*result7[8][0]/result7[8][1],2)
-        perc72=round(100*result7[7][0]/result7[7][1],2)
-        perc71=round(100*result7[6][0]/result7[6][1],2)
 
-        calc7=(perc71+perc72+perc73+perc76)/4
-        score7= round(calc7,2)
-        summary7 = """
+    perc76=round(100*result7[11][0]/result7[11][1],2)
+    perc73=round(100*result7[8][0]/result7[8][1],2)
+    perc72=round(100*result7[7][0]/result7[7][1],2)
+    perc71=round(100*result7[6][0]/result7[6][1],2)
+
+    calc7=(perc71+perc72+perc73+perc76)/4
+    score7= round(calc7,2)
+    summary7 = """
 <tr>
     <td><b>7 Virtual Machines</b></td> 
     <td></td>
@@ -879,29 +829,19 @@ th {
     <td></td>
 </tr>
 """
-    else:
-        score7=100
-        summary7 = """
-<tr>
-    <td><b>7 Virtual Machines</b></td> 
-    <td>"""+result7[0]+"""</td>
-    <td><b>"""+str(score7)+"""%</b></td>
-    <td></td>
-</tr>
-"""
+
     print("Finished Summary 7")
 ########################################################################################################################
 ############################################################ Summary 8 #################################################
 ########################################################################################################################
 #Calculate % Passed. 83 Not scored
 
-    if (len(result80)>1):
-        perc81=round(100*result80[0][1]/result80[0][2],2)
-        perc82=round(100*result80[1][1]/result80[1][2],2)
+    perc81=round(100*result80[0][1]/result80[0][2],2)
+    perc82=round(100*result80[1][1]/result80[1][2],2)
 
-        calc8=(perc81+perc82)/2
-        score8= round(calc8,2)
-        summary8 = """
+    calc8=(perc81+perc82)/2
+    score8= round(calc8,2)
+    summary8 = """
 <tr>
     <td><b>8 Other Security Considerations</b></td> 
     <td></td>
@@ -927,34 +867,7 @@ th {
     <td></td>
 </tr>
 """
-    else:
-        score8=100
-        summary8 = """
-<tr>
-    <td><b>8 Other Security Considerations</b></td> 
-    <td></td>
-    <td><b>"""+str(score8)+"""%</b></td>
-    <td></td>
-</tr>
-<tr>
-    <td><a href="#content81">"""+content81+"""</a></td> 
-    <td>"""+result80[0]+"""</td>
-    <td>100%</td>
-    <td></td>
-</tr>
-<tr>
-    <td><a href="#content82">"""+content82+"""</a></td> 
-    <td>"""+result80[0]+"""</td>
-    <td>100%</td>
-    <td></td>
-</tr>
-<tr>
-    <td><a href="#content83">"""+content83+"""</a></td> 
-    <td>Not Scored</td>
-    <td>Not Scored</td>
-    <td></td>
-</tr>
-"""
+
     print("Finished Summary 8")
 ########################################################################################################################
 ############################################################ Total  ####################################################
