@@ -423,36 +423,26 @@ th {
         perc31=round(100*result31[1]/result31[2],2)
     else:
         perc31=100
-        #result31=["",0,0,result31[0]]
-    print(result31)
     #If failed or query returned no value
     if (result32[2]>0): 
         perc32=round(100*result32[1]/result32[2],2)
     else:
         perc32=100
-    print(result32)
-        #result32=["",0,0,result32[0]]
     #If failed or query returned no value
     if (result33[2]>0): 
         perc33=round(100*result33[1]/result33[2],2)
     else:
         perc33=100
-        #result33=["",0,0,result33[0]]
-    print(result33)
     #If failed or query returned no value    
     if (result36[2]>0): 
         perc36=round(100*result36[1]/result36[2],2)
     else:
         perc36=100
-        #result36=["",0,0,result36[0]]
-    print(result36)
     #If failed or query returned no value 
     if (result37[2]>0): 
         perc37=round(100*result37[1]/result37[2],2)
     else:
         perc37=100
-        #result37=["",0,0,result37[0]]
-    print(result37)   
 
     calc3=(perc31+perc32+perc36+perc37)/4
     score3= round(calc3,2)
@@ -802,10 +792,6 @@ th {
 
     calc6=(perc61+perc62+perc64+perc65)/4
     score6= round(calc6,2)
-
-    print(result62)
-    print(result64)
-    print(result65)
 
     summary6 = """
 <tr>
