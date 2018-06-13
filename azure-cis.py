@@ -273,10 +273,13 @@ th {
 ############################################################ Summary 2 #################################################
 ########################################################################################################################
 #Calculate % Passed, check 21 is ignored
-    calc2=100*(result22[18][1]+result22[19][1]+result22[20][1]+result22[21][1]+result22[22][1]+result22[23][1]+result22[24][1]+result22[25][1]+result22[26][1]+result22[27][1]+result22[28][1]+result22[29][1]+result22[30][1]+result22[31][1]+result22[32][1]+result22[33][1]+result22[34][1]+result22[35][1])/18
-    score2= round(calc2,2)
 
-    summary2 = """
+    if (len(result22)>0):
+        calc2=100*(result22[18][1]+result22[19][1]+result22[20][1]+result22[21][1]+result22[22][1]+result22[23][1]+result22[24][1]+result22[25][1]+result22[26][1]+result22[27][1]+result22[28][1]+result22[29][1]+result22[30][1]+result22[31][1]+result22[32][1]+result22[33][1]+result22[34][1]+result22[35][1])/18
+        
+        score2= round(calc2,2)
+
+        summary2 = """
 <tr>
     <td><b>2 Security Center</b></td> 
     <td></td>
@@ -298,7 +301,7 @@ th {
 <tr>
     <td><a href="#content23">"""+content23+"""</a></td> 
     <td>"""+result22[19][0]+"""</td>
-	<td>"""+str(100*result22[19][1])+"""%</td>
+    <td>"""+str(100*result22[19][1])+"""%</td>
     <td></td>
 </tr>
 <tr>
@@ -398,6 +401,16 @@ th {
     <td></td>
 </tr>
 """
+    else:
+        score2=100
+        summary2 = """
+<tr>
+    <td><b>2 Security Center</b></td> 
+    <td>"""+result22[0]+"""</td>
+    <td><b>"""+str(score2)+"""%</b></td>
+    <td></td>
+</tr>
+"""
     print("Finished Summary 2")
 
 ########################################################################################################################
@@ -405,36 +418,44 @@ th {
 ########################################################################################################################
 #Calculate % Passed, 34 and 35 ignored
 
-    if (len(result31)>1 and result31[2]>0): 
+    #If failed or query returned no value
+    if (result31[2]>0): 
         perc31=round(100*result31[1]/result31[2],2)
     else:
         perc31=100
-        result31=["",0,0,result31[0]]
-    if (len(result32)>1 and result32[2]>0): 
+        #result31=["",0,0,result31[0]]
+    print(result31)
+    #If failed or query returned no value
+    if (result32[2]>0): 
         perc32=round(100*result32[1]/result32[2],2)
     else:
         perc32=100
-        result32=["",0,0,result32[0]]
-    if (len(result33)>1 and result33[2]>0): 
+    print(result32)
+        #result32=["",0,0,result32[0]]
+    #If failed or query returned no value
+    if (result33[2]>0): 
         perc33=round(100*result33[1]/result33[2],2)
     else:
         perc33=100
-        result33=["",0,0,result33[0]]
-    if (len(result36)>1 and result36[2]>0): 
+        #result33=["",0,0,result33[0]]
+    print(result33)
+    #If failed or query returned no value    
+    if (result36[2]>0): 
         perc36=round(100*result36[1]/result36[2],2)
     else:
         perc36=100
-        result36=["",0,0,result36[0]]
-    if (len(result37)>1 and result37[2]>0): 
+        #result36=["",0,0,result36[0]]
+    print(result36)
+    #If failed or query returned no value 
+    if (result37[2]>0): 
         perc37=round(100*result37[1]/result37[2],2)
     else:
         perc37=100
-        result37=["",0,0,result37[0]]   
+        #result37=["",0,0,result37[0]]
+    print(result37)   
 
     calc3=(perc31+perc32+perc36+perc37)/4
     score3= round(calc3,2)
-
-    print("html summary 3")
 
     summary3 = """
 <tr>
@@ -763,23 +784,28 @@ th {
 ########################################################################################################################
 #Calculate % Passed, ignored 6.3
 
-    if (len(result62)>1 and result62[0][2]>0 and result62[1][2]>0): 
+    #If failed or query returned no value
+    if (result62[0][2]>0 and result62[1][2]>0): 
         perc61=round(100*result62[0][1]/result62[0][2],2)
         perc62=round(100*result62[1][1]/result62[1][2],2)
     else:
         perc61=100
         perc62=100
-    if (len(result64)>1 and result64[2]>0):
+    if (result64[2]>0):
         perc64=round(100*result64[1]/result64[2],2)
     else:
         perc64=100
-    if (len(result65)>1 and result65[2]>0):
+    if (result65[2]>0):
         perc65=round(100*result65[1]/result65[2],2)
     else:
         perc65=100
 
     calc6=(perc61+perc62+perc64+perc65)/4
     score6= round(calc6,2)
+
+    print(result62)
+    print(result64)
+    print(result65)
 
     summary6 = """
 <tr>
@@ -882,8 +908,8 @@ th {
         summary7 = """
 <tr>
     <td><b>7 Virtual Machines</b></td> 
-    <td></td>
-    <td><b>"""+result7[0]+"""%</b></td>
+    <td>"""+result7[0]+"""</td>
+    <td><b>"""+str(score7)+"""%</b></td>
     <td></td>
 </tr>
 """

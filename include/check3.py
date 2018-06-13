@@ -22,20 +22,25 @@ def check31():
     try:
         query31='az storage account list --query [*].[name,enableHttpsTrafficOnly]'
         json_cis=query_az(query31)
-     #iteration through Storage Account
-        for i in range(len(json_cis)):
-            st31=st31+('Storage Account: <b>%s</b> status: <font color="blue"><b>%s</b></font><br>\n' % (json_cis[i][0],json_cis[i][1]))
-            if (json_cis[i][1] is True):
-                passvalue31=passvalue31+1
-                passed31='<font color="red">Passed </font>'
-            else:
-                passed31='<font color="red">Failed </font>'  
-            totalvalue31 = totalvalue31+1
+        if (len(json_cis)>0):
+            #iteration through Storage Account
+            for i in range(len(json_cis)):
+                st31=st31+('Storage Account: <b>%s</b> status: <font color="blue"><b>%s</b></font><br>\n' % (json_cis[i][0],json_cis[i][1]))
+                if (json_cis[i][1] is True):
+                    passvalue31=passvalue31+1
+                    passed31='<font color="red">Passed </font>'
+                else:
+                    passed31='<font color="red">Failed </font>'  
+                totalvalue31 = totalvalue31+1
+        else:
+            st31="No Storage account found"
         score31=[st31,passvalue31,totalvalue31,passed31]
         return score31
     except Exception as e:
-        logger.error('Failed to Query Storage Accounts' + str(e))
-        return ["Failed to Query Storage Accounts "]
+        logger.error("Exception in check31: %s %s" %(type(e), str(e.args)))
+        st31="Failed to Query Storage Accounts"
+        score31=[st31,passvalue31,totalvalue31,passed31]
+        return score31
 		
 def check32():
     print("Processing 32...")
@@ -47,20 +52,25 @@ def check32():
     try:
         query32='az storage account list --query [*].[name,encryption.services.blob.enabled]'
         json_cis=query_az(query32)
-        #iteration through Storage Account
-        for i in range(len(json_cis)):
-            st32=st32+('Storage Account: <b>%s</b> status: <font color="blue"><b>%s</b></font><br>\n' % (json_cis[i][0],json_cis[i][1]))
-            if (json_cis[i][1] is True):
-                passvalue32=passvalue32+1
-                passed32='<font color="green">Passed </font>'
-            else:
-                passed32='<font color="red">Failed </font>'  
-            totalvalue32 = totalvalue32+1
+        if (len(json_cis)>0):
+            #iteration through Storage Account
+            for i in range(len(json_cis)):
+                st32=st32+('Storage Account: <b>%s</b> status: <font color="blue"><b>%s</b></font><br>\n' % (json_cis[i][0],json_cis[i][1]))
+                if (json_cis[i][1] is True):
+                    passvalue32=passvalue32+1
+                    passed32='<font color="green">Passed </font>'
+                else:
+                    passed32='<font color="red">Failed </font>'  
+                totalvalue32 = totalvalue32+1
+        else:
+            st32="No Storage account found"
         score32=[st32,passvalue32,totalvalue32,passed32]
         return score32
     except Exception as e:
-        logger.error('Failed to Query Storage Accounts' + str(e))
-        return ["Failed to Query Storage Accounts "]
+        logger.error("Exception in check32: %s %s" %(type(e), str(e.args)))
+        st32="Failed to Query Storage Accounts"
+        score32=[st32,passvalue32,totalvalue32,passed32]
+        return score32
 		
 def check33():
     print("Processing 33... (Looking through logs for the past 90days")
@@ -107,14 +117,16 @@ def check33():
                     totalvalue33 = totalvalue33+1
                     st33=st33+st331
                 else:
-                    return ["No Event logs for the period in storage %s within RG: %s" % (StorageName,RG)]
+                    st33=("No Event logs for the period in storage %s within RG: %s" % (StorageName,RG))
             except Exception as e:
-                logger.error('Failing event logs iteration' + str(e))
+                logger.error("Exception in check33: %s %s" %(type(e), str(e.args)))
         score33=[st33,passvalue33,totalvalue33,passed33]
         return score33
     except Exception as e:
-        logger.error('Failed to Query Storage Accounts' + str(e))
-        return ["Failed to Query Storage Accounts "]
+        logger.error("Exception in check33: %s %s" %(type(e), str(e.args)))
+        st33="Failed to Query Storage Accounts"
+        score33=[st33,passvalue33,totalvalue33,passed33]
+        return score33
 
 
 def check34():
@@ -148,8 +160,10 @@ def check36():
         score36=[st36,passvalue36,totalvalue36,passed36]
         return score36
     except Exception as e:
-        logger.error('Failed to Query Storage Accounts' + str(e))
-        return ["Failed to Query Storage Accounts "]
+        logger.error("Exception in check36: %s %s" %(type(e), str(e.args)))
+        st36="Failed to Query Storage Accounts"
+        score36=[st36,passvalue36,totalvalue36,passed36]
+        return score36
 
 def check37():
     print("Processing 37...")
@@ -186,13 +200,19 @@ def check37():
                                 passed37='<font color="red">Failed </font>' 
                             totalvalue37 = totalvalue37+1
                 except Exception as e:
-                    logger.error('Failing iteration through containers ' + str(e))
-                    return ["Failed iteration through containers"]
+                    logger.error("Exception in check37: %s %s" %(type(e), str(e.args)))
+                    st37="Failed iteration through containers"
+                    score37=[st37,passvalue37,totalvalue37,passed37]
+                    return score37
             except Exception as e:
-                logger.error('Failing iteration through storage account ' + str(e))
-                return ["Failed iteration through storage account "]
+                logger.error("Exception in check37: %s %s" %(type(e), str(e.args)))
+                st37="Failed iteration through storage account"
+                score37=[st37,passvalue37,totalvalue37,passed37]
+                return score37
         score37=[st37,passvalue37,totalvalue37,passed37]
         return score37
     except Exception as e:
-        logger.error('Failed to Query Storage Accounts ' + str(e))
-        return ["Failed to Query Storage Accounts "]
+        logger.error("Exception in check37: %s %s" %(type(e), str(e.args)))
+        st37="Failed to Query Storage Accounts"
+        score37=[st37,passvalue37,totalvalue37,passed37]
+        return score37

@@ -162,7 +162,7 @@ def check42(subid):
                             totalDBI42 = totalDBI42+1
                 except Exception as e:
                     #failed="Failed to Query DB"
-                    logger.error('Failing ' + str(e))
+                    logger.error("Exception in check42: %s %s" %(type(e), str(e.args)))
                     return ["Failed to Query DB"]
             #Minus 1 to remove Master DB which comes by default
             #totalDBI42 = totalDBI42 -1
@@ -178,5 +178,5 @@ def check42(subid):
         else:
             return ["N/A No SQL Servers Found"]
     except Exception as e:
-        logger.error('Failing ' + str(e))
+        logger.error("Exception in check42: %s %s" %(type(e), str(e.args)))
         return ["Failed to Query Server"]

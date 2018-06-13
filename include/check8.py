@@ -51,12 +51,12 @@ def check80():
                 score82=[chk82,passvalue82,totalvalue82,passed82]
                 return [score81,score82]     
             except Exception as e:
-                logger.error('Failed to iterate through keyvault for VM ' + str(e))
+                logger.error("Exception in check80: %s %s" %(type(e), str(e.args)))
                 return ["Failed to iterate through keyvault for VM"]
         else:
             return ["No KeyVault Configured"]
     except Exception as e:
-        logger.error('Failed to query keyvault' + str(e))
+        logger.error("Exception in check80: %s %s" %(type(e), str(e.args)))
         return ["Failed to query keyvault"]
 
 def check83():
@@ -73,5 +73,5 @@ def check83():
             chk83="No Lock configured"
         return chk83
     except Exception as e:
-        logger.error('Failed to query lock ' + str(e))
+        logger.error("Exception in check83: %s %s" %(type(e), str(e.args)))
         return "Failed to query lock"

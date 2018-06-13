@@ -107,9 +107,9 @@ def check50(subid):
                 else:
                     chk513=chk513+('Keyvault <b>%s</b> Audit event disabled' % (json_cis513[j][0]))
         except Exception as e:
-            logger.error('Failed query KeyVault ' + str(e))
+            logger.error("Exception in check50: %s %s" %(type(e), str(e.args)))
             chk513="Failed query KeyVault"
         return [chk51,chk52,chk53,chk54,chk55,chk56,chk57,chk58,chk59,chk510,chk511,chk512,chk513,score51,score52,score53,score54,score55,score56,score57,score58,score59,score510,score511,score512,score513]
     except Exception as e:
-        logger.error('Failed to query log profiles ' + str(e))
-        return "Failed to query log profiles"
+        logger.error("Exception in check50: %s %s" %(type(e), str(e.args)))
+        return ["Failed to query log profiles"]

@@ -97,5 +97,5 @@ def check70(subid):
         else:
             return ["No VM Found"]
     except Exception as e:
-        logger.error('Failed to query for VM ' + str(e))
-        return "Failed to query for VM"
+        logger.error("Exception in check62: %s %s" %(type(e), str(e.args)))
+        return ["Failed to query for VM"]

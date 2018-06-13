@@ -67,7 +67,7 @@ def check62(subid):
         score62=[acl62,passvalue62,totalvalue62,passed62]
         return [score61,score62]
     except Exception as e:
-        logger.error('Failed to query for NSG ' + str(e))
+        logger.error("Exception in check62: %s %s" %(type(e), str(e.args)))
         acl61="Failed to query for NSG or SSH/RDP not allowed "
         acl62="Failed to query for NSG or SSH/RDP not allowed "
         score61=[acl61,passvalue61,totalvalue61,passed61]
@@ -115,7 +115,7 @@ def check64(subid):
         score64=[st64,passvalue64,totalvalue64,passed64]
         return score64
     except Exception as e:
-        logger.error('Failed to query NSG ' + str(e))
+        logger.error("Exception in check64: %s %s" %(type(e), str(e.args)))
         st64="Failed to query for NSG"
         score64=[st64,passvalue64,totalvalue64,passed64]
         return score64
@@ -144,7 +144,7 @@ def check65(subid):
         score65=[st65,numberegions,totalregions,passed65]
         return score65
     except Exception as e:
-        logger.error('Failed to query for network watcher ' + str(e))
+        logger.error("Exception in check65: %s %s" %(type(e), str(e.args)))
         st65="Failed to query for network watcher"
         score65=[st65,numberegions,totalregions,passed65]
         return score65
