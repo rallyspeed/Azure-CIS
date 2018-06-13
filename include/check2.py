@@ -117,7 +117,7 @@ def check22(subid):
             chk218=('Current Setting: <font color="blue"> %s</b></font>' % value218)
             chk219=('Current Setting: <font color="blue"> %s</b></font>' % value219)
             return [chk22,chk23,chk24,chk25,chk26,chk27,chk28,chk29,chk210,chk211,chk212,chk213,chk214,chk215,chk216,chk217,chk218,chk219,score22,score23,score24,score25,score26,score27,score28,score29,score210,score211,score212,score213,score214,score215,score216,score217,score218,score219]
-        except:
+        except Exception as e:
             logger.error("Exception in check2: %s %s" %(type(e), str(e.args)))
             return ["Failed to make API call"]
     except Exception as e:
