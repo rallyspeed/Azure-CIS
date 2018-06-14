@@ -7,9 +7,42 @@ import sys
 import datetime
 import os
 from include import check1,check2,check3,check4,check5,check6,check7,check8,subscription
+from html.parser import HTMLParser
+
+
+################ CSV EXPORT HELPERS ###################
+# Use HTML Parser
+class MLStripper(HTMLParser):
+    def __init__(self):
+        self.reset()
+        self.strict = False
+        self.convert_charrefs= True
+        self.fed = []
+    def handle_data(self, d):
+        self.fed.append(d)
+    def get_data(self):
+        return ''.join(self.fed)
+
+# Strip HTML tags
+def strip_tags(html):
+    s = MLStripper()
+    s.feed(html)
+    return s.get_data()
+
+# Process a CSV Column: strip HTML tags, wrap with double-quotes, replace double-quotes with single-quotes, replace line breaks with newline
+def c(text):
+    #return '"'+ str(text).strip().replace("<br>", "\n").replace("<b>","'").replace("</b>","'").replace('"',"'") + '",'
+    return '"'+ str(text).strip().replace("<br>", "\n").replace('"',"'") + '",'
+
+# Process a CSV Row: Add Subscription name column, add newline
+subname=""
+def r(text):
+    return '"' + subname + '",' + text + "\n"
 
 ################ HTML HEADER ###################
 def generate_report(subid,name,cloudname):
+    global subname
+    subname=name
 
     html_start = """
 <html>
@@ -39,7 +72,23 @@ CLI/POWERSHELL COMMANDS NOT YET AVAILABLE
     content14="1.4 Ensure that 'Allow users to remember multi-factor authentication on devices they trust' is 'Disabled'"
     content15="1.5 Ensure that 'Number of methods required to reset' is set to '2'"
     content16="1.6 Ensure that 'Number of days before users are asked to re-confirm their authentication information' is not set to '0"
-    content17=""
+    content17="1.7 Ensure that 'Notify users on password resets?' is set to 'Yes'"
+    content18="1.8 Ensure that 'Notify all admins when other admins reset their password?' is set to 'Yes'"
+    content19="1.9 Ensure that 'Users can consent to apps accessing company data on their behalf' is set to 'No'"
+    content110="1.10 Ensure that 'Users can add gallery apps to their Access Panel' is set to 'No'"
+    content111="1.11 Ensure that 'Users can register applications' is set to 'No'"
+    content112="1.12 Ensure that 'Guest users permissions are limited' is set to 'Yes'"
+    content113="1.13 Ensure that 'Members can invite' is set to 'No'"
+    content114="1.14 Ensure that 'Guests can invite' is set to 'No'"
+    content115="1.15 Ensure that 'Restrict access to Azure AD administration portal' is set to 'Yes'"
+    content116="1.16 Ensure that 'Self-service group management enabled' is set to 'No'"
+    content117="1.17 Ensure that 'Users can create security groups' is set to 'No'"
+    content118="1.18 Ensure that 'Users who can manage security groups' is set to 'None'"
+    content119="1.19 Ensure that 'Users can create Office 365 groups' is set to 'No'"
+    content120="1.20 Ensure that 'Users who can manage Office 365 groups' is set to 'None'"
+    content121="1.21 Ensure that 'Enable 'All Users' group' is set to 'Yes'"
+    content122="1.22 Ensure that 'Require Multi-Factor Auth to join devices' is set to 'Yes'"
+    content123="1.23 Ensure that no custom subscription owner roles are created"
 
     #result11=check1.check11()
     #result12=check1.check12()
@@ -872,8 +921,8 @@ th {
 ########################################################################################################################
 ############################################################ Total  ####################################################
 ########################################################################################################################
-#Exclude check1
-    #calcfinal=(score6+score7+score8)/3
+
+
     calcfinal=(score2+score3+score4+score5+score6+score7+score8)/7
     finalscore=round(calcfinal,2)
     total = """
@@ -890,7 +939,6 @@ th {
 <h1 id="Details">2 - Detailed</h1>
 """ + content1+"</ul>"+content2+"</ul>"+content3+"</ul>"+content4+"</ul>"+content5+"</ul>"+content6+"</ul>"+content7+"</ul>"+content8
 
-
     html_summary=summary1+summary2+summary3+summary4+summary5+summary6+summary7+summary8+total
 #### Create the HTML File #####
     
@@ -903,6 +951,66 @@ th {
         cis_result.write(html_end)
     print("Report %s was Created" % reportname)
 
+
+    ################ CSV EXPORT ###################
+    sep = ","
+    csv_content_hdr = '"SUBSCRIPTION","CHECK","RESULT","DETAILS"\n'
+    csv_content2_1  = r(c(content22)+c(result22[18][0])+c(result22[0]))   +r(c(content23)+c(result22[19][0])+c(result22[1]))
+    csv_content2_2  = r(c(content24)+c(result22[20][0])+c(result22[2]))   +r(c(content25)+c(result22[21][0])+c(result22[3]))     +r(c(content26)+c(result22[22][0])+c(result22[4])) + \
+                      r(c(content27)+c(result22[23][0])+c(result22[5]))   +r(c(content28)+c(result22[24][0])+c(result22[6]))
+    csv_content2_3  = r(c(content29)+c(result22[25][0])+c(result22[7]))   +r(c(content210)+c(result22[26][0])+c(result22[8]))    +r(c(content211)+c(result22[27][0])+c(result22[9]))
+    csv_content2_4  = r(c(content212)+c(result22[28][0])+c(result22[10])) +r(c(content213)+c(result22[29][0])+c(result22[11]))   +r(c(content214)+c(result22[30][0])+c(result22[12]))
+    csv_content2_5  = r(c(content215)+c(result22[31][0])+c(result22[13])) +r(c(content216)+c(result22[32][0])+c(result22[14]))   +r(c(content217)+c(result22[33][0])+c(result22[15]))
+    csv_content2_6  = r(c(content218)+c(result22[34][0])+c(result22[16])) +r(c(content219)+c(result22[35][0])+c(result22[17]))
+    csv_content3_1  = r(c(content31)+c(result31[3]+str(result31[1])+"""/"""+str(result31[2]))+c(result31[0]))
+    csv_content3_2  = r(c(content32)+c(result32[3]+str(result32[1])+"""/"""+str(result32[2]))+c(result32[0]))
+    csv_content3_3  = r(c(content33)+c(result33[3]+str(result33[1])+"""/"""+str(result33[2]))+c(result33[0]))
+    csv_content3_4  = r(c(content34)+c("")+c(result34))                   +r(c(content35)+c("")+c(result35))                     +r(c(content36)+c(result36[3]+str(result36[1])+"""/"""+str(result36[2]))+c(result36[0])) + \
+                      r(c(content37)+c(result37[3]+str(result37[1])+"""/"""+str(result37[2]))+c(result37[0]))
+    csv_content41_1 = r(c(content411))
+    csv_content41_2 = r(c(content414))
+    csv_content42_1 = r(c(content421)+c(result42[0][3]+str(result42[0][1])+"""/"""+str(result42[0][2]))+c(result42[0][0]))       +r(c(content422)+c(result42[1][3]+str(result42[1][1])+"""/"""+str(result42[1][2]))+c(result42[1][0])) + \
+                      r(c(content423)+c(result42[2][3]+str(result42[2][1])+"""/"""+str(result42[2][2]))+c(result42[2][0]))
+    csv_content42_2 = r(c(content424)+c(result42[3][3]+str(result42[3][1])+"""/"""+str(result42[3][2]))+c(result42[3][0]))       +r(c(content425)+c(result42[4][3]+str(result42[4][1])+"""/"""+str(result42[4][2]))+c(result42[4][0])) + \
+                      r(c(content426)+c(result42[5][3]+str(result42[5][1])+"""/"""+str(result42[5][2]))+c(result42[5][0]))
+    csv_content42_3 = r(c(content427)+c(result42[6][3]+str(result42[6][1])+"""/"""+str(result42[6][2]))+c(result42[6][0]))       +r(c(content428)+c(result42[7][3]+str(result42[7][1])+"""/"""+str(result42[7][2]))+c(result42[7][0]))
+    csv_content5_1  = r(c(content51)+c(result5[13][0])+c(result5[0]))     +r(c(content52)+c(result5[14][0])+c(result5[1]))       +r(c(content53)+c(result5[15][0])+c(result5[2]))
+    csv_content5_2  = r(c(content54)+c(result5[16][0])+c(result5[3]))     +r(c(content55)+c(result5[17][0])+c(result5[4]))       +r(c(content56)+c(result5[18][0])+c(result5[5]))       +r(c(content57)+c(result5[19][0])+c(result5[6])) + \
+                      r(c(content58)+c(result5[20][0])+c(result5[7]))
+    csv_content5_3  = r(c(content59)+c(result5[21][0])+c(result5[8]))     +r(c(content510)+c(result5[22][0])+c(result5[9]))      +r(c(content511)+c(result5[23][0])+c(result5[10]))
+    csv_content5_4  = r(c(content512)+c(result5[24][0])+c(result5[11]))   +r(c(content513)+c(result5[25][0])+c(result5[12]))
+    csv_content6_1  = r(c(content61)+c(result62[0][3]+str(result62[0][1])+"""/"""+str(result62[0][2]))+c(result62[0][0]))        +r(c(content62)+c(result62[1][3]+str(result62[1][1])+"""/"""+str(result62[1][2]))+c(result62[1][0])) + \
+                      r(c(content63)+c("")+c(result63[0]))
+    csv_content6_2  = r(c(content64)+c(result64[3]+str(result64[1])+"""/"""+str(result64[2]))+c(result64[0]))
+    csv_content6_3  = r(c(content65)+c(result65[3]+str(result65[1])+"""/"""+str(result65[2]))+c(result65[0]))
+    csv_content7_1  = r(c(content71)+c(result7[6][2]+str(result7[6][0])+"""/"""+str(result7[6][1]))+c(result7[0]))               +r(c(content72)+c(result7[7][2]+str(result7[7][0])+"""/"""+str(result7[7][1]))+c(result7[1])) + \
+                      r(c(content73)+c(result7[8][2]+str(result7[8][0])+"""/"""+str(result7[8][1]))+c(result7[2]))
+    csv_content7_2  = r(c(content74)+c("")+c(result7[3]))                 +r(c(content75)+c("")+c(result7[4]))                   +r(c(content76)+c(result7[11][2]+str(result7[11][0])+"""/"""+str(result7[11][1]))+c(result7[5]))
+
+    csv_content41   = csv_content41_1 + csv_content41_2
+    csv_content42   = csv_content42_1 + csv_content42_2 + csv_content42_3
+    csv_content50   = csv_content5_1  + csv_content5_2  + csv_content5_3  + csv_content5_4
+
+    csv_content2 = csv_content2_1 + csv_content2_2 + csv_content2_3 + csv_content2_4 + csv_content2_5 + csv_content2_6
+    csv_content3 = csv_content3_1 + csv_content3_2 + csv_content3_3 + csv_content3_4
+    csv_content4 = csv_content41  + csv_content42
+    csv_content5 = csv_content50
+    csv_content6 = csv_content6_1 + csv_content6_2 + csv_content6_3
+    csv_content7 = csv_content7_1 + csv_content7_2
+    csv_content8 = r(c(content81)+c(result80[0][3]+str(result80[0][1])+"""/"""+str(result80[0][2]))+c(result80[0][0])) + r(c(content82)+c(result80[1][3]+str(result80[1][1])+"""/"""+str(result80[1][2]))+c(result80[1][0])) + \
+                   r(c(content83)+c("")+c(result83))
+
+    reportname=("CIS-Azure-%s-%s.csv" % (name,filename))
+    with open(reportname,"w") as cis_result:
+        cis_result.write(csv_content_hdr)
+        cis_result.write(strip_tags(csv_content2))
+        cis_result.write(strip_tags(csv_content3))
+        cis_result.write(strip_tags(csv_content4))
+        cis_result.write(strip_tags(csv_content5))
+        cis_result.write(strip_tags(csv_content6))
+        cis_result.write(strip_tags(csv_content7))
+        cis_result.write(strip_tags(csv_content8))
+    print("Report %s was Created" % reportname)
 
 
 print("Azure CIS Checks")
@@ -939,12 +1047,9 @@ try:
             print("\n Not Valid Choice Try again") 
 
     print("\nDone\n")
-except:
-    print("Not Connected to Azure. Run 'az login' command first and relaunch the program")
+except Exception as e:
+    print("Exception in main: %s %s" % (type(e), str(e.args)))
+    # except:
+    # print("Not Connected to Azure. Run 'az login' command first and relaunch the program")
     sys.exit(0)
-
-
-
-
-
 
