@@ -1,6 +1,6 @@
 # Azure-CIS
 Automate Azure subscription check against CIS Benchmark
-Output will create a report in HTML format including Azure Subscription name and timestamp
+Output will create a report in HTML and csv format including Azure Subscription name and timestamp
 
 ## Prerequisites
 Azure CLI 2.0, python3
