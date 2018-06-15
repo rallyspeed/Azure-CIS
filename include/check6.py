@@ -20,13 +20,19 @@ def check62(subid):
     failvalue61 = 0
     passvalue61 = 0
     totalvalue61 = 0
+    nsgfailvalue61 = 0
     score61=""
     passed61='<font color="green">Passed </font>'
     failvalue62 = 0
     passvalue62 = 0
     totalvalue62 = 0
+    nsgfailvalue62 = 0
     score62=""
     passed62='<font color="green">Passed </font>'
+    rangestart=1
+    rangeend=65535
+    rangestarts=1
+    rangeends=65535
     try:
         query62='az network nsg list --query [*].[name,securityRules]'
         #query62=('az network nsg list --query "[?contains(id,\'%s\')].[name,securityRules]"' % subid)
@@ -43,34 +49,75 @@ def check62(subid):
                         action=str(json_cis[i][1][j]['access'])
                         src=str(json_cis[i][1][j]['sourceAddressPrefix'])
                         direction=str(json_cis[i][1][j]['direction'])
-                        ## Check For Inbound RDP Access.
-                        ## Protocol TCP, UDP or *
-                        if (protocol!="UDP" and (("3389" in dport) or ('3389' in dports)) and action=="Allow" and src=="*" and direction=="Inbound"):
-                            acl61=acl61+('Inbound RDP Allowed on nsg <b>%s</b><br>\n' % (str(json_cis[i][0])))
-                            passed61='<font color="red">Failed </font>'
-                            failvalue61=failvalue61+1
-                        ## Check For Inbound SSH Access.
-                        print(dport, dports)
-                        if (protocol !="UDP" and (("22" in dport) or ('22' in dports)) and action=="Allow" and src=="*" and direction=="Inbound"):
-                            acl62=acl62+('Inbound SSH Allowed on nsg <b>%s</b><br>\n' % (str(json_cis[i][0])))
-                            passed62='<font color="red">Failed </font>'
-                            failvalue62=failvalue62+1
+                        # Combination of ranges or single port
+                        # Split in case a single range is used
+                        if (dport!="None" and dport!="*"):
+                            rangedport=dport.split('-')
+                            rangestart=int(rangedport[0])
+                            # Check if single range configured
+                            if (len(rangedport)>1):
+                                rangeend=int(rangedport[1])
+                            ## Check For Inbound RDP Access
+                            ## Available Protocol TCP, UDP or *
+                            if (protocol!="UDP" and (rangestart<=3389<=rangeend) and action=="Allow" and src=="*" and direction=="Inbound"):
+                                acl61=acl61+('Inbound RDP Allowed on nsg <b>%s</b><br>\n' % (str(json_cis[i][0])))
+                                passed61='<font color="red">Failed </font>'
+                                failvalue61=1
+                            ## Check For Inbound SSH Access.
+                            if (protocol !="UDP" and (rangestart<=22<=rangeend) and action=="Allow" and src=="*" and direction=="Inbound"):
+                                acl62=acl62+('Inbound SSH Allowed on nsg <b>%s</b><br>\n' % (str(json_cis[i][0])))
+                                passed62='<font color="red">Failed </font>'
+                                failvalue62=1
+
+                        # Combination of ranges and single port
+                        if (len(dports)>0):    
+                            for k in range(len(dports)):
+                                rangedports=dports[k].split('-')
+                                rangestarts=int(rangedports[0])             
+                                if (len(rangedports)>1):
+                                    rangeends=int(rangedports[1])
+                                ## Check For Inbound RDP Access
+                                ## Available Protocol TCP, UDP or *
+                                if (protocol!="UDP" and (rangestarts<=3389<=rangeends) and action=="Allow" and src=="*" and direction=="Inbound"):
+                                    acl61=acl61+('Inbound RDP Allowed on nsg <b>%s</b><br>\n' % (str(json_cis[i][0])))
+                                    passed61='<font color="red">Failed </font>'
+                                    failvalue61=1
+                                ## Check For Inbound SSH Access.
+                                if (protocol !="UDP" and (rangestarts<=22<=rangeends) and action=="Allow" and src=="*" and direction=="Inbound"):
+                                    acl62=acl62+('Inbound SSH Allowed on nsg <b>%s</b><br>\n' % (str(json_cis[i][0])))
+                                    passed62='<font color="red">Failed </font>'
+                                    failvalue62=1
                         ## Check if all port are opened
                         if ((dport=="*") and action=="Allow" and src=="*" and direction=="Inbound"):
                             acl61=acl61+('<font color="red">All Inbound ports are opened on nsg <b>%s</b></font><br>\n' % (str(json_cis[i][0])))
                             acl62=acl62+('<font color="red">All Inbound ports are opened on nsg <b>%s</b></font><br>\n' % (str(json_cis[i][0])))
                             passed61='<font color="red">Failed </font>'
                             passed62='<font color="red">Failed </font>'
-                            failvalue61=failvalue61+1
-                            failvalue62=failvalue62+1
+                            failvalue61=1
+                            failvalue62=1
+                    if (failvalue61==1):
+                        # Incread counter for NSG which is not compliant
+                        nsgfailvalue61=nsgfailvalue61+1
+                        #Reset counter for Next NSG
+                        failvalue61=0 
+                    else:
+                        acl61=acl61+('No Inbound RDP Allowed on nsg <b>%s</b><br>\n' % (str(json_cis[i][0])))
+                    if(failvalue62==1):
+                        # Incread counter for NSG which is not compliant
+                        nsgfailvalue62=nsgfailvalue62+1
+                        #Reset counter for Next NSG
+                        failvalue62=0
+                    else:
+                        acl62=acl62+('No Inbound SSH Allowed on nsg <b>%s</b><br>\n' % (str(json_cis[i][0])))
                 # If No ACL defined for NSG, assumed RDP/SSH not allowed
                 else:
                     acl61=acl61+('No ACL defined on nsg <b>%s</b><br>\n' % (str(json_cis[i][0])))
                     acl62=acl62+('No ACL defined on nsg <b>%s</b><br>\n' % (str(json_cis[i][0])))
+                #Increasing counter of NSG
                 totalvalue61 = totalvalue61+1
                 totalvalue62 = totalvalue62+1                
-                passvalue61=totalvalue61-failvalue61
-                passvalue62=totalvalue62-failvalue62
+                passvalue61=totalvalue61-nsgfailvalue61
+                passvalue62=totalvalue62-nsgfailvalue62
         else:
             acl61="No NSG Configured"
             acl62="No NSG Configured"
