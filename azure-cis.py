@@ -776,10 +776,11 @@ th {
 
     perc61=round(100*result62[0][1]/result62[0][2],2)
     perc62=round(100*result62[1][1]/result62[1][2],2)
+    perc63=round(100*result63[1]/result63[2],2)
     perc64=round(100*result64[1]/result64[2],2)
     perc65=round(100*result65[1]/result65[2],2)
 
-    calc6=(perc61+perc62+perc64+perc65)/4
+    calc6=(perc61+perc62+perc63+perc64+perc65)/4
     score6= round(calc6,2)
 
     summary6 = """
@@ -803,8 +804,8 @@ th {
 </tr>
 <tr>
     <td><a href="#content63">"""+content63+"""</a></td> 
-    <td>Unavailable</td>
-    <td>Unavailable</td>
+    <td>"""+result63[3]+str(result63[1])+"""/"""+str(result63[2])+"""</td>
+    <td>"""+str(perc63)+"""%</td>
     <td></td>
 </tr>
 <tr>
