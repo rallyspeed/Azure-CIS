@@ -142,7 +142,53 @@ def check62(subid):
 
 def check63():
     print("Processing 63...")
-    return ["Check not available with azure CLI"]
+    st63=""
+    passvalue63 = 0
+    totalvalue63 = 0
+    score63=""
+    passed63='<font color="green">Passed </font>'
+    try:
+        query63='az sql server list --query [*][resourceGroup,name]'
+        #query63=('az network nsg list --query "[?contains(id,\'%s\')].[resourceGroup,name]"' % subid)
+        json_cis=query_az(query63)
+        #iteration through SQL Servers
+        if (len(json_cis)>0):
+            for i in range(len(json_cis)):
+                RG = json_cis[i][0]
+                SRV = json_cis[i][1]
+                queryrp=("az sql server firewall-rule list --resource-group %s --server %s --query [*].[startIpAddress,endIpAddress]" % (RG,SRV))
+                try:
+                    json_cis2=query_az(queryrp)
+                    startip=str(json_cis2[0][0])
+                    endip=str(json_cis2[0][1])
+                    if (startip=="0.0.0.0" and endip=="0.0.0.0"):
+                        passed63='<font color="red">Failed </font>'
+                        st63=st63+('SQL Server: <b>%s</b> access is not restricted<br></li>\n' % SRV)  
+                    else:
+                        passvalue63=passvalue63+1
+                        st63=st63+('SQL Server: <b>%s</b> access is restricted<br></li>\n' % SRV) 
+                    totalvalue63 = totalvalue63+1
+                except Exception as e:
+                    logger.error('Failed to query SQL Server ' + str(e))
+                    st63="Failed to query SQL Server"
+                    passed63='<font color="orange">UNKNOWN </font>'
+                    totalvalue63 = 1
+                    score63=[st63,passvalue63,totalvalue63,passed63]
+                    return score63
+        else:
+            st63="No SQL Server Configured"
+            passvalue63 = 1
+            totalvalue63 = 1
+        score63=[st63,passvalue63,totalvalue63,passed63]
+        return score63
+    except Exception as e:
+        logger.error("Exception in check63: %s %s" %(type(e), str(e.args)))
+        st63="Failed to query SQL Server"
+        totalvalue63 = 1
+        passed63='<font color="orange">UNKNOWN </font>'
+        score63=[st63,passvalue63,totalvalue63,passed63]
+        return score63
+
 
 def check64(subid):
     print("Processing 64...")
@@ -174,6 +220,7 @@ def check64(subid):
                 except Exception as e:
                     logger.error('Failed to query for network watcher flow-log ' + str(e))
                     st64="Failed to query for network watcher flow-log"
+                    passed64='<font color="orange">UNKNOWN </font>'
                     totalvalue64 = 1
                     score64=[st64,passvalue64,totalvalue64,passed64]
                     return score64
