@@ -99,18 +99,54 @@ def check119():
     print("Processing 119...")
     return "Check not available with azure CLI"
 
-def check220():
+def check120():
     print("Processing 120...")
     return "Check not available with azure CLI"
 
-def check221():
+def check121():
     print("Processing 121...")
     return "Check not available with azure CLI"
 
 def check122():
     print("Processing 122...")
-    return "Check not available with azure CLI"
+    return ["Check not available with azure CLI"]
 
 def check123():
     print("Processing 123...")
-    #az role definition list
+    st123=""
+    passvalue123 = 0
+    failvalue123 = 0
+    totalvalue123 = 0
+    score123=""
+    passed123='<font color="green">Passed </font>'
+    try:
+        query123='az role definition list --query [*][roleName,assignableScopes,permissions[].actions]'
+        json_cis=query_az(query123)
+        if (len(json_cis)>0):
+            #iteration through roles
+            for i in range(len(json_cis)):
+                role = json_cis[i][0]
+                scope= json_cis[i][1][0]
+                actions = json_cis[i][2][0]
+                #iteration through actions
+                if (len(actions)>0):
+                    for j in range(len(actions)):
+                        if (scope=="/"  and actions[j]=="*"):
+                            st123=st123+('Role <b>%s</b> with unrestricted access <br>\n' % role)
+                            passed123='<font color="red">Failed </font>'
+                            failvalue123=failvalue123+1
+                    totalvalue123 = totalvalue123+1
+                    passvalue123 = totalvalue123 - failvalue123
+                else:
+                    st123=st123+('No actions found for role <b>%s</b> with unrestricted access <br>\n' % role)
+        else:
+            st123="Roles not found"
+        score123=[st123,passvalue123,totalvalue123,passed123]
+        return score123
+    except Exception as e:
+        logger.error("Exception in check123: %s %s" %(type(e), str(e.args)))
+        st123="Failed to query definition role"
+        passed123='<font color="orange">UNKNOWN </font>'
+        totalvalue123 = 1
+        score123=[st123,passvalue123,totalvalue123,passed123]
+        return score123
