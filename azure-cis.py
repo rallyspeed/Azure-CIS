@@ -90,21 +90,33 @@ def generate_report(subid,name,cloudname):
     content122="1.22 Ensure that 'Require Multi-Factor Auth to join devices' is set to 'Yes'"
     content123="1.23 Ensure that no custom subscription owner roles are created"
 
-    #result11=check1.check11()
-    #result12=check1.check12()
-    #result13=check1.check13()
+    result11=check1.check11()
+    result12=check1.check12()
+    result13=check1.check13()
+    result110=check1.check110()
+    result111=check1.check111()
+    result112=check1.check112()
+    result113=check1.check113()
+    result114=check1.check114()
+    result115=check1.check115()
+    result116=check1.check116()
+    result117=check1.check117()
+    result118=check1.check118()
+    result119=check1.check119()
+    result120=check1.check120()
+    result121=check1.check121()
     result122=check1.check122()
     result123=check1.check123()
-    #content1_1 = '<h3 id="content11">'+start_list+content11+end_list+check1.check11()+'<h3 id="content12">'+start_list+content12+end_list+result12[0]+'<h3 id="content13">'+start_list+content13+end_list+result13[0]
+    content1_1 = '<h3 id="content11">'+start_list+content11+end_list+result11[0]+'<h3 id="content12">'+start_list+content12+end_list+result12[0]+'<h3 id="content13">'+start_list+content13+end_list+result13[0]
     #14-15-16 content1_2 = '<h3 id="content11">'+start_list+content11+end_list+check1.check11()+'<h3 id="content12">'+start_list+content12+end_list+result12[0]+'<h3 id="content13">'+start_list+content13+end_list+result13[0]
     #17-18-19 content1_3 = '<h3 id="content11">'+start_list+content11+end_list+check1.check11()+'<h3 id="content12">'+start_list+content12+end_list+result12[0]+'<h3 id="content13">'+start_list+content13+end_list+result13[0]
-    #110-111-112 content1_2 = '<h3 id="content11">'+start_list+content11+end_list+check1.check11()+'<h3 id="content12">'+start_list+content12+end_list+result12[0]+'<h3 id="content13">'+start_list+content13+end_list+result13[0]
-    #113-114-115 content1_3 = '<h3 id="content11">'+start_list+content11+end_list+check1.check11()+'<h3 id="content12">'+start_list+content12+end_list+result12[0]+'<h3 id="content13">'+start_list+content13+end_list+result13[0]
-    #116-111-112 content1_4 = '<h3 id="content11">'+start_list+content11+end_list+check1.check11()+'<h3 id="content12">'+start_list+content12+end_list+result12[0]+'<h3 id="content13">'+start_list+content13+end_list+result13[0]
-    #119-120-121 content1_5 = '<h3 id="content11">'+start_list+content11+end_list+check1.check11()+'<h3 id="content12">'+start_list+content12+end_list+result12[0]+'<h3 id="content13">'+start_list+content13+end_list+result13[0]
-    content1_6 = '<h3 id="content122">'+start_list+content122+end_list+result122[0]+'<h3 id="content123">'+start_list+content123+end_list+result123[0]
+    content1_4 = '<h3 id="content110">'+start_list+content110+end_list+result110[0]+'<h3 id="content111">'+start_list+content111+end_list+result111[0]+'<h3 id="content112">'+start_list+content112+end_list+result112[0]
+    content1_5 = '<h3 id="content113">'+start_list+content113+end_list+result113[0]+'<h3 id="content114">'+start_list+content114+end_list+result114[0]+'<h3 id="content115">'+start_list+content115+end_list+result115[0]
+    content1_6 = '<h3 id="content116">'+start_list+content116+end_list+result116[0]+'<h3 id="content117">'+start_list+content117+end_list+result117[0]+'<h3 id="content118">'+start_list+content118+end_list+result118[0]
+    content1_7 = '<h3 id="content119">'+start_list+content119+end_list+result119[0]+'<h3 id="content120">'+start_list+content120+end_list+result120[0]+'<h3 id="content121">'+start_list+content121+end_list+result121[0]
+    content1_8 = '<h3 id="content122">'+start_list+content122+end_list+result122[0]+'<h3 id="content123">'+start_list+content123+end_list+result123[0]
 
-    content1=content1+content1_6 
+    content1=content1+content1_1+content1_4+content1_5+content1_6+content1_7+content1_8 
 
 ################ HTML 2.x ##############
     content2 = """
@@ -320,9 +332,10 @@ th {
 ########################################################################################################################
 #Calculate % Passed
 
+    perc13=round(100*result13[1]/result13[2],2)
     perc123=round(100*result123[1]/result123[2],2)
 
-    calc1=(perc123)/1
+    calc1=(perc13+perc123)/2
     score1= round(calc1,2)
 
     summary1 = """
@@ -330,6 +343,120 @@ th {
     <td><b>1 Identity and Access Management</b></td> 
     <td></td>
     <td><b>"""+str(score1)+"""%</b></td>
+    <td></td>
+</tr>
+<tr>
+    <td><a href="#content13">"""+content13+"""</a></td> 
+    <td>"""+result13[3]+str(result13[1])+"""/"""+str(result13[2])+"""</td>
+    <td>"""+str(perc13)+"""%</td>
+    <td></td>
+</tr>
+<tr>
+    <td><a href="#content14">"""+content14+"""</a></td> 
+    <td>Unavailable</td>
+    <td>Unavailable</td>
+    <td></td>
+</tr>
+<tr>
+    <td><a href="#content15">"""+content15+"""</a></td> 
+    <td>Unavailable</td>
+    <td>Unavailable</td>
+    <td></td>
+</tr>
+<tr>
+    <td><a href="#content16">"""+content16+"""</a></td> 
+    <td>Unavailable</td>
+    <td>Unavailable</td>
+    <td></td>
+</tr>
+<tr>
+    <td><a href="#content17">"""+content17+"""</a></td> 
+    <td>Unavailable</td>
+    <td>Unavailable</td>
+    <td></td>
+</tr>
+<tr>
+    <td><a href="#content18">"""+content18+"""</a></td> 
+    <td>Unavailable</td>
+    <td>Unavailable</td>
+    <td></td>
+</tr>
+<tr>
+    <td><a href="#content19">"""+content19+"""</a></td> 
+    <td>Unavailable</td>
+    <td>Unavailable</td>
+    <td></td>
+</tr>
+<tr>
+    <td><a href="#content110">"""+content110+"""</a></td> 
+    <td>Unavailable</td>
+    <td>Unavailable</td>
+    <td></td>
+</tr>
+<tr>
+    <td><a href="#content111">"""+content111+"""</a></td> 
+    <td>Unavailable</td>
+    <td>Unavailable</td>
+    <td></td>
+</tr>
+<tr>
+    <td><a href="#content112">"""+content112+"""</a></td> 
+    <td>Unavailable</td>
+    <td>Unavailable</td>
+    <td></td>
+</tr>
+<tr>
+    <td><a href="#content113">"""+content113+"""</a></td> 
+    <td>Unavailable</td>
+    <td>Unavailable</td>
+    <td></td>
+</tr>
+<tr>
+    <td><a href="#content114">"""+content114+"""</a></td> 
+    <td>Unavailable</td>
+    <td>Unavailable</td>
+    <td></td>
+</tr>
+<tr>
+    <td><a href="#content115">"""+content115+"""</a></td> 
+    <td>Unavailable</td>
+    <td>Unavailable</td>
+    <td></td>
+</tr>
+<tr>
+    <td><a href="#content116">"""+content116+"""</a></td> 
+    <td>Unavailable</td>
+    <td>Unavailable</td>
+    <td></td>
+</tr>
+<tr>
+    <td><a href="#content117">"""+content117+"""</a></td> 
+    <td>Unavailable</td>
+    <td>Unavailable</td>
+    <td></td>
+</tr>
+<tr>
+    <td><a href="#content118">"""+content118+"""</a></td> 
+    <td>Unavailable</td>
+    <td>Unavailable</td>
+    <td></td>
+</tr>
+<tr>
+    <td><a href="#content119">"""+content119+"""</a></td> 
+    <td>Unavailable</td>
+    <td>Unavailable</td>
+    <td></td>
+</tr>
+<tr>
+    <td><a href="#content120">"""+content120+"""</a></td> 
+    <td>Unavailable</td>
+    <td>Unavailable</td>
+    <td></td>
+</tr>
+<tr>
+    <td><a href="#content121">"""+content121+"""</a></td> 
+    <td>Unavailable</td>
+    <td>Unavailable</td>
     <td></td>
 </tr>
 <tr>

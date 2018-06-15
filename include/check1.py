@@ -14,98 +14,114 @@ def query_az(query):
 
 def check11():
     print("Processing 11...")
-    return "Check not available with azure CLI"
+    return ["Check not available with azure CLI"]
 
 def check12():
     print("Processing 12...")
-    return "Check not available with azure CLI"
+    return ["Check not available with azure CLI"]
 
 def check13():
     print("Processing 13...")
-    name=""
+    st13=""
+    passvalue13 = 0
+    totalvalue13 = 0
+    score13=""
+    passed13='<font color="green">Passed </font>'
     try:
         query13='az ad user list --query "[?additionalProperties.userType==\'Guest\']"'
         json_cis=query_az(query13)
-        for i in range(len(json_cis)):
-            print(json_cis)
-            name=json_cis[i][0]
-            name=name+name
-        return name
+        if (len(json_cis)>0):
+            #iteration through roles
+            passed13='<font color="red">Failed </font>'
+            st13="Guest users Found"
+            totalvalue13 = len(json_cis)
+        else:
+            st13="No Guest users Found"
+            passvalue13 = 1
+            totalvalue13 = 1
+        
+        score13=[st13,passvalue13,totalvalue13,passed13]
+        return score13
     except Exception as e:
-        logger.error('Failed to Query Users' + str(e))
-        return ["Failed to Query Userss"]
+        logger.error("Exception in check13: %s %s" %(type(e), str(e.args)))
+        st13="Failed to query users"
+        passed13='<font color="orange">UNKNOWN </font>'
+        totalvalue13 = 1
+        score13=[st13,passvalue13,totalvalue13,passed13]
+        return score13
+
 
 def check14():
     print("Processing 14...")
-    return "Check not available with azure CLI"
+    return ["Check not available with azure CLI"]
 
 def check15():
     print("Processing 15...")
-    return "Check not available with azure CLI"
+    return ["Check not available with azure CLI"]
 
 def check16():
     print("Processing 16...")
-    return "Check not available with azure CLI"
+    return ["Check not available with azure CLI"]
 
 def check17():
     print("Processing 17...")
-    return "Check not available with azure CLI"
+    return ["Check not available with azure CLI"]
 
 def check18():
     print("Processing 18...")
-    return "Check not available with azure CLI"
+    return ["Check not available with azure CLI"]
 
 def check19():
     print("Processing 19...")
-    return "Check not available with azure CLI"
+    return ["Check not available with azure CLI"]
 
 def check110():
     print("Processing 110...")
-    return "Check not available with azure CLI"
+    return ["Check not available with azure CLI"]
 
 def check111():
     print("Processing 111...")
-    return "Check not available with azure CLI"
+    return ["Check not available with azure CLI"]
 
 def check112():
     print("Processing 112...")
-    return "Check not available with azure CLI"
+    return ["Check not available with azure CLI"]
 
 def check113():
     print("Processing 113...")
-    return "Check not available with azure CLI"
+    return ["Check not available with azure CLI"]
 
 def check114():
     print("Processing 114...")
-    return "Check not available with azure CLI"
+    return ["Check not available with azure CLI"]
 
 def check115():
     print("Processing 115...")
-    return "Check not available with azure CLI"
+    return ["Check not available with azure CLI"]
 
 def check116():
     print("Processing 116...")
-    return "Check not available with azure CLI"
+    return ["Check not available with azure CLI"]
 
 def check117():
     print("Processing 117...")
-    return "Check not available with azure CLI"
+    return ["Check not available with azure CLI"]
 
 def check118():
     print("Processing 118...")
-    return "Check not available with azure CLI"
+    return ["Check not available with azure CLI"]
 
 def check119():
     print("Processing 119...")
-    return "Check not available with azure CLI"
+    return ["Check not available with azure CLI"]
 
 def check120():
     print("Processing 120...")
-    return "Check not available with azure CLI"
+    return ["Check not available with azure CLI"]
 
 def check121():
     print("Processing 121...")
-    return "Check not available with azure CLI"
+    return ["Check not available with azure CLI"]
 
 def check122():
     print("Processing 122...")
