@@ -27,7 +27,7 @@ def check50(subid):
     chk510=('No Alert found for Create or Update SQL Server FW rules</li>\n')
     chk511=('No Alert found for Delete SQL Server FW rules</li>\n')
     chk512=('No Alert found for Create or Update Security Policy</li>\n')
-    chk513=""
+    chk513=('No Logging enabled fir KeyVault</li>\n')
 
     score51=['<font color="red">Failed</font>',0]
     score52=['<font color="red">Failed</font>',0]
