@@ -51,6 +51,7 @@ def generate_report(subid,name,cloudname):
 </head>
 <body>
 <h1><center>Azure CIS Benchmark for """+name+"""</center></h1>
+<font size="-1">
 """
     html_end = """
 </body>
@@ -59,12 +60,11 @@ def generate_report(subid,name,cloudname):
 
     start_list="<li><b>\n"
     end_list="</h3></li></b>\n"
+
 ################ HTML 1.x ##############
     content1 = """
-<font size="-1">
 <h2>CIS Azure 1.x</h2>
 <ul>
-CLI/POWERSHELL COMMANDS NOT YET AVAILABLE
 """
     content11="1.1 Ensure that multi-factor authentication is enabled for all privileged users"
     content12="1.2 Ensure that multi-factor authentication is enabled for all nonprivileged users"
@@ -93,10 +93,18 @@ CLI/POWERSHELL COMMANDS NOT YET AVAILABLE
     #result11=check1.check11()
     #result12=check1.check12()
     #result13=check1.check13()
-
+    result122=check1.check122()
+    result123=check1.check123()
     #content1_1 = '<h3 id="content11">'+start_list+content11+end_list+check1.check11()+'<h3 id="content12">'+start_list+content12+end_list+result12[0]+'<h3 id="content13">'+start_list+content13+end_list+result13[0]
-    #content1=content1+content1_1
-    #sys.exit(0)
+    #14-15-16 content1_2 = '<h3 id="content11">'+start_list+content11+end_list+check1.check11()+'<h3 id="content12">'+start_list+content12+end_list+result12[0]+'<h3 id="content13">'+start_list+content13+end_list+result13[0]
+    #17-18-19 content1_3 = '<h3 id="content11">'+start_list+content11+end_list+check1.check11()+'<h3 id="content12">'+start_list+content12+end_list+result12[0]+'<h3 id="content13">'+start_list+content13+end_list+result13[0]
+    #110-111-112 content1_2 = '<h3 id="content11">'+start_list+content11+end_list+check1.check11()+'<h3 id="content12">'+start_list+content12+end_list+result12[0]+'<h3 id="content13">'+start_list+content13+end_list+result13[0]
+    #113-114-115 content1_3 = '<h3 id="content11">'+start_list+content11+end_list+check1.check11()+'<h3 id="content12">'+start_list+content12+end_list+result12[0]+'<h3 id="content13">'+start_list+content13+end_list+result13[0]
+    #116-111-112 content1_4 = '<h3 id="content11">'+start_list+content11+end_list+check1.check11()+'<h3 id="content12">'+start_list+content12+end_list+result12[0]+'<h3 id="content13">'+start_list+content13+end_list+result13[0]
+    #119-120-121 content1_5 = '<h3 id="content11">'+start_list+content11+end_list+check1.check11()+'<h3 id="content12">'+start_list+content12+end_list+result12[0]+'<h3 id="content13">'+start_list+content13+end_list+result13[0]
+    content1_6 = '<h3 id="content122">'+start_list+content122+end_list+result122[0]+'<h3 id="content123">'+start_list+content123+end_list+result123[0]
+
+    content1=content1+content1_6 
 
 ################ HTML 2.x ##############
     content2 = """
@@ -285,7 +293,7 @@ CLI/POWERSHELL COMMANDS NOT YET AVAILABLE
     print("Finished Queries")
     print("Generating Report")
 ############## Summary Table ##########
-    summary1 = """
+    summary0 = """
 <h1 id="Summary">1 - Score Summary</h1>
 <style>
 table, th, td {
@@ -306,10 +314,34 @@ th {
     <th>Score</th>
     <th>Comments</th>
 </tr>
+"""
+########################################################################################################################
+############################################################ Summary 1 #################################################
+########################################################################################################################
+#Calculate % Passed
+
+    perc123=round(100*result123[1]/result123[2],2)
+
+    calc1=(perc123)/1
+    score1= round(calc1,2)
+
+    summary1 = """
 <tr>
     <td><b>1 Identity and Access Management</b></td> 
     <td></td>
+    <td><b>"""+str(score1)+"""%</b></td>
+    <td></td>
+</tr>
+<tr>
+    <td><a href="#content122">"""+content122+"""</a></td> 
     <td>Unavailable</td>
+    <td>Unavailable</td>
+    <td></td>
+</tr>
+<tr>
+    <td><a href="#content123">"""+content123+"""</a></td> 
+    <td>"""+result123[3]+str(result123[1])+"""/"""+str(result123[2])+"""</td>
+    <td>"""+str(perc123)+"""%</td>
     <td></td>
 </tr>
 """
@@ -940,7 +972,7 @@ th {
 <h1 id="Details">2 - Detailed</h1>
 """ + content1+"</ul>"+content2+"</ul>"+content3+"</ul>"+content4+"</ul>"+content5+"</ul>"+content6+"</ul>"+content7+"</ul>"+content8
 
-    html_summary=summary1+summary2+summary3+summary4+summary5+summary6+summary7+summary8+total
+    html_summary=summary0+summary1+summary2+summary3+summary4+summary5+summary6+summary7+summary8+total
 #### Create the HTML File #####
     
     filename = datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
