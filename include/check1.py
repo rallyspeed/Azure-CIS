@@ -1,4 +1,4 @@
-################################## 2222222222222222222 #####################################
+################################## 111111111111111111 #####################################
 #!/usr/bin/python3
 
 import os
@@ -12,9 +12,59 @@ def query_az(query):
     json_cis=os.popen(query).read()
     return json.loads(json_cis)
 
-def check11():
+def check11(subid):
     print("Processing 11...")
-    return ["Check not available with azure CLI"]
+    
+    try:
+        query11=('az account get-access-token --subscription %s --query [accessToken]' % subid)
+        score11=['<font color="red">Failed</font>',0]
+        json_cis=query_az(query11)
+        access_token=json_cis[0]
+        headers = {"Authorization": 'Bearer ' + access_token}
+        # Grabbing Users
+        request0 = ('https://graph.microsoft.com/v1.0/users')
+        try:
+            json_output0 = requests.get(request0, headers=headers).json()
+            #print(json_output0)
+        except Exception as e:
+            logger.error("Exception in check2: %s %s" %(type(e), str(e.args)))
+            unkScore=['<font color="orange">UNKNOWN </font>',0]
+            chk="Failed to make API call"
+            return [chk,unkScore]
+        # Grabbing nameB
+        request1 = ('https://management.azure.com/subscriptions/%s/providers/Microsoft.Authorization/roleDefinitions?api-version=2017-05-01' % subid)
+        try:
+            json_output1 = requests.get(request1, headers=headers).json()
+            for i in range(len(json_output1['value'])):
+                rolename=json_output1['value'][i]['properties']['roleName']
+                #print(json_output1['value'][i])
+                if ("Owner" in rolename or "Admin" in rolename  or "Contributor" in rolename):
+                    nameB=json_output1['value'][i]['name']
+                    #print(nameB)
+        except Exception as e:
+            logger.error("Exception in check2: %s %s" %(type(e), str(e.args)))
+            unkScore=['<font color="orange">UNKNOWN </font>',0]
+            chk="Failed to make API call"
+            return [chk,unkScore]
+        request2 = ('https://management.azure.com/subscriptions/%s/providers/Microsoft.Authorization/roleassignments?api-version=2017-10-01-preview' % subid)
+        try:
+            json_output2 = requests.get(request2, headers=headers).json()
+            for i in range(len(json_output2['value'])):
+                pType=json_output2['value'][i]['properties']['principalType']
+                pid=json_output2['value'][i]['properties']['principalId']
+                rid=json_output2['value'][i]['properties']['roleDefinationId']
+                #if (pType=="User"):
+                #    print(pid,pType,rid)
+        except Exception as e:
+            logger.error("Exception in check2: %s %s" %(type(e), str(e.args)))
+            unkScore=['<font color="orange">UNKNOWN </font>',0]
+            chk="Failed to make API call"
+            return [chk,unkScore]
+    except Exception as e:
+        logger.error("Exception in check2: %s %s" %(type(e), str(e.args)))
+        unkScore=['<font color="orange">UNKNOWN </font>',0]
+        chk="Failed to Query"
+        return [chk,unkScore]
 
 def check12():
     print("Processing 12...")
