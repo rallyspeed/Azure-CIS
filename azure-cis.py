@@ -90,7 +90,8 @@ def generate_report(subid,name,cloudname):
     content122="1.22 Ensure that 'Require Multi-Factor Auth to join devices' is set to 'Yes'"
     content123="1.23 Ensure that no custom subscription owner roles are created"
 
-    result11=check1.check11()
+    result11=check1.check11(subid)
+    #sys.exit(0)
     result12=check1.check12()
     result13=check1.check13()
     result110=check1.check110()
@@ -1115,6 +1116,10 @@ th {
     ################ CSV EXPORT ###################
     sep = ","
     csv_content_hdr = '"SUBSCRIPTION","CHECK","RESULT","DETAILS"\n'
+
+    csv_content1_3  = r(c(content13)+c(result13[3]+str(result13[1])+"""/"""+str(result13[2]))+c(result13[0]))
+    csv_content12_3  = r(c(content123)+c(result123[3]+str(result123[1])+"""/"""+str(result123[2]))+c(result123[0]))
+
     csv_content2_1  = r(c(content22)+c(result22[18][0])+c(result22[0]))   +r(c(content23)+c(result22[19][0])+c(result22[1]))
     csv_content2_2  = r(c(content24)+c(result22[20][0])+c(result22[2]))   +r(c(content25)+c(result22[21][0])+c(result22[3]))     +r(c(content26)+c(result22[22][0])+c(result22[4])) + \
                       r(c(content27)+c(result22[23][0])+c(result22[5]))   +r(c(content28)+c(result22[24][0])+c(result22[6]))
@@ -1151,6 +1156,7 @@ th {
     csv_content42   = csv_content42_1 + csv_content42_2 + csv_content42_3
     csv_content50   = csv_content5_1  + csv_content5_2  + csv_content5_3  + csv_content5_4
 
+    csv_content1 = csv_content1_3 + csv_content12_3
     csv_content2 = csv_content2_1 + csv_content2_2 + csv_content2_3 + csv_content2_4 + csv_content2_5 + csv_content2_6
     csv_content3 = csv_content3_1 + csv_content3_2 + csv_content3_3 + csv_content3_4
     csv_content4 = csv_content41  + csv_content42
@@ -1163,6 +1169,7 @@ th {
     reportname=("CIS-Azure-%s-%s.csv" % (name,filename))
     with open(reportname,"w") as cis_result:
         cis_result.write(csv_content_hdr)
+        cis_result.write(strip_tags(csv_content1))
         cis_result.write(strip_tags(csv_content2))
         cis_result.write(strip_tags(csv_content3))
         cis_result.write(strip_tags(csv_content4))
