@@ -57,17 +57,27 @@ def check62(subid):
                             # Check if single range configured
                             if (len(rangedport)>1):
                                 rangeend=int(rangedport[1])
-                            ## Check For Inbound RDP Access
-                            ## Available Protocol TCP, UDP or *
-                            if (protocol!="UDP" and (rangestart<=3389<=rangeend) and action=="Allow" and src=="*" and direction=="Inbound"):
-                                acl61=acl61+('Inbound RDP Allowed on nsg <b>%s</b><br>\n' % (str(json_cis[i][0])))
-                                passed61='<font color="red">Failed </font>'
-                                failvalue61=1
-                            ## Check For Inbound SSH Access.
-                            if (protocol !="UDP" and (rangestart<=22<=rangeend) and action=="Allow" and src=="*" and direction=="Inbound"):
-                                acl62=acl62+('Inbound SSH Allowed on nsg <b>%s</b><br>\n' % (str(json_cis[i][0])))
-                                passed62='<font color="red">Failed </font>'
-                                failvalue62=1
+                                ## Check For Inbound RDP Access
+                                ## Available Protocol TCP, UDP or * or Internet (Service Tag)
+                                if (protocol!="UDP" and (rangestart<=3389<=rangeend) and action=="Allow" and (src=="*" or src=="Internet") and direction=="Inbound"):
+                                    acl61=acl61+('Inbound RDP Allowed on nsg <b>%s</b><br>\n' % (str(json_cis[i][0])))
+                                    passed61='<font color="red">Failed </font>'
+                                    failvalue61=1
+                                ## Check For Inbound SSH Access.
+                                if (protocol !="UDP" and (rangestart<=22<=rangeend) and action=="Allow" and (src=="*" or src=="Internet") and direction=="Inbound"):
+                                    acl62=acl62+('Inbound SSH Allowed on nsg <b>%s</b><br>\n' % (str(json_cis[i][0])))
+                                    passed62='<font color="red">Failed </font>'
+                                    failvalue62=1
+                            else:
+                                if (protocol!="UDP" and (rangestart==3389) and action=="Allow" and (src=="*" or src=="Internet") and direction=="Inbound"):
+                                    acl61=acl61+('Inbound RDP Allowed on nsg <b>%s</b><br>\n' % (str(json_cis[i][0])))
+                                    passed61='<font color="red">Failed </font>'
+                                    failvalue61=1
+                                ## Check For Inbound SSH Access.
+                                if (protocol !="UDP" and (rangestart==22) and action=="Allow" and (src=="*" or src=="Internet") and direction=="Inbound"):
+                                    acl62=acl62+('Inbound SSH Allowed on nsg <b>%s</b><br>\n' % (str(json_cis[i][0])))
+                                    passed62='<font color="red">Failed </font>'
+                                    failvalue62=1
 
                         # Combination of ranges and single port
                         if (len(dports)>0):    
@@ -76,19 +86,30 @@ def check62(subid):
                                 rangestarts=int(rangedports[0])             
                                 if (len(rangedports)>1):
                                     rangeends=int(rangedports[1])
-                                ## Check For Inbound RDP Access
-                                ## Available Protocol TCP, UDP or *
-                                if (protocol!="UDP" and (rangestarts<=3389<=rangeends) and action=="Allow" and src=="*" and direction=="Inbound"):
-                                    acl61=acl61+('Inbound RDP Allowed on nsg <b>%s</b><br>\n' % (str(json_cis[i][0])))
-                                    passed61='<font color="red">Failed </font>'
-                                    failvalue61=1
-                                ## Check For Inbound SSH Access.
-                                if (protocol !="UDP" and (rangestarts<=22<=rangeends) and action=="Allow" and src=="*" and direction=="Inbound"):
-                                    acl62=acl62+('Inbound SSH Allowed on nsg <b>%s</b><br>\n' % (str(json_cis[i][0])))
-                                    passed62='<font color="red">Failed </font>'
-                                    failvalue62=1
+                                    ## Check For Inbound RDP Access
+                                    ## Available Protocol TCP, UDP or * or Internet (Service Tag)
+                                    if (protocol!="UDP" and (rangestarts<=3389<=rangeends) and action=="Allow" and (src=="*" or src=="Internet") and direction=="Inbound"):
+                                        acl61=acl61+('Inbound RDP Allowed on nsg <b>%s</b><br>\n' % (str(json_cis[i][0])))
+                                        passed61='<font color="red">Failed </font>'
+                                        failvalue61=1
+                                    ## Check For Inbound SSH Access.
+                                    if (protocol !="UDP" and (rangestarts<=22<=rangeends) and action=="Allow" and (src=="*" or src=="Internet") and direction=="Inbound"):
+                                        acl62=acl62+('Inbound SSH Allowed on nsg <b>%s</b><br>\n' % (str(json_cis[i][0])))
+                                        passed62='<font color="red">Failed </font>'
+                                        failvalue62=1
+                                else:
+                                    if (protocol!="UDP" and (rangestarts==3389) and action=="Allow" and (src=="*" or src=="Internet") and direction=="Inbound"):
+                                        acl61=acl61+('Inbound RDP Allowed on nsg <b>%s</b><br>\n' % (str(json_cis[i][0])))
+                                        passed61='<font color="red">Failed </font>'
+                                        failvalue61=1
+                                    ## Check For Inbound SSH Access.
+                                    if (protocol !="UDP" and (rangestarts==22) and action=="Allow" and (src=="*" or src=="Internet") and direction=="Inbound"):
+                                        acl62=acl62+('Inbound SSH Allowed on nsg <b>%s</b><br>\n' % (str(json_cis[i][0])))
+                                        passed62='<font color="red">Failed </font>'
+                                        failvalue62=1
+
                         ## Check if all port are opened
-                        if ((dport=="*") and action=="Allow" and src=="*" and direction=="Inbound"):
+                        if ((dport=="*") and action=="Allow" and (src=="*" or src=="Internet") and direction=="Inbound"):
                             acl61=acl61+('<font color="red">All Inbound ports are opened on nsg <b>%s</b></font><br>\n' % (str(json_cis[i][0])))
                             acl62=acl62+('<font color="red">All Inbound ports are opened on nsg <b>%s</b></font><br>\n' % (str(json_cis[i][0])))
                             passed61='<font color="red">Failed </font>'
