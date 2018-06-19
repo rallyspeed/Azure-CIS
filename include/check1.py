@@ -25,7 +25,7 @@ def check11(subid):
         request0 = ('https://graph.microsoft.com/v1.0/users')
         try:
             json_output0 = requests.get(request0, headers=headers).json()
-            #print(json_output0)
+            print(json_output0)
         except Exception as e:
             logger.error("Exception in check2: %s %s" %(type(e), str(e.args)))
             unkScore=['<font color="orange">UNKNOWN </font>',0]
@@ -78,7 +78,8 @@ def check13():
     score13=""
     passed13='<font color="green">Passed </font>'
     try:
-        query13='az ad user list --query "[?additionalProperties.userType==\'Guest\']"'
+        #query13='az ad user list --query "[?additionalProperties.userType==\'Guest\']"'
+        query13=""
         json_cis=query_az(query13)
         if (len(json_cis)>0):
             #iteration through roles
