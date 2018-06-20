@@ -511,7 +511,7 @@ th {
     <td><a href="#content21">"""+content21+"""</a></td> 
     <td>Unavailable</td>
     <td>Unavailable</td>
-    <td>Unavailable</td>
+    <td>Standard pricing 15.00 USD/NODE/MONTH</td>
 </tr>
 <tr>
     <td><a href="#content22">"""+content22+"""</a></td> 
