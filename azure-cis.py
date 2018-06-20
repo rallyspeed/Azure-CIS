@@ -91,9 +91,14 @@ def generate_report(subid,name,cloudname):
     content123="1.23 Ensure that no custom subscription owner roles are created"
 
     result11=check1.check11(subid)
-    #sys.exit(0)
     result12=check1.check12()
     result13=check1.check13()
+    result14=check1.check14()
+    result15=check1.check15()
+    result16=check1.check16()
+    result17=check1.check17()
+    result18=check1.check18()
+    result19=check1.check19()
     result110=check1.check110()
     result111=check1.check111()
     result112=check1.check112()
@@ -109,15 +114,15 @@ def generate_report(subid,name,cloudname):
     result122=check1.check122()
     result123=check1.check123()
     content1_1 = '<h3 id="content11">'+start_list+content11+end_list+result11[0]+'<h3 id="content12">'+start_list+content12+end_list+result12[0]+'<h3 id="content13">'+start_list+content13+end_list+result13[0]
-    #14-15-16 content1_2 = '<h3 id="content11">'+start_list+content11+end_list+check1.check11()+'<h3 id="content12">'+start_list+content12+end_list+result12[0]+'<h3 id="content13">'+start_list+content13+end_list+result13[0]
-    #17-18-19 content1_3 = '<h3 id="content11">'+start_list+content11+end_list+check1.check11()+'<h3 id="content12">'+start_list+content12+end_list+result12[0]+'<h3 id="content13">'+start_list+content13+end_list+result13[0]
+    content1_2 = '<h3 id="content11">'+start_list+content14+end_list+result14[0]+'<h3 id="content15">'+start_list+content15+end_list+result15[0]+'<h3 id="content16">'+start_list+content16+end_list+result16[0]
+    content1_3 = '<h3 id="content17">'+start_list+content17+end_list+result17[0]+'<h3 id="content18">'+start_list+content18+end_list+result18[0]+'<h3 id="content19">'+start_list+content19+end_list+result19[0]
     content1_4 = '<h3 id="content110">'+start_list+content110+end_list+result110[0]+'<h3 id="content111">'+start_list+content111+end_list+result111[0]+'<h3 id="content112">'+start_list+content112+end_list+result112[0]
     content1_5 = '<h3 id="content113">'+start_list+content113+end_list+result113[0]+'<h3 id="content114">'+start_list+content114+end_list+result114[0]+'<h3 id="content115">'+start_list+content115+end_list+result115[0]
     content1_6 = '<h3 id="content116">'+start_list+content116+end_list+result116[0]+'<h3 id="content117">'+start_list+content117+end_list+result117[0]+'<h3 id="content118">'+start_list+content118+end_list+result118[0]
     content1_7 = '<h3 id="content119">'+start_list+content119+end_list+result119[0]+'<h3 id="content120">'+start_list+content120+end_list+result120[0]+'<h3 id="content121">'+start_list+content121+end_list+result121[0]
     content1_8 = '<h3 id="content122">'+start_list+content122+end_list+result122[0]+'<h3 id="content123">'+start_list+content123+end_list+result123[0]
 
-    content1=content1+content1_1+content1_4+content1_5+content1_6+content1_7+content1_8 
+    content1=content1+content1_1+content1_2+content1_3+content1_4+content1_5+content1_6+content1_7+content1_8 
 
 ################ HTML 2.x ##############
     content2 = """
@@ -347,124 +352,136 @@ th {
     <td></td>
 </tr>
 <tr>
+    <td><a href="#content14">"""+content11+"""</a></td> 
+    <td>Unavailable</td>
+    <td>Unavailable</td>
+    <td>Active Directory Check</td>
+</tr>
+<tr>
+    <td><a href="#content14">"""+content12+"""</a></td> 
+    <td>Unavailable</td>
+    <td>Unavailable</td>
+    <td>Active Directory Check</td>
+</tr>
+<tr>
     <td><a href="#content13">"""+content13+"""</a></td> 
     <td>"""+result13[3]+str(result13[1])+"""/"""+str(result13[2])+"""</td>
     <td>"""+str(perc13)+"""%</td>
-    <td></td>
+    <td>Active Directory Check</td>
 </tr>
 <tr>
     <td><a href="#content14">"""+content14+"""</a></td> 
     <td>Unavailable</td>
     <td>Unavailable</td>
-    <td></td>
+    <td>Active Directory Check</td>
 </tr>
 <tr>
     <td><a href="#content15">"""+content15+"""</a></td> 
     <td>Unavailable</td>
     <td>Unavailable</td>
-    <td></td>
+    <td>Active Directory Check</td>
 </tr>
 <tr>
     <td><a href="#content16">"""+content16+"""</a></td> 
     <td>Unavailable</td>
     <td>Unavailable</td>
-    <td></td>
+    <td>Active Directory Check</td>
 </tr>
 <tr>
     <td><a href="#content17">"""+content17+"""</a></td> 
     <td>Unavailable</td>
     <td>Unavailable</td>
-    <td></td>
+    <td>Active Directory Check</td>
 </tr>
 <tr>
     <td><a href="#content18">"""+content18+"""</a></td> 
     <td>Unavailable</td>
     <td>Unavailable</td>
-    <td></td>
+    <td>Active Directory Check</td>
 </tr>
 <tr>
     <td><a href="#content19">"""+content19+"""</a></td> 
     <td>Unavailable</td>
     <td>Unavailable</td>
-    <td></td>
+    <td>Active Directory Check</td>
 </tr>
 <tr>
     <td><a href="#content110">"""+content110+"""</a></td> 
     <td>Unavailable</td>
     <td>Unavailable</td>
-    <td></td>
+    <td>Active Directory Check</td>
 </tr>
 <tr>
     <td><a href="#content111">"""+content111+"""</a></td> 
     <td>Unavailable</td>
     <td>Unavailable</td>
-    <td></td>
+    <td>Active Directory Check</td>
 </tr>
 <tr>
     <td><a href="#content112">"""+content112+"""</a></td> 
     <td>Unavailable</td>
     <td>Unavailable</td>
-    <td></td>
+    <td>Active Directory Check</td>
 </tr>
 <tr>
     <td><a href="#content113">"""+content113+"""</a></td> 
     <td>Unavailable</td>
     <td>Unavailable</td>
-    <td></td>
+    <td>Active Directory Check</td>
 </tr>
 <tr>
     <td><a href="#content114">"""+content114+"""</a></td> 
     <td>Unavailable</td>
     <td>Unavailable</td>
-    <td></td>
+    <td>Active Directory Check</td>
 </tr>
 <tr>
     <td><a href="#content115">"""+content115+"""</a></td> 
     <td>Unavailable</td>
     <td>Unavailable</td>
-    <td></td>
+    <td>Active Directory Check</td>
 </tr>
 <tr>
     <td><a href="#content116">"""+content116+"""</a></td> 
     <td>Unavailable</td>
     <td>Unavailable</td>
-    <td></td>
+    <td>Active Directory Check</td>
 </tr>
 <tr>
     <td><a href="#content117">"""+content117+"""</a></td> 
     <td>Unavailable</td>
     <td>Unavailable</td>
-    <td></td>
+    <td>Active Directory Check</td>
 </tr>
 <tr>
     <td><a href="#content118">"""+content118+"""</a></td> 
     <td>Unavailable</td>
     <td>Unavailable</td>
-    <td></td>
+    <td>Active Directory Check</td>
 </tr>
 <tr>
     <td><a href="#content119">"""+content119+"""</a></td> 
     <td>Unavailable</td>
     <td>Unavailable</td>
-    <td></td>
+    <td>Active Directory Check</td>
 </tr>
 <tr>
     <td><a href="#content120">"""+content120+"""</a></td> 
     <td>Unavailable</td>
     <td>Unavailable</td>
-    <td></td>
+    <td>Active Directory Check</td>
 </tr>
 <tr>
     <td><a href="#content121">"""+content121+"""</a></td> 
     <td>Unavailable</td>
     <td>Unavailable</td>
-    <td></td>
+    <td>Active Directory Check</td>
 </tr>
 <tr>
     <td><a href="#content122">"""+content122+"""</a></td> 
     <td>Unavailable</td>
     <td>Unavailable</td>
-    <td></td>
+    <td>Active Directory Check</td>
 </tr>
 <tr>
     <td><a href="#content123">"""+content123+"""</a></td> 
@@ -702,13 +719,13 @@ th {
     <td><a href="#content411">"""+content411+"""</a></td> 
     <td>Unavailable</td>
     <td>Unavailable</td>
-    <td></td>
+    <td>Also under Security Center - Resource security hygiene</td>
 </tr>
 <tr>
     <td><a href="#content412">"""+content412+"""</a></td> 
     <td>Unavailable</td>
     <td>Unavailable</td>
-    <td></td>
+    <td>Also under Security Center - Resource security hygiene</td>
 </tr>
 <tr>
     <td><a href="#content413">"""+content413+"""</a></td> 
@@ -774,13 +791,13 @@ th {
     <td><a href="#content421">"""+content421+"""</a></td> 
     <td>"""+result42[0][3]+str(result42[0][1])+"""/"""+str(result42[0][2])+"""</td>
     <td>"""+str(perc421)+"""%</td>
-    <td></td>
+    <td>Also under Security Center - Resource security hygiene</td>
 </tr>
 <tr>
     <td><a href="#content422">"""+content422+"""</a></td> 
     <td>"""+result42[1][3]+str(result42[1][1])+"""/"""+str(result42[1][2])+"""</td>
     <td>"""+str(perc422)+"""%</td>
-    <td>Turn on Advanced Threat Protection for all databases on this server, at the cost of 15 USD/server/month</td>
+    <td>Also under Security Center - Resource security hygiene. Turn on Advanced Threat Protection for all databases on this server, at the cost of 15 USD/server/month</td>
 </tr>
 <tr>
     <td><a href="#content423">"""+content423+"""</a></td> 
