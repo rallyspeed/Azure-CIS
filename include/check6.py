@@ -158,7 +158,6 @@ def check62(subid):
             passvalue62 = 1
         score61=[acl61,passvalue61,totalvalue61,passed61]
         score62=[acl62,passvalue62,totalvalue62,passed62]
-        print(score61,score62)
         return [score61,score62]
     except Exception as e:
         logger.error("Exception in check62: %s %s" %(type(e), str(e.args)))
