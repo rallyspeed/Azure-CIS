@@ -27,7 +27,7 @@ def check11(subid):
             json_output0 = requests.get(request0, headers=headers).json()
             print(json_output0)
         except Exception as e:
-            logger.error("Exception in check2: %s %s" %(type(e), str(e.args)))
+            logger.error("Exception in check11: %s %s" %(type(e), str(e.args)))
             unkScore=['<font color="orange">UNKNOWN </font>',0]
             chk="Failed to make API call"
             return [chk,unkScore]
@@ -42,7 +42,7 @@ def check11(subid):
                     nameB=json_output1['value'][i]['name']
                     #print(nameB)
         except Exception as e:
-            logger.error("Exception in check2: %s %s" %(type(e), str(e.args)))
+            logger.error("Exception in check11: %s %s" %(type(e), str(e.args)))
             unkScore=['<font color="orange">UNKNOWN </font>',0]
             chk="Failed to make API call"
             return [chk,unkScore]
@@ -56,12 +56,12 @@ def check11(subid):
                 #if (pType=="User"):
                 #    print(pid,pType,rid)
         except Exception as e:
-            logger.error("Exception in check2: %s %s" %(type(e), str(e.args)))
+            logger.error("Exception in check11: %s %s" %(type(e), str(e.args)))
             unkScore=['<font color="orange">UNKNOWN </font>',0]
             chk="Failed to make API call"
             return [chk,unkScore]
     except Exception as e:
-        logger.error("Exception in check2: %s %s" %(type(e), str(e.args)))
+        logger.error("Exception in check11: %s %s" %(type(e), str(e.args)))
         unkScore=['<font color="orange">UNKNOWN </font>',0]
         chk="Failed to Query"
         return [chk,unkScore]
@@ -78,14 +78,14 @@ def check13():
     score13=""
     passed13='<font color="green">Passed </font>'
     try:
-        #query13='az ad user list --query "[?additionalProperties.userType==\'Guest\']"'
-        query13=""
+        query13='az ad user list --query "[?userType==\'Guest\']"'
+        #query13=""
         json_cis=query_az(query13)
         if (len(json_cis)>0):
             #iteration through roles
             passed13='<font color="red">Failed </font>'
-            st13="Guest users Found"
             totalvalue13 = len(json_cis)
+            st13=("%d Guest users Found" % totalvalue13)
         else:
             st13="No Guest users Found"
             passvalue13 = 1
