@@ -27,7 +27,7 @@ def check50(subid):
     chk510=('No Alert found for Create or Update SQL Server FW rules</li>\n')
     chk511=('No Alert found for Delete SQL Server FW rules</li>\n')
     chk512=('No Alert found for Create or Update Security Policy</li>\n')
-    chk513=('No Logging enabled fir KeyVault</li>\n')
+    chk513=''
 
     score51=['<font color="red">Failed</font>',0]
     score52=['<font color="red">Failed</font>',0]
@@ -91,21 +91,33 @@ def check50(subid):
             elif ("Microsoft.Security/policies/write" in json_cis53[j][1][1]['equals']):
                 chk512=('Alert Name:<font color="blue"><b>%s</b></font> set up for Create or Update Security Policy</li>\n' % (json_cis53[j][0]))
                 score512=['<font color="green">Passed</font>',1]
-        query513=('az keyvault list --query [*].[name,id]')
-        #query513=('az keyvault list --query "[?contains(id,\'%s\')].[name,id]"' % subid)
-        json_cis513=query_az(query513)
-        # iteration through keyvault
         try:
-            for j in range(len(json_cis513)):
-                query5131=('az monitor diagnostic-settings list --resource %s' % (json_cis513[j][1]))
-                json_cis5131=query_az(query5131)
-                category = json_cis5131['value'][0]['logs'][0]['category']
-                days = json_cis5131['value'][0]['logs'][0]['retentionPolicy']['days']
-                if ("AuditEvent" in category):
-                    chk513=chk513+('Keyvault <b>%s</b> Audit event enabled for <b>%s</b> days' % (json_cis513[j][0],days))
-                    score513=['<font color="green">Passed</font>',1]
-                else:
-                    chk513=chk513+('Keyvault <b>%s</b> Audit event disabled' % (json_cis513[j][0]))
+            query513=('az keyvault list --query [*].[name,id]')
+            #query513=('az keyvault list --query "[?contains(id,\'%s\')].[name,id]"' % subid)
+            json_cis513=query_az(query513)
+            if (len(json_cis513)>0):
+                # iteration through keyvault
+                for j in range(len(json_cis513)):
+                    query5131=('az monitor diagnostic-settings list --resource %s' % (json_cis513[j][1]))
+                    json_cis5131=query_az(query5131)
+                    if (len(json_cis5131['value'])>0):
+                        category = json_cis5131['value'][0]['logs'][0]['category']
+                        days = json_cis5131['value'][0]['logs'][0]['retentionPolicy']['days']
+                        if ("AuditEvent" in category):
+                            chk513=chk513+('Keyvault <b>%s</b> Audit event enabled for <b>%s</b> days' % (json_cis513[j][0],days))
+                            if (days>=180):
+                                score513=['<font color="green">Passed</font>',1]
+                            else:
+                                score513=['<font color="red">Failed</font>',0]
+                        else:
+                            score513=['<font color="red">Failed</font>',0]
+                            chk513=chk513+('Keyvault <b>%s</b> Audit event disabled' % (json_cis513[j][0]))
+                    else:
+                        chk513=chk513+('Diagnostics disable for Keyvault <b>%s</b>' % (json_cis513[j][0]))
+                        score513=['<font color="red">Failed</font>',0]
+            else:
+                chk513="No KeyVault Found"
+                score513=['<font color="green">Passed</font>',1]
         except Exception as e:
             logger.error("Exception in check50: %s %s" %(type(e), str(e.args)))
             unkScore=['<font color="orange">UNKNOWN </font>',0]
@@ -118,4 +130,3 @@ def check50(subid):
         unkScore=['<font color="orange">UNKNOWN </font>',0]
         chk="Failed to query log profiles"
         return [chk,chk,chk,chk,chk,chk,chk,chk,chk,chk,chk,chk,chk,unkScore,unkScore,unkScore,unkScore,unkScore,unkScore,unkScore,unkScore,unkScore,unkScore,unkScore,unkScore,unkScore] 
-        #return ["Failed to query log profiles"]
