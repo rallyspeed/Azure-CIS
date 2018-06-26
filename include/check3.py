@@ -232,6 +232,11 @@ def check37():
                                     st37=st37+('<font color="blue"><b>Public</b></font> access for <b>%s</b> container in storage <b>%s</b><br>\n' % (CT,SN))
                                     passed37='<font color="red">Failed </font>' 
                                 totalvalue37 = totalvalue37+1
+                        else:
+                            totalvalue37 = 1
+                            passvalue37 = 1
+                            passed37='<font color="green">Passed </font>'
+                            st37="No containers found" 
                     except Exception as e:
                         logger.error("Exception in check37: %s %s" %(type(e), str(e.args)))
                         st37="Failed iteration through containers"
