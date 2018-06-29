@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 # @Author Mathieu Durand
-# Version 1.0
+# Version 1.1
 
 import subprocess
 import sys
@@ -91,6 +91,7 @@ def generate_report(subid,name,cloudname):
     content123="1.23 Ensure that no custom subscription owner roles are created"
 
     result11=check1.check11(subid)
+    #sys.exit(0)
     result12=check1.check12()
     result13=check1.check13()
     result14=check1.check14()
@@ -123,6 +124,7 @@ def generate_report(subid,name,cloudname):
     content1_8 = '<h3 id="content122">'+start_list+content122+end_list+result122[0]+'<h3 id="content123">'+start_list+content123+end_list+result123[0]
 
     content1=content1+content1_1+content1_2+content1_3+content1_4+content1_5+content1_6+content1_7+content1_8 
+
 
 ################ HTML 2.x ##############
     content2 = """
@@ -252,6 +254,7 @@ def generate_report(subid,name,cloudname):
     content5_4 = '<h3 id="content512">'+start_list+content512+end_list+result5[11]+'<h3 id="content513">'+start_list+content513+end_list+result5[12]
     content50 = content5_1 + content5_2 + content5_3 + content5_4
     content5 = content5 + content50
+
 
 ################ HTML 6.x ##############
     content6 = """
@@ -627,11 +630,11 @@ th {
 ########################################################################################################################
 ############################################################ Summary 3 #################################################
 ########################################################################################################################
-#Calculate % Passed, 34 and 35 ignored
+#Calculate % Passed, 33,34 not scored and 35 ignored
 
     perc31=round(100*result31[1]/result31[2],2)
     perc32=round(100*result32[1]/result32[2],2)
-    perc33=round(100*result33[1]/result33[2],2)
+    #perc33=round(100*result33[1]/result33[2],2)
     perc36=round(100*result36[1]/result36[2],2)
     perc37=round(100*result37[1]/result37[2],2)
 
@@ -1197,7 +1200,7 @@ th {
     print("Report %s was Created" % reportname)
 
 
-print("Azure CIS Checks")
+print("Azure CIS Checks - v 1.1")
 
 try:
     subs=subscription.sub()
