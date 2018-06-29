@@ -38,7 +38,10 @@ def check11(subid):
                         query111=('az ad user list --query "[?objectId==\'%s\'][userPrincipalName]"' % pid)
                         #json_cis2=query_az(query111)
                         #upn=json_cis2[0][0]
-                        #print(upn)                        
+                        #print(upn)
+                        unkScore=['<font color="orange">UNKNOWN </font>',0]
+                        chk="No Supported"
+                        return [chk,unkScore]                        
         except Exception as e:
             logger.error("Exception in check11: %s %s" %(type(e), str(e.args)))
             unkScore=['<font color="orange">UNKNOWN </font>',0]

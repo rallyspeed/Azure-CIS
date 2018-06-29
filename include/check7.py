@@ -70,16 +70,16 @@ def check70(subid):
                 except:
                     chk71=chk71+('VM: <b>%s</b> has no resources configured<br></li>\n' % vm)
                     chk74=chk74+('VM: <b>%s</b> has no extension configured<br></li>\n' % vm )
-                #try:
-                    #json_cis3=query_az("az vm encryption show --resource-group %s --name %s --query osDisk" % (rg,vm,))
-                    #chk72=chk72+str(json_cis3)
-                #except:
-                    #chk72=chk72+('VM: <b>%s</b> has no OSDisk encryption configured<br></li>' % vm )
-                #try:
-                    #json_cis4=query_az("az vm encryption show --resource-group %s --name %s --query dataDisk" % (rg,vm,))
-                    #chk73=chk73+str(json_cis4)
-                #except:
-                    #chk73=chk73+('VM: <b>%s</b> has no dataDisk encryption configured<br></li>\n' % vm)
+                try:
+                    json_cis3=query_az("az vm encryption show --resource-group %s --name %s --query osDisk" % (rg,vm,))
+                    chk72=chk72+str(json_cis3)
+                except:
+                    chk72=chk72+('VM: <b>%s</b> has no OSDisk encryption configured<br></li>' % vm )
+                try:
+                    json_cis4=query_az("az vm encryption show --resource-group %s --name %s --query dataDisk" % (rg,vm,))
+                    chk73=chk73+str(json_cis4)
+                except:
+                    chk73=chk73+('VM: <b>%s</b> has no dataDisk encryption configured<br></li>\n' % vm)
                 totalvalue71 = totalvalue71+1
                 totalvalue72 = totalvalue71
                 totalvalue73 = totalvalue71
